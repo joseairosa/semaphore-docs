@@ -1,0 +1,101 @@
+/* !Sign in and sign up ------------------------------------------------- */
+
+.session {}
+  
+  .session body {
+    padding-top: 100px;
+  }
+    
+    .session .intro {
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+      
+      .session .intro h1 {
+        margin-top: 1.25em;
+        margin-bottom: 0;
+        font-size: 1.5em;
+        color: #343434;
+      }
+      
+      .session .intro p {
+        margin-top: .5em;
+      }
+      
+      .session .uniForm .ctrlHolder,
+     .session .uniForm .buttonHolder {
+        padding-top: 21px;
+        padding-bottom: 21px;
+      }
+
+
+
+
+
+/* !Welcome screen ------------------------------------------------------ */
+
+.welcome {}
+  
+  .welcome .pageTitle h1 {
+    float: none;
+    font-weight: normal;
+    text-align: center;
+  }
+    
+    .welcome .pageTitle h1 strong {
+      display: block;
+      font-size: 2.5em;
+      letter-spacing: -.05em;
+    }
+  
+  .connect ul {
+    padding: 200px 0 2em 0;
+    background: url(/assets/design/welcome-connect.png) 50% 28px no-repeat;
+    overflow: hidden;
+  }
+    
+    .connect li {
+      text-align: center;
+    }
+      
+      .connect li strong {
+        display: block;
+        margin-bottom: .35em;
+        font-size: 1.25em; font-weight: bold;
+        color: #343434;
+      }
+    
+      .connect li a {
+        color: #999;
+      }
+      
+      .connect li a:focus,
+      .connect li a:hover {
+        text-decoration: none;
+      }
+        
+        .connect li a span {
+          position: relative; top: 1.25em;
+          padding: 7px 14px;
+          font-size: 1em;
+        }
+  
+  .connect footer {
+    padding: 28px 0;
+    text-align: center;
+  }
+    
+    .connect footer h2 {
+      margin-top: 28px;
+      margin-bottom: .25em;
+      padding-top: 24px;
+      border-top: 1px solid #ccc;
+      font-size: 1.25em;
+    }
+    
+    .connect footer p {
+      margin: 0;
+      padding: 0 0 28px 0;
+      font-size: .85em;
+      border-bottom: 1px solid #ccc;
+    }

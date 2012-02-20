@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf.layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf.extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
+
+    <!-- Syntax highlighting css-->
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    {% include header.html %}
+    <div id="mainContent" class="safGrid">
+      {{ content }}
+      <aside class="col cs-3">
+        <h2>Articles</h2>
+        <ul>
+          <li><a href="#">Supported stack</a></li>
+          <li><a href="#">Test apps</a></li>
+        </ul>
+      </aside>
+    </div>
+    {% include footer.html %}
+  </body>
+</html>

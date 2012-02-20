@@ -1,0 +1,13 @@
+    input[type=text],
+input[type=password],
+   input[type=email],
+  input[type=search],
+     input[type=url],
+            textarea {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 7px;
+       border-radius: 3px;
+  -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+}
