@@ -1,0 +1,7 @@
+---
+layout: default
+title: Semapore Documentation
+abstract: Welcome
+---
+<p>Few lines about Semaphore</p>
+

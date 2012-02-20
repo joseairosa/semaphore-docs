@@ -11,22 +11,44 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
 
     <!-- Syntax highlighting css-->
-    <title>{{ page.title }}</title>
+    <title>Supported stack</title>
   </head>
   <body>
-    {% include header.html %}
+    <nav>
+  <ul>
+    <li style="margin-right: 20px;"><a href="#">Get Help</a></li>
+    <li><a href="#">Docs</a></li>
+    <li><a href="#">← Back</a></li>
+  </ul>
+</nav>
+
     <div id="mainContent" class="safGrid">
 <header class="pageTitle">
-  <h1 class="col cs-8 first">{{ page.title }}</h1>
+  <h1 class="col cs-8 first">Supported stack</h1>
 </header>
 
 <article class="primary col cs-9 first">
 
   <section class="intro">
-    {{ page.abstract }}
+    Information about supported stack
   </section>
 
-      {{ content }}
+      <p>Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler.</p>
+<h2>It supports the following</h2>
+<h3>Database engines</h3>
+<ul>
+	<li>PostgreSQL</li>
+	<li>MySQL</li>
+	<li>SQLite</li>
+	<li>Redis</li>
+</ul>
+<h3>Test frameworks</h3>
+<ul>
+	<li>RSpec</li>
+	<li>Cucumber with Capybara and Selenium</li>
+	<li>test/unit</li>
+</ul>
+<p>We have a number of open source <a href="/test-apps">test apps</a> in various flavors that we use for verification. If your setup is different, we encourage you to read that page and contact us &#8211; we&#8217;d be happy to get your app building on Semaphore as quickly as possible.</p>
 
 </article>
       <aside class="col cs-3">
@@ -37,6 +59,10 @@
         </ul>
       </aside>
     </div>
-    {% include footer.html %}
+    <footer class="safGrid">
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
   </body>
 </html>
