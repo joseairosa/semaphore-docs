@@ -1,0 +1,13 @@
+---
+layout: default
+title: Collaborator notifications
+abstract: How collaborators from GitHub repositories are imported and notified
+---
+
+When adding your project to Semaphore for the first time, we pull the list of repository collaborators from GitHub. These people can be either registered or not registered on Semaphore.
+
+In the first case, we know who the person is don't know her email. In that case you will see an input box to fill in the email.
+
+In the second case, Semaphore already knows the person's email and will use that to send a notification.
+
+The default is to send collaborators an email saying that they will now see the project on their dashboard. You can choose to avoid that email by clicking on "Just build it for now without notifying anyone".

@@ -11,7 +11,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
 
     <!-- Syntax highlighting css-->
-    <title>Supported stack</title>
+    <title>Collaborator notifications</title>
   </head>
   <body>
     <nav>
@@ -25,30 +25,19 @@
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
-        <h1 class="col cs-8 first">Supported stack</h1>
+        <h1 class="col cs-8 first">Collaborator notifications</h1>
       </header>
 
       <article class="primary col cs-9 first">
 
       <section class="intro">
-        Information about supported stack
+        How collaborators from GitHub repositories are imported and notified
       </section>
 
-        <p>Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. It supports the following:</p>
-<h3>Database engines</h3>
-<ul>
-	<li>PostgreSQL</li>
-	<li>MySQL</li>
-	<li>SQLite</li>
-	<li>Redis</li>
-</ul>
-<h3>Test frameworks</h3>
-<ul>
-	<li>RSpec</li>
-	<li>Cucumber with Capybara and Selenium</li>
-	<li>test/unit</li>
-</ul>
-<p>We have a number of open source <a href="/test-apps">test apps</a> in various flavors that we use for verification. If your setup is different, we encourage you to read that page and <a href="mailto:semaphore@renderedtext.com">contact us</a> &#8211; we&#8217;d be happy to get your app building on Semaphore as quickly as possible.</p>
+        <p>When adding your project to Semaphore for the first time, we pull the list of repository collaborators from GitHub. These people can be either registered or not registered on Semaphore.</p>
+<p>In the first case, we know who the person is don&#8217;t know her email. In that case you will see an input box to fill in the email.</p>
+<p>In the second case, Semaphore already knows the person&#8217;s email and will use that to send a notification.</p>
+<p>The default is to send collaborators an email saying that they will now see the project on their dashboard. You can choose to avoid that email by clicking on &#8220;Just build it for now without notifying anyone&#8221;.</p>
 
       </article>
 
