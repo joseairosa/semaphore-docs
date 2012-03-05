@@ -4,7 +4,7 @@ title: Supported stack
 abstract: Information about supported stack
 ---
 
-Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. It supports the following:
+Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. At the moment it supports the following:
 
 h3. Database engines
 
