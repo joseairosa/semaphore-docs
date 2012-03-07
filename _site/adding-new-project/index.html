@@ -1,47 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="docs">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-typography.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-layout.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-extras.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/forms.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
-    <!-- Syntax highlighting css-->
     <title>Adding a new project</title>
   </head>
   <body>
     <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
   <ul>
-    <li style="margin-right: 20px;"><a href="mailto:semaphore+gethelp@renderedtext.com">Get Help</a></li>
-    <li><a href="/">Docs</a></li>
-    <li><a href="https://semaphoreapp.com">← Back</a></li>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
   </ul>
+
 </nav>
 
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
-        <h1 class="col cs-8 first">Adding a new project</h1>
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
       </header>
 
       <article class="primary col cs-9 first">
 
-      <section class="intro">
-        How your authorization of Semaphore and repository permissions on GitHub affect the process
-      </section>
+        <header class="title">
+          <h2>Adding a new project</h2>
+        </header>
 
-        <p>If you&#8217;ve authorized Semaphore to build from public GitHub repositories, you will be able to build only public (open source) projects that you have created or been added to.</p>
+        <section class="body">
+          <p>If you&#8217;ve authorized Semaphore to build from public GitHub repositories, you will be able to build only public (open source) projects that you have created or been added to.</p>
 <p>If you&#8217;ve authorized Semaphore to build from private GitHub repositories, you will be able to build both private and public projects that you participate in via your account or any organization you belong to.</p>
 <p>In both cases, you need to have admin permissions on the repository. This is because with your authorized credentials, Semaphore needs to automatically set up post-commit hooks and <span class="caps">SSH</span> deploy keys.</p>
+        </section>
 
       </article>
 
       <aside class="col cs-3">
-        <h2><a href="/">Articles</a></h2>
+        <h2>Articles</h2>
         <ul>
           <li><a href="/adding-new-project">Adding a new project</a></li>
           <li><a href="/collaborator-notifications">Collaborator notifications</a></li>
@@ -51,7 +57,7 @@
       </aside>
     </div>
     <footer class="safGrid">
-  <p class="logo"><a href="http://semaphoreapp.com/"><img src="assets/images/semaphore-logo.png" alt=""></a></p>
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
   <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
 </footer>
 

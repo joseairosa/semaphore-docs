@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Supported stack
-abstract: Information about supported stack
 ---
 
 Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. At the moment it supports the following:
@@ -12,11 +11,13 @@ h3. Database engines
 * MySQL
 * SQLite
 * Redis
+* MongoDB
 
 h3. Test frameworks
 
 * RSpec
 * Cucumber with Capybara and Selenium
+* Capybara Webkit
 * test/unit
 
 We have a number of open source "test apps":/test-apps in various flavors that we use for verification. If your setup is different, we encourage you to read that page and <a href="mailto:semaphore@renderedtext.com">contact us</a> - we'd be happy to get your app building on Semaphore as quickly as possible.

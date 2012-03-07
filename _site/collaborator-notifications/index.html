@@ -1,48 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="docs">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-typography.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-layout.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-extras.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/forms.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
-    <!-- Syntax highlighting css-->
     <title>Collaborator notifications</title>
   </head>
   <body>
     <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
   <ul>
-    <li style="margin-right: 20px;"><a href="mailto:semaphore+gethelp@renderedtext.com">Get Help</a></li>
-    <li><a href="/">Docs</a></li>
-    <li><a href="https://semaphoreapp.com">← Back</a></li>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
   </ul>
+
 </nav>
 
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
-        <h1 class="col cs-8 first">Collaborator notifications</h1>
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
       </header>
 
       <article class="primary col cs-9 first">
 
-      <section class="intro">
-        How collaborators from GitHub repositories are imported and notified
-      </section>
+        <header class="title">
+          <h2>Collaborator notifications</h2>
+        </header>
 
-        <p>When adding your project to Semaphore for the first time, we pull the list of repository collaborators from GitHub. These people can be either registered or not registered on Semaphore.</p>
+        <section class="body">
+          <p>When adding your project to Semaphore for the first time, we pull the list of repository collaborators from GitHub. These people can be either registered or not registered on Semaphore.</p>
 <p>In the first case, we know who the person is don&#8217;t know her email. In that case you will see an input box to fill in the email.</p>
 <p>In the second case, Semaphore already knows the person&#8217;s email and will use that to send a notification.</p>
 <p>The default is to send collaborators an email saying that they will now see the project on their dashboard. You can choose to avoid that email by clicking on &#8220;Just build it for now without notifying anyone&#8221;.</p>
+        </section>
 
       </article>
 
       <aside class="col cs-3">
-        <h2><a href="/">Articles</a></h2>
+        <h2>Articles</h2>
         <ul>
           <li><a href="/adding-new-project">Adding a new project</a></li>
           <li><a href="/collaborator-notifications">Collaborator notifications</a></li>
@@ -52,7 +58,7 @@
       </aside>
     </div>
     <footer class="safGrid">
-  <p class="logo"><a href="http://semaphoreapp.com/"><img src="assets/images/semaphore-logo.png" alt=""></a></p>
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
   <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
 </footer>
 

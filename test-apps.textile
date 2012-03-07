@@ -12,14 +12,12 @@ h2. Covered
 * "testapp-testunit-rspec":https://github.com/renderedtext/testapp-testunit-rspec - using test/unit, RSpec and Cucumber at the same time.
 * "testapp-testunit":https://github.com/renderedtext/testapp-testunit
 * "testapp-mysql":https://github.com/renderedtext/testapp-mysql - using mysql2 gem.
+* "testapp-mongodb-mongoid":https://github.com/renderedtext/testapp-mongodb
+* "testapp-mongodb-mongomapper":https://github.com/renderedtext/testapp-mongodb-mongomapper
 
 h2.  Prepared but not supported yet
 
-
-* "testapp-mongodb":https://github.com/renderedtext/testapp-mongodb
-
 * "testapp-sphinx":https://github.com/renderedtext/testapp-sphinx
-
 * "testapp-solr":https://github.com/renderedtext/testapp-solr
 
 h2. Contributing

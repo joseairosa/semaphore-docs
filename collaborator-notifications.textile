@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Collaborator notifications
-abstract: How collaborators from GitHub repositories are imported and notified
 ---
 
 When adding your project to Semaphore for the first time, we pull the list of repository collaborators from GitHub. These people can be either registered or not registered on Semaphore.

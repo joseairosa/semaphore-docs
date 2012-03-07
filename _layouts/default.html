@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="docs">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-typography.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-layout.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-extras.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/forms.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
-    <!-- Syntax highlighting css-->
     <title>{{ page.title }}</title>
   </head>
   <body>
@@ -18,21 +17,23 @@
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
-        <h1 class="col cs-8 first">{{ page.title }}</h1>
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
       </header>
 
       <article class="primary col cs-9 first">
 
-      <section class="intro">
-        {{ page.abstract }}
-      </section>
+        <header class="title">
+          <h2>{{ page.title }}</h2>
+        </header>
 
-        {{ content }}
+        <section class="body">
+          {{ content }}
+        </section>
 
       </article>
 
       <aside class="col cs-3">
-        <h2><a href="/">Articles</a></h2>
+        <h2>Articles</h2>
         <ul>
           <li><a href="/adding-new-project">Adding a new project</a></li>
           <li><a href="/collaborator-notifications">Collaborator notifications</a></li>

@@ -1,0 +1,211 @@
+/* !Generals ------------------------------------------------------------ */
+
+html { background: #f9f9f4 url(../images/design/bg.png); }
+
+  body {}
+
+    #content {
+      position: relative;
+    }
+
+
+
+
+
+/* !Float clearing ------------------------------------------------------ */
+
+body > nav:after,
+.pageTitle:after,
+#mainContent:after { content: "."; display: block; height: 0; line-height: 0; font-size: 0; clear: both; min-height: 0; visibility: hidden; }
+
+
+
+
+
+/* !Link Colors --------------------------------------------------------- */
+
+a:link,
+a:visited {
+  font-weight: bold;
+  color: #237fc6;
+  text-decoration: none;
+}
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
+a:active {}
+
+
+
+
+
+/* !Nav bar ------------------------------------------------------------- */
+
+body > nav {
+  height: 41px;
+  font-size: .85em;
+  line-height: 41px;
+  background: #343434;
+  border-bottom: 1px solid #000;
+  color: #999;
+}
+
+  body > nav a:link,
+  body > nav a:visited {
+    color: #dfdfdf;
+  }
+
+  body > nav > div {
+    float: left;
+  }
+
+  body > nav > .navCTA {
+    margin-left: 14px;
+    margin-top: 1px;
+  }
+
+    body > nav .button {
+      padding: 6px 14px;
+      font-size: 1em;
+    }
+
+  body > nav ul {
+    float: right;
+    margin: 0 14px 0 0;
+  }
+    body > nav li {
+      float: right;
+      margin: 0 0 0 21px;
+      font-weight: bold;
+    }
+      body > nav a:focus,
+      body > nav a:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      body > nav .signOut a {
+        display: block;
+        width: 42px;
+        height: 42px;
+        border-left: 1px solid #000;
+        overflow: hidden;
+        text-indent: -999px;
+        background: url(../images/design/icn-signout.png) 50% 50% no-repeat;
+      }
+
+      body > nav .signOut a:focus,
+      body > nav .signOut a:hover {
+        background-color: #232323;
+      }
+
+      body > nav .signOut a:active {
+        background-color: #000;
+      }
+
+
+
+
+
+/* !Footer -------------------------------------------------------------- */
+
+body > footer {
+  padding-bottom: 3.5em;
+  padding-top: 2em;
+  font-size: .85em;
+  text-align: center;
+  color: #c0c0ae;
+}
+
+  body > footer p {
+    margin-top: 0;
+  }
+
+    body > footer a:link,
+    body > footer a:visited {
+      color: #989a86;
+    }
+
+
+
+
+
+/* !Sidebar -------------------------------------------------------------- */
+
+aside {
+  line-height: 1.25;
+  color: #999;
+}
+
+  aside h2 {
+    margin: 0;
+    font-size: 1.75em;
+    line-height: 1.15;
+    color: #343434;
+  }
+
+  aside ul {
+    margin: .75em 0 1.5em 0;
+  }
+
+    aside li {}
+
+      aside li a:link,
+      aside li a:visited {
+        display: block;
+        padding: 14px 0;
+        border-bottom: 1px solid #dfdfdf;
+      }
+
+
+
+
+
+/* !Primary content ------------------------------------------------------ */
+
+#mainContent.safGrid{}
+
+  .primary {
+    margin-bottom: 1.5em;
+    background: #fff;
+    border: 1px solid #ccc;
+         border-radius: 7px;
+    -moz-border-radius: 7px;
+      -o-border-radius: 7px;
+         box-shadow: 0 1px 1px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+      -o-box-shadow: 0 1px 1px rgba(0,0,0,.1);
+  }
+
+    .primary > header,
+    .primary > section {
+      padding: 0 28px;
+    }
+    
+    .primary > section {
+      font-size: 1.15em;
+    }
+    
+      .primary > header {
+        background: #f9f9f9;
+        margin: 0;
+        padding: 1px 28px;
+        border-bottom: 1px solid #dfdfdf;
+             border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+          -o-border-radius: 6px 6px 0 0;
+      }
+
+      .primary > header h2 {
+        font-size: 1.5em;
+      }
+    
+    .primary section h3 {}
+    
+    .primary section h4 {
+      font-size: .85em;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #999;
+    }

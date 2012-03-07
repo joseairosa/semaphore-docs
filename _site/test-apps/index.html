@@ -1,64 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="docs">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-typography.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-layout.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-extras.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/forms.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
-    <!-- Syntax highlighting css-->
     <title>Test applications</title>
   </head>
   <body>
     <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
   <ul>
-    <li style="margin-right: 20px;"><a href="mailto:semaphore+gethelp@renderedtext.com">Get Help</a></li>
-    <li><a href="/">Docs</a></li>
-    <li><a href="https://semaphoreapp.com">← Back</a></li>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
   </ul>
+
 </nav>
 
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
-        <h1 class="col cs-8 first">Test applications</h1>
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
       </header>
 
       <article class="primary col cs-9 first">
 
-      <section class="intro">
-        Applications for testing Semaphore
-      </section>
+        <header class="title">
+          <h2>Test applications</h2>
+        </header>
 
-        <p>To make sure that Semaphore works with various database drivers, test frameworks etc, we&#8217;ve created a number of simple open source test apps. We then build these apps on Semaphore to verify that it works.</p>
+        <section class="body">
+          <p>To make sure that Semaphore works with various database drivers, test frameworks etc, we&#8217;ve created a number of simple open source test apps. We then build these apps on Semaphore to verify that it works.</p>
 <h2>Covered</h2>
 <ul>
 	<li><a href="https://github.com/renderedtext/base-app">base-app</a> &#8211; our template for making new Rails apps, using Postgresql, RSpec and Cucumber.</li>
 	<li><a href="https://github.com/renderedtext/testapp-testunit-rspec">testapp-testunit-rspec</a> &#8211; using test/unit, RSpec and Cucumber at the same time.</li>
 	<li><a href="https://github.com/renderedtext/testapp-testunit">testapp-testunit</a></li>
 	<li><a href="https://github.com/renderedtext/testapp-mysql">testapp-mysql</a> &#8211; using mysql2 gem.</li>
+	<li><a href="https://github.com/renderedtext/testapp-mongodb">testapp-mongodb-mongoid</a></li>
+	<li><a href="https://github.com/renderedtext/testapp-mongodb-mongomapper">testapp-mongodb-mongomapper</a></li>
 </ul>
 <h2>Prepared but not supported yet</h2>
 <ul>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb">testapp-mongodb</a></li>
-</ul>
-<ul>
 	<li><a href="https://github.com/renderedtext/testapp-sphinx">testapp-sphinx</a></li>
-</ul>
-<ul>
 	<li><a href="https://github.com/renderedtext/testapp-solr">testapp-solr</a></li>
 </ul>
 <h2>Contributing</h2>
 <p>While we do our best to solve any problem our users have on our own, we also welcome being told what&#8217;s inside your app that we do not support, so that we can get to it faster. We&#8217;d also be delighted to see our users make their testapp flavors. Either way, shoot us an email at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
+        </section>
 
       </article>
 
       <aside class="col cs-3">
-        <h2><a href="/">Articles</a></h2>
+        <h2>Articles</h2>
         <ul>
           <li><a href="/adding-new-project">Adding a new project</a></li>
           <li><a href="/collaborator-notifications">Collaborator notifications</a></li>
@@ -68,7 +71,7 @@
       </aside>
     </div>
     <footer class="safGrid">
-  <p class="logo"><a href="http://semaphoreapp.com/"><img src="assets/images/semaphore-logo.png" alt=""></a></p>
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
   <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
 </footer>
 

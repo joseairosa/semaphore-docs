@@ -1,59 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="docs">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-typography.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-layout.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/saf-extras.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/forms.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.uni-form.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/application/default.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
-    <!-- Syntax highlighting css-->
     <title>Supported stack</title>
   </head>
   <body>
     <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
   <ul>
-    <li style="margin-right: 20px;"><a href="mailto:semaphore+gethelp@renderedtext.com">Get Help</a></li>
-    <li><a href="/">Docs</a></li>
-    <li><a href="https://semaphoreapp.com">← Back</a></li>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
   </ul>
+
 </nav>
 
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
-        <h1 class="col cs-8 first">Supported stack</h1>
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
       </header>
 
       <article class="primary col cs-9 first">
 
-      <section class="intro">
-        Information about supported stack
-      </section>
+        <header class="title">
+          <h2>Supported stack</h2>
+        </header>
 
-        <p>Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. At the moment it supports the following:</p>
+        <section class="body">
+          <p>Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. At the moment it supports the following:</p>
 <h3>Database engines</h3>
 <ul>
 	<li>PostgreSQL</li>
 	<li>MySQL</li>
 	<li>SQLite</li>
 	<li>Redis</li>
+	<li>MongoDB</li>
 </ul>
 <h3>Test frameworks</h3>
 <ul>
 	<li>RSpec</li>
 	<li>Cucumber with Capybara and Selenium</li>
+	<li>Capybara Webkit</li>
 	<li>test/unit</li>
 </ul>
 <p>We have a number of open source <a href="/test-apps">test apps</a> in various flavors that we use for verification. If your setup is different, we encourage you to read that page and <a href="mailto:semaphore@renderedtext.com">contact us</a> &#8211; we&#8217;d be happy to get your app building on Semaphore as quickly as possible.</p>
+        </section>
 
       </article>
 
       <aside class="col cs-3">
-        <h2><a href="/">Articles</a></h2>
+        <h2>Articles</h2>
         <ul>
           <li><a href="/adding-new-project">Adding a new project</a></li>
           <li><a href="/collaborator-notifications">Collaborator notifications</a></li>
@@ -63,7 +71,7 @@
       </aside>
     </div>
     <footer class="safGrid">
-  <p class="logo"><a href="http://semaphoreapp.com/"><img src="assets/images/semaphore-logo.png" alt=""></a></p>
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
   <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
 </footer>
 
