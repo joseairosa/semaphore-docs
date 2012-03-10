@@ -10,7 +10,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
-    <title>Supported stack</title>
+    <title>Environment variables</title>
   </head>
   <body>
     <nav>
@@ -35,27 +35,17 @@
       <article class="primary col cs-9 first">
 
         <header class="title">
-          <h2>Supported stack</h2>
+          <h2>Environment variables</h2>
         </header>
 
         <section class="body">
-          <p>Semaphore can build Rails 3 applications based on Ruby 1.9 and Bundler. At the moment it supports the following:</p>
-<h3>Database engines</h3>
-<ul>
-	<li>PostgreSQL</li>
-	<li>MySQL</li>
-	<li>SQLite</li>
-	<li>Redis</li>
-	<li>MongoDB</li>
-</ul>
-<h3>Test frameworks</h3>
-<ul>
-	<li>RSpec</li>
-	<li>Cucumber with Capybara and Selenium</li>
-	<li>Capybara Webkit</li>
-	<li>test/unit</li>
-</ul>
-<p>We have a number of open source <a href="/test-apps">test apps</a> in various flavors that we use for verification. If your setup is different, we encourage you to read that page and <a href="mailto:semaphore@renderedtext.com">contact us</a> &#8211; we&#8217;d be happy to get your app building on Semaphore as quickly as possible.</p>
+          <p>In case your test suite needs access to sensitive configuration (passwords, <span class="caps">API</span> tokens etc.) you can store them in environment variables. To configure environment variables for your test suite on Semaphore, follow the steps bellow.</p>
+<p>1. Click on the little cog next to your project name on dashboard</p>
+<p><img src="/assets/images/envvar-dashboard.png" alt="" /></p>
+<p>2. Follow &#8220;Set up Environment Variables&#8221; on project settings page</p>
+<p><img src="/assets/images/envvar-project-settings.png" alt="" /></p>
+<p>3. Add your variables through the form bellow</p>
+<p><img src="/assets/images/envvar-setup.png" alt="" /></p>
         </section>
 
       </article>
