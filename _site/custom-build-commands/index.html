@@ -39,7 +39,15 @@
         </header>
 
         <section class="body">
-          <p>You can easily customize commands that Semaphore executes in order to build your project. To change commands follow the simple steps bellow.</p>
+          <p>You can easily customize commands that Semaphore executes in order to build your project.</p>
+<p>Typical use cases for custom build commands that we have seen so far are:</p>
+<ul>
+	<li>setting up custom database configuration files</li>
+	<li>calling a custom rake task for setting up seed db data</li>
+	<li>passing special flags to default rake tasks</li>
+	<li>exporting environment variables that contain sensitive information which you don’t want to keep in your repository</li>
+</ul>
+<p>To change commands follow the simple steps bellow.</p>
 <h2>1. Click on little cog next to your project title on dashboard.</h2>
 <p><img src="/assets/images/cbc-dashbaord.png" alt="" /></p>
 <h2>2. Follow the &#8220;Build Commands&#8221; link on project settings page.</h2>

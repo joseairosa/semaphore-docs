@@ -3,7 +3,17 @@ layout: default
 title: Custom build commands
 ---
 
-You can easily customize commands that Semaphore executes in order to build your project. To change commands follow the simple steps bellow.
+You can easily customize commands that Semaphore executes in order to build your project.
+
+Typical use cases for custom build commands that we have seen so far are:
+
+ * setting up custom database configuration files
+ * calling a custom rake task for setting up seed db data
+ * passing special flags to default rake tasks
+ * exporting environment variables that contain sensitive information which you don’t want to keep in your repository
+
+
+To change commands follow the simple steps bellow.
 
 h2. 1. Click on little cog next to your project title on dashboard.
 

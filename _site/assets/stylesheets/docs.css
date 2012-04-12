@@ -182,11 +182,11 @@ aside {
     .primary > section {
       padding: 0 28px;
     }
-    
+
     .primary > section {
       font-size: 1.15em;
     }
-    
+
       .primary > header {
         background: #f9f9f9;
         margin: 0;
@@ -200,12 +200,14 @@ aside {
       .primary > header h2 {
         font-size: 1.5em;
       }
-    
+
     .primary section h3 {}
-    
+
     .primary section h4 {
       font-size: .85em;
       text-transform: uppercase;
       letter-spacing: .15em;
       color: #999;
     }
+
+    .primary li { list-style: disc; margin-left: 1.5em; }
