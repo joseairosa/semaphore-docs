@@ -1,0 +1,22 @@
+---
+layout: default
+title: Custom build commands
+---
+
+You can easily customize commands that Semaphore executes in order to build your project. To change commands follow the simple steps bellow.
+
+h2. 1. Click on little cog next to your project title on dashboard.
+
+!/assets/images/cbc-dashbaord.png!
+
+h2. 2. Follow the "Build Commands" link on project settings page.
+
+!/assets/images/cbc-project-edit.png!
+
+h2. 3. Review your current settings and click on "Customize Build" button.
+
+!/assets/images/cbc-show.png!
+
+h2. 4. Modify commands and click on "Save" button.
+
+!/assets/images/cbc-edit.png!
