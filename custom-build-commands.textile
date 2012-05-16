@@ -15,18 +15,14 @@ Typical use cases for custom build commands that we have seen so far are:
 
 To change commands follow the simple steps bellow.
 
-h2. 1. Click on little cog next to your project title on dashboard.
+h2. 1. Click on "settings" next to your project on the dashboard.
 
-!/assets/images/cbc-dashbaord.png!
+!/assets/images/cbc-dashboard.png!
 
-h2. 2. Follow the "Build Commands" link on project settings page.
+h2. 2. Open the "Build Commands" tab on project settings page
 
-!/assets/images/cbc-project-edit.png!
+!/assets/images/cbc-navigation.png!
 
-h2. 3. Review your current settings and click on "Customize Build" button.
+h3. 3. Modify your commands and save
 
-!/assets/images/cbc-show.png!
-
-h2. 4. Modify commands and click on "Save" button.
-
-!/assets/images/cbc-edit.png!
+<img src="/assets/images/cbc-edit.png" width="600">
