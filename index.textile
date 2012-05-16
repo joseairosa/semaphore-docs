@@ -3,7 +3,7 @@ layout: default
 title: Semaphore Documentation
 ---
 
-Semaphore is a web service for continuous integration of Rails applications.
+Semaphore is a web service for continuous integration of Ruby applications.
 
 We're designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can browse available articles in the sidebar on the right hand side.
 
