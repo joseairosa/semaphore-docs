@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Supported application stack - Semaphore Documentation
+title: Supported application stack
 ---
 
 Semaphore can build programs based on Ruby 1.9 and Bundler. At the moment it fully supports the following:
