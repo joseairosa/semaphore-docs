@@ -11,12 +11,22 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
     <title>
-      {% if page.title == 'Semaphore Documentation' %}
-      {{ page.title }} -
-      {% endif %} Semaphore Documentation</title>
+       Semaphore Documentation</title>
   </head>
   <body>
-    {% include header.html %}
+    <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
+  <ul>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
+  </ul>
+
+</nav>
+
     <div id="mainContent" class="safGrid">
 
       <header class="pageTitle">
@@ -26,11 +36,16 @@
       <article class="primary col cs-9 first">
 
         <header class="title">
-          <h2>{{ page.title }}</h2>
+          <h2>Available Environment Variables</h2>
         </header>
 
         <section class="body">
-          {{ content }}
+          <p>Before running your build, Semaphore exports the following environment variables:</p>
+<pre>DATABASE_NAME_DEVELOPMENT
+DATABASE_NAME_TEST
+DATABASE_PASSWORD
+</pre>
+<p>These apply if you are using a MySQL or PostgreSQL database. You can use them in any custom scripts that your build depends on.</p>
         </section>
 
       </article>
@@ -47,6 +62,10 @@
         </ul>
       </aside>
     </div>
-    {% include footer.html %}
+    <footer class="safGrid">
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
   </body>
 </html>

@@ -26,3 +26,5 @@ h2. 2. Open the "Build Commands" tab on project settings page
 h3. 3. Modify your commands and save
 
 <img src="/assets/images/cbc-edit.png" width="600">
+
+Note that Semaphore exports some "environment variables":/available-environment-variables which might be useful to you.
