@@ -3,7 +3,7 @@ layout: default
 title: Supported application stack
 ---
 
-Semaphore can build programs based on Ruby 1.9 and Bundler. At the moment it fully supports the following:
+Semaphore can build programs based on Ruby and Bundler. At the moment it fully supports the following:
 
 h3. Database engines
 
@@ -13,24 +13,21 @@ h3. Database engines
 * Redis
 * MongoDB
 
-These are used typically with Rails 3.
+h3. Test frameworks and backends
 
-h3. Test frameworks
-
-* RSpec
-* Cucumber with Capybara and Selenium
-* Capybara Webkit
 * test/unit
+* RSpec
+* Cucumber
+* Steak
+* Capybara with Selenium
+* Capybara Webkit
+* Poltergeist and PhantomJS
 
-You can also use any other, provided it's configured in your bundle and you add a "custom build command":/custom-build-commands if necessary, including:
+You can also use any other, provided it's configured in your bundle and you add a "custom build command":/custom-build-commands, including:
 
 * Jasmine
 * Minitest
 
-Other tools available on request:
+For a more detailed list of prepared dependencies, please see the "Version Information":/version-information page.
 
-* Poltergeist and PhantomJS
-* Sphinx
-* CouchDB
-
-We have a number of open source "test apps":/test-apps in various flavors that we use for verification. If your setup is different, we encourage you to read that page and <a href="mailto:semaphore@renderedtext.com">contact us</a> - we'd be happy to get your app building on Semaphore as quickly as possible.
+We have a number of open source "test apps":/test-apps in various flavors that we use for verification. If your setup is different or you're having problems making your build pass, we encourage you to <a href="mailto:semaphore@renderedtext.com">contact us</a> - we'd be happy to get your app building on Semaphore as quickly as possible.

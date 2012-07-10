@@ -9,16 +9,14 @@ To make sure that Semaphore works with various database drivers, test frameworks
 h2. Covered
 
 * "base-app":https://github.com/renderedtext/base-app - our template for making new Rails apps, using Postgresql, RSpec and Cucumber.
-* "testapp-testunit-rspec":https://github.com/renderedtext/testapp-testunit-rspec - using test/unit, RSpec and Cucumber at the same time.
-* "testapp-testunit":https://github.com/renderedtext/testapp-testunit
-* "testapp-mysql":https://github.com/renderedtext/testapp-mysql - using mysql2 gem.
+* "testapp-capybara-webkit":https://github.com/renderedtext/testapp-capybara-webkit - including a branch with steak and wkhtmltopdf
 * "testapp-mongodb-mongoid":https://github.com/renderedtext/testapp-mongodb
 * "testapp-mongodb-mongomapper":https://github.com/renderedtext/testapp-mongodb-mongomapper
-
-h2.  Prepared but not supported yet
-
-* "testapp-sphinx":https://github.com/renderedtext/testapp-sphinx
+* "testapp-mysql":https://github.com/renderedtext/testapp-mysql - using mysql2 gem.
 * "testapp-solr":https://github.com/renderedtext/testapp-solr
+* "testapp-sphinx":https://github.com/renderedtext/testapp-sphinx
+* "testapp-testunit":https://github.com/renderedtext/testapp-testunit
+* "testapp-testunit-rspec":https://github.com/renderedtext/testapp-testunit-rspec - using test/unit, RSpec and Cucumber at the same time.
 
 h2. Contributing
 

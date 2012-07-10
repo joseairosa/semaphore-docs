@@ -12,7 +12,7 @@
 
     <title>
       
-      Adding a new project -
+      Version information -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -38,13 +38,88 @@
       <article class="primary col cs-9 first">
 
         <header class="title">
-          <h2>Adding a new project</h2>
+          <h2>Version information</h2>
         </header>
 
         <section class="body">
-          <p>If you&#8217;ve authorized Semaphore to build from public GitHub repositories, you will be able to build only public (open source) projects that you have created or been added to.</p>
-<p>If you&#8217;ve authorized Semaphore to build from private GitHub repositories, you will be able to build both private and public projects that you participate in via your account or any organization you belong to.</p>
-<p>In both cases, you need to have admin permissions on the repository. This is because with your authorized credentials, Semaphore needs to automatically set up post-commit hooks and <span class="caps">SSH</span> deploy keys.</p>
+          <p>Builds on Semaphore run on Ubuntu 11.04 Natty. Different Ruby versions are available via <a href="https://github.com/sstephenson/rbenv/">rbenv</a>:</p>
+<ul>
+	<li>1.9.2-p290</li>
+	<li>1.9.3-p194</li>
+	<li>ree-1.8.7-2012.02</li>
+</ul>
+<p>System packages installed by default include:</p>
+<table>
+<thead>
+<tr>
+      <th>Name</th>
+      <th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+      <td>Firefox</td>
+      <td>13.0.1</td>
+</tr>
+<tr>
+      <td>libqtwebkit4</td>
+      <td>2.1</td>
+</tr>
+<tr>
+      <td>imagemagick</td>
+      <td>7:6.6.2.6</td>
+</tr>
+<tr>
+      <td>Java (openjdk)</td>
+      <td>6b22</td>
+</tr>
+<tr>
+      <td>Linux kernel</td>
+      <td>3.0.0-12</td>
+</tr>
+<tr>
+      <td>memcached</td>
+      <td>1.4.5</td>
+</tr>
+<tr>
+      <td>MongoDB</td>
+      <td>2.0.2</td>
+</tr>
+<tr>
+      <td>MySQL</td>
+      <td>5.1.54</td>
+</tr>
+<tr>
+      <td>Node.js</td>
+      <td>0.6.5</td>
+</tr>
+<tr>
+      <td>PhantomJS</td>
+      <td>1.6</td>
+</tr>
+<tr>
+      <td>PostgreSQL</td>
+      <td>9.1.4</td>
+</tr>
+<tr>
+      <td>Redis</td>
+      <td>2:2.0.1</td>
+</tr>
+<tr>
+      <td>Sphinx</td>
+      <td>0.9.9</td>
+</tr>
+<tr>
+      <td>sqlite</td>
+      <td>3.7.4</td>
+</tr>
+<tr>
+      <td>wkhtmltopdf</td>
+      <td>0.9.9</td>
+</tr>
+</tbody>
+</table>
+<p>Note: this is a partial list. Upgrades and additional packages are available on request.</p>
         </section>
 
       </article>

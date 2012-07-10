@@ -42,7 +42,7 @@
         </header>
 
         <section class="body">
-          <p>Semaphore can build programs based on Ruby 1.9 and Bundler. At the moment it fully supports the following:</p>
+          <p>Semaphore can build programs based on Ruby and Bundler. At the moment it fully supports the following:</p>
 <h3>Database engines</h3>
 <ul>
 	<li>PostgreSQL</li>
@@ -51,26 +51,23 @@
 	<li>Redis</li>
 	<li>MongoDB</li>
 </ul>
-<p>These are used typically with Rails 3.</p>
-<h3>Test frameworks</h3>
+<h3>Test frameworks and backends</h3>
 <ul>
-	<li>RSpec</li>
-	<li>Cucumber with Capybara and Selenium</li>
-	<li>Capybara Webkit</li>
 	<li>test/unit</li>
+	<li>RSpec</li>
+	<li>Cucumber</li>
+	<li>Steak</li>
+	<li>Capybara with Selenium</li>
+	<li>Capybara Webkit</li>
+	<li>Poltergeist and PhantomJS</li>
 </ul>
-<p>You can also use any other, provided it&#8217;s configured in your bundle and you add a <a href="/custom-build-commands">custom build command</a> if necessary, including:</p>
+<p>You can also use any other, provided it&#8217;s configured in your bundle and you add a <a href="/custom-build-commands">custom build command</a>, including:</p>
 <ul>
 	<li>Jasmine</li>
 	<li>Minitest</li>
 </ul>
-<p>Other tools available on request:</p>
-<ul>
-	<li>Poltergeist and PhantomJS</li>
-	<li>Sphinx</li>
-	<li>CouchDB</li>
-</ul>
-<p>We have a number of open source <a href="/test-apps">test apps</a> in various flavors that we use for verification. If your setup is different, we encourage you to read that page and <a href="mailto:semaphore@renderedtext.com">contact us</a> &#8211; we&#8217;d be happy to get your app building on Semaphore as quickly as possible.</p>
+<p>For a more detailed list of prepared dependencies, please see the <a href="/version-information">Version Information</a> page.</p>
+<p>We have a number of open source <a href="/test-apps">test apps</a> in various flavors that we use for verification. If your setup is different or you&#8217;re having problems making your build pass, we encourage you to <a href="mailto:semaphore@renderedtext.com">contact us</a> &#8211; we&#8217;d be happy to get your app building on Semaphore as quickly as possible.</p>
         </section>
 
       </article>
@@ -78,12 +75,13 @@
       <aside class="col cs-3">
         <h2>Articles</h2>
         <ul>
-          <li><a href="/adding-new-project">Adding a new project</a></li>
-          <li><a href="/available-environment-variables">Available environment variables</a></li>
-          <li><a href="/custom-build-commands">Custom build commands</a></li>
-          <li><a href="/collaborator-notifications">Collaborator notifications</a></li>
-          <li><a href="/supported-stack">Supported stack</a></li>
-          <li><a href="/test-apps">Test apps</a></li>
+          <li><a href="/adding-new-project">Adding a New Project</a></li>
+          <li><a href="/available-environment-variables">Available Environment Variables</a></li>
+          <li><a href="/collaborator-notifications">Collaborator Notifications</a></li>
+          <li><a href="/custom-build-commands">Custom Build Commands</a></li>
+          <li><a href="/supported-stack">Supported Stack</a></li>
+          <li><a href="/test-apps">Test Apps</a></li>
+          <li><a href="/version-information">Version Information</a></li>
         </ul>
       </aside>
     </div>
