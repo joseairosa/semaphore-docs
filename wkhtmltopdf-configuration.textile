@@ -3,16 +3,18 @@ layout: default
 title: Wkhtmltopdf Configuration
 ---
 
-To build an application that is using wkhtmltopdf for generating PDF files, you need to remove wkhtmltopdf and wkhtmltopdf-binary gem from your Gemfile. Wkhtmltopdf is installed locally on Semaphore builder machines.
+To build an application that is using wkhtmltopdf for generating PDF files, you need to remove wkhtmltopdf and wkhtmltopdf-binary gems from your Gemfile. wkhtmltopdf is preinstalled on Semaphore build servers.
 
-To use wkhtmltopdf on your local machines after removing wkhtmltopdf gem, you need to do following:
+To use wkhtmltopdf on your local development machine after removing wkhtmltopdf gem, you need to do following:
 
 * remove executable wkhtmltopdf file that was installed with the gem (eg. your_project_path/vendor/bundle/ruby/1.9.2/bin/wkhtmltopdf)
-* install binary version of wkhtmltopdf from the site:
+* install binary version of wkhtmltopdf from the official site:
 
 bc. wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
 tar xvjf wkhtmltopdf-0.9.9-static-amd64.tar.bz2 
 sudo chown root:root wkhtmltopdf-amd64 
 sudo mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf
 
-* or use wkhtmltopdf package provided by OS distribution
+* or use wkhtmltopdf package provided by your OS distribution
+
+See our "testapp":https://github.com/renderedtext/testapp-capybara-webkit/tree/pdf for example source code.
