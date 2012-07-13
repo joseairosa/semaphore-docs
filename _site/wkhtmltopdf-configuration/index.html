@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="docs">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+
+    <title>
+      
+      Wkhtmltopdf Configuration -
+       Semaphore Documentation</title>
+  </head>
+  <body>
+    <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
+  <ul>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
+  </ul>
+
+</nav>
+
+    <div id="mainContent" class="safGrid">
+
+      <header class="pageTitle">
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
+      </header>
+
+      <article class="primary col cs-9 first">
+
+        <header class="title">
+          <h2>Wkhtmltopdf Configuration</h2>
+        </header>
+
+        <section class="body">
+          <p>If your application is using locally installed binary version of wkhtmltopdf without additional configuration, or if you use <a href="https://github.com/bradphelan/wkhtmltopdf-heroku">wkhtmltopdf-heroku</a> gem, no additional configuration is necessary.</p>
+<p>If your application is using wkhtmltopdf or wkhtmltopdf-binary gem or binary version is installed on custom location, then you need to tell your <span class="caps">PDF</span> generator tool to use wkhtmltopdf that is installed locally on Semaphore builder machines. Path to executable wkhtmltopdf is stored in WKHTMLTOPDF_PATH environment variable.</p>
+<h2>Example configuration</h2>
+<h3>Wicked <span class="caps">PDF</span></h3>
+<pre><code># config/initializers/wicked_pdf.rb
+if ENV['CI'] == 'true'
+  WickedPdf.config = {
+    :exe_path =&gt; ENV['WKHTMLTOPDF_PATH']
+  }
+end</code></pre>
+<h3>PDFKit</h3>
+<pre><code># config/initializers/pdfkit.rb
+if ENV['CI'] == 'true'
+  PDFKit.configure do |config|
+    config.wkhtmltopdf = ENV['WKHTMLTOPDF_PATH']
+  end
+end</code></pre>
+<p>See our test apps for example source code:</p>
+<ul>
+	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/pdf">wicked_pdf without additional configuration</a></li>
+	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/wkhtmltopdf-heroku">wicked_pdf + wkhtmltopdf-heroku</a></li>
+	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/wkhtmltopdf-binary">wicked_pdf + wkhtmltopdf-binary</a></li>
+</ul>
+        </section>
+
+      </article>
+
+      <aside class="col cs-3">
+        <h2>Articles</h2>
+        <ul>
+          <li><a href="/adding-new-project">Adding a New Project</a></li>
+          <li><a href="/available-environment-variables">Available Environment Variables</a></li>
+          <li><a href="/collaborator-notifications">Collaborator Notifications</a></li>
+          <li><a href="/custom-build-commands">Custom Build Commands</a></li>
+          <li><a href="/supported-stack">Supported Stack</a></li>
+          <li><a href="/test-apps">Test Apps</a></li>
+          <li><a href="/version-information">Version Information</a></li>
+          <li><a href="/wkhtmltopdf-configuration">Wkhtmltopdf Configuration</a></li>
+        </ul>
+      </aside>
+    </div>
+    <footer class="safGrid">
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
+  </body>
+</html>
