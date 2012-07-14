@@ -42,20 +42,29 @@
         </header>
 
         <section class="body">
-          <p>To build an application that is using wkhtmltopdf for generating <span class="caps">PDF</span> files, you need to remove wkhtmltopdf and wkhtmltopdf-binary gems from your Gemfile. wkhtmltopdf is preinstalled on Semaphore build servers.</p>
-<p>To use wkhtmltopdf on your local development machine after removing wkhtmltopdf gem, you need to do following:</p>
+          <p>If your application is using locally installed binary version of wkhtmltopdf without additional configuration, or if you use <a href="https://github.com/bradphelan/wkhtmltopdf-heroku">wkhtmltopdf-heroku</a> gem, no additional configuration is necessary.</p>
+<p>If your application is using wkhtmltopdf or wkhtmltopdf-binary gem or binary version is installed on custom location, then you need to tell your <span class="caps">PDF</span> generator tool to use wkhtmltopdf that is installed locally on Semaphore builder machines. Path to executable wkhtmltopdf is stored in WKHTMLTOPDF_PATH <a href="/available-environment-variables">environment variable</a>.</p>
+<h2>Example configuration</h2>
+<h3>wicked_pdf</h3>
+<pre><code># config/initializers/wicked_pdf.rb
+if ENV['CI'] == 'true'
+  WickedPdf.config = {
+    :exe_path =&gt; ENV['WKHTMLTOPDF_PATH']
+  }
+end</code></pre>
+<h3>PDFKit</h3>
+<pre><code># config/initializers/pdfkit.rb
+if ENV['CI'] == 'true'
+  PDFKit.configure do |config|
+    config.wkhtmltopdf = ENV['WKHTMLTOPDF_PATH']
+  end
+end</code></pre>
+<p>See our test apps for example source code:</p>
 <ul>
-	<li>remove executable wkhtmltopdf file that was installed with the gem (eg. your_project_path/vendor/bundle/ruby/1.9.2/bin/wkhtmltopdf)</li>
-	<li>install binary version of wkhtmltopdf from the official site:</li>
+	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/pdf">wicked_pdf without additional configuration</a></li>
+	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/wkhtmltopdf-heroku">wicked_pdf + wkhtmltopdf-heroku</a></li>
+	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/wkhtmltopdf-binary">wicked_pdf + wkhtmltopdf-binary</a></li>
 </ul>
-<pre><code>wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
-tar xvjf wkhtmltopdf-0.9.9-static-amd64.tar.bz2 
-sudo chown root:root wkhtmltopdf-amd64 
-sudo mv wkhtmltopdf-amd64 /usr/local/bin/wkhtmltopdf</code></pre>
-<ul>
-	<li>or use wkhtmltopdf package provided by your OS distribution</li>
-</ul>
-<p>See our <a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/pdf">testapp</a> for example source code.</p>
         </section>
 
       </article>
