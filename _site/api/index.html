@@ -12,7 +12,7 @@
 
     <title>
       
-      Custom build commands -
+      API -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -38,26 +38,25 @@
       <article class="primary col cs-9 first">
 
         <header class="title">
-          <h2>Custom build commands</h2>
+          <h2>API</h2>
         </header>
 
         <section class="body">
-          <p>You can easily customize commands that Semaphore executes in order to build your project.</p>
-<p>Typical use cases for custom build commands that we have seen so far are:</p>
-<ul>
-	<li>setting up custom database configuration files</li>
-	<li>calling a custom rake task for setting up seed db data</li>
-	<li>passing special flags to default rake tasks</li>
-	<li>exporting environment variables that contain sensitive information which you don’t want to keep in your repository</li>
-</ul>
-<p>To change commands follow the simple steps bellow.</p>
-<h2>1. Click on &#8220;settings&#8221; next to your project on the dashboard.</h2>
+          <p>Semaphore has an <span class="caps">API</span> for viewing the status of project&#8217;s branch.</p>
+<p>To see how to use the <span class="caps">API</span> for your project, follow these steps:</p>
+<ol>
+	<li>Click on &#8220;settings&#8221; next to your project on the dashboard.</li>
+</ol>
 <p><img src="/assets/images/project-settings-link.png" alt="" /></p>
-<h2>2. Open the &#8220;Build Commands&#8221; tab on project settings page</h2>
-<p><img src="/assets/images/cbc-navigation.png" alt="" /></p>
-<h3>3. Modify your commands and save</h3>
-<p><img src="/assets/images/cbc-edit.png" width="600"></p>
-<p>Note that Semaphore exports some <a href="/available-environment-variables">environment variables</a> which might be useful to you.</p>
+<ol>
+	<li>Open the &#8220;<span class="caps">API</span>&#8221; tab on project settings page.</li>
+</ol>
+<p><img src="/assets/images/api-tab-link.png" alt="" /></p>
+<ol>
+	<li>Select a branch of which you want to view the status.</li>
+	<li>Perform a <span class="caps">HTTP</span> <span class="caps">GET</span> request on the provided <span class="caps">URL</span>.</li>
+</ol>
+<p><img src="/assets/images/build-status-api.png" width="620" /></p>
         </section>
 
       </article>

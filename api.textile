@@ -1,0 +1,21 @@
+---
+layout: default
+title: API
+---
+
+Semaphore has an API for viewing the status of project's branch.
+
+To see how to use the API for your project, follow these steps:
+
+# Click on "settings" next to your project on the dashboard.
+
+!/assets/images/project-settings-link.png!
+
+# Open the "API" tab on project settings page.
+
+!/assets/images/api-tab-link.png!
+
+# Select a branch of which you want to view the status.
+# Perform a HTTP GET request on the provided URL.
+
+<img src="/assets/images/build-status-api.png" width="620" />
