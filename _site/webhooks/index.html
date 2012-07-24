@@ -11,6 +11,8 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
 
     <title>
+      
+      Webhooks -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -36,13 +38,51 @@
       <article class="primary col cs-9 first">
 
         <header class="title">
-          <h2>Semaphore Documentation</h2>
+          <h2>Webhooks</h2>
         </header>
 
         <section class="body">
-          <p>Semaphore is a web service for continuous integration of Ruby applications.</p>
-<p>We&#8217;re designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can browse available articles in the sidebar on the right hand side.</p>
-<p>If you cannot find an answer here, please do not hesitate to email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
+          <p>Semaphore allows you to set up webhooks that will receive payload about every finished build.  You can use them, for example, to implement alerts through <a href="http://hubot.github.com/">Hubot</a>, or keep track of your projects on a company dashboard.</p>
+<p>To set up one or more webhooks for your project, follow these steps:</p>
+<ol>
+	<li>Click on &#8220;settings&#8221; next to your project on the dashboard.</li>
+</ol>
+<p><img src="/assets/images/project-settings-link.png" alt="" /></p>
+<ol>
+	<li>Open the &#8220;Webhooks&#8221; tab on project settings page.</li>
+</ol>
+<p><img src="/assets/images/webhooks-tab-link.png" alt="" /></p>
+<ol>
+	<li>Add a <span class="caps">URL</span> to receive the payload.</li>
+</ol>
+<p><img src="/assets/images/webhooks.png" width="620" /></p>
+<ol>
+	<li>Click on &#8220;Test Hook&#8221; to receive an example payload and verify that it all works.</li>
+</ol>
+<ol>
+	<li>Save your settings.</li>
+</ol>
+<h3>Payload format</h3>
+<p>Payload is <span class="caps">JSON</span> in the same structure as <a href="/api">build notification <span class="caps">API</span></a>.</p>
+<pre>
+{
+  "branch_name": "gem_updates",
+  "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
+  "project_name": "base-app",
+  "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
+  "build_number": 15,
+  "result": "passed",
+  "started_at": "2012-07-09T15:23:53Z",
+  "finished_at": "2012-07-09T15:30:16Z",
+  "commit": {
+    "id": "dc395381e650f3bac18457909880829fc20e34ba",
+    "url": "https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba",
+    "author_name": "Vladimir Saric",
+    "author_email": "vladimir@renderedtext.com",
+    "message": "Update 'shoulda' gem.",
+    "timestamp": "2012-07-04T18:14:08Z"}
+}
+</pre>
         </section>
 
       </article>
