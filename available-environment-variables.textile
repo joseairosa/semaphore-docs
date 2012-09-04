@@ -7,6 +7,7 @@ Before running your build, Semaphore exports the following environment variables
 
 <pre>CI=true
 SEMAPHORE=true
+BRANCH_NAME=#{current_branch_name}
 WKHTMLTOPDF_PATH
 </pre>
 
