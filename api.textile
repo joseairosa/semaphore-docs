@@ -3,9 +3,12 @@ layout: default
 title: API
 ---
 
-Semaphore has an API for viewing the status of project's branch.
+Semaphore has an API for viewing:
+* list of project's branches
+* status of a project's branch
+* history of a project's branch
 
-To see how to use the API for your project, follow these steps:
+To use the API for your project, follow these steps:
 
 # Click on "settings" next to your project on the dashboard.
 
@@ -15,7 +18,98 @@ To see how to use the API for your project, follow these steps:
 
 !/assets/images/api-tab-link.png!
 
-# Select a branch of which you want to view the status.
-# Perform a HTTP GET request on the provided URL.
 
-<img src="/assets/images/build-status-api.png" width="620" />
+h3. 1. Branches
+
+To get a list of all the project's branches:
+# Perform a HTTP GET request on the provieded URL.
+
+!/assets/images/api-branches.png!
+
+Example response:
+<pre>[{"id": 1324, "name": "new-build-page"}, {"id": 1, "name": "development"}, {"id": 987, "name": "branches_api"}]</pre>
+
+h3. 2. Branch Status
+
+To view the status of a project's branch:
+# Select a branch of which you want to view the status.
+# Perform a HTTP GET request on the provieded URL.
+
+!/assets/images/api-status.png!
+
+Example response:
+<pre>{
+  "branch_name": "gem_updates",
+  "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
+  "project_name": "base-app",
+  "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
+  "build_number": 15,
+  "result": "passed",
+  "started_at": "2012-07-09T15:23:53Z",
+  "finished_at": "2012-07-09T15:30:16Z",
+  "commit": {
+    "id": "dc395381e650f3bac18457909880829fc20e34ba",
+    "url": "https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba",
+    "author_name": "Vladimir Saric",
+    "author_email": "vladimir@renderedtext.com",
+    "message": "Update 'shoulda' gem.",
+    "timestamp": "2012-07-04T18:14:08Z"}
+}</pre>
+
+h3. 3. Branch History
+
+To view build history of a project's branch:
+# Select a branch of which you want to view the status.
+# Perform a HTTP GET request on the provieded URL.
+
+!/assets/images/api-history.png!
+
+Branch builds are returned paginated by 10 per page. A specific page can be requested using the <i>?page</i> parameter. The pagination info is included in the response header.
+
+Example of the pagination header:
+<pre>Pagination: {
+              "total_entries": 46,
+              "total_pages": 5,
+              "per_page": 10,
+              "current_page": 1,
+              "first_page": true,
+              "last_page": false,
+              "previous_page": null,
+              "next_page": 2
+            }</pre>
+
+Example response:
+<pre>{
+  "branch_name": "gem_updates",
+  "branch_url":"https://semaphoreapp.com/projects/44/branches/50",
+  "project_name":"base-app",
+  "builds": [
+    {
+      "build_url": "http://semaphoreapp.com/projects/57/branches/80/builds/46",
+      "build_number": 46,
+      "result": "failed",
+      "started_at": "2012-10-02T15:01:41Z",
+      "finished_at": "2012-10-02T15:03:53Z",
+      "commit": {
+        "id": "a31d32d5de89613369f934eb7d30fbeb08883334",
+        "url": "https://github.com/renderedtext/base-app/commit/a31d32d5de89613369f934eb7d30fbeb08883334",
+        "author_name": "Vladimir Saric",
+        "author_email": "vladimir@renderedtext.com",
+        "message": "Update 'shoulda' gem.",
+        "timestamp": "2012-10-02T07:00:14Z"}
+    },
+    {
+      "build_url": "http://semaphoreapp.com/projects/57/branches/80/builds/45",
+      "build_number": 45,
+      "result": "passed",
+      "started_at": "2012-10-02T14:47:06Z",
+      "finished_at":  "2012-10-02T14:51:35Z",
+      "commit":{
+        "id": "73fce130ad23f265add5d55ee1da1c23b38f85a4",
+        "url": "https://github.com/renderedtext/base-app/commit/73fce130ad23f265add5d55ee1da1c23b38f85a4",
+        "author_name": "Marko Anastasov",
+        "author_email": "marko@renderedtext.com",
+        "message": "Update 'factory_girl_rails' gem and use new short FactoryGirl syntax.",
+        "timestamp": "2012-10-02T07:00:14Z"}
+    }
+}</pre>
