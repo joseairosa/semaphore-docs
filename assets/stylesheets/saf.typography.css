@@ -79,15 +79,45 @@ input[type=submit] { font-family: inherit !important; width: auto; overflow: vis
   margin: 56px 0 14px 0;
 }
   
+  .titleNav {
+    margin-bottom: .5em;
+  }
+    
+    .pageTitle .menu {
+      text-align: right;
+      font-size: .85em;
+    }
+    
+      .pageTitle .menu li {
+        display: inline;
+        margin: 0 0 0 14px;
+        padding: 0 0 0 14px;
+        border-left: 2px solid #ccc;
+      }
+      
+      .pageTitle .menu li:first-child {
+        margin: 0;
+        padding: 0;
+        border-left: none;
+      }
+      
+      .pageTitle .settingsLink {
+        background-position: 0 0;
+      }
+      
+      /* .pageTitle .menu a:link,
+      .pageTitle .menu a:visited {
+        color: #237fc6;
+      } */
+  
   .pageTitle p {
-    margin: 0 0 4px 0;
     color: #c0c0ae;
   }
     
-    .pageTitle p a:link,
+    /* .pageTitle p a:link,
     .pageTitle p a:visited {
       color: #c0c0ae;
-    }
+    } */
   
   .pageTitle div {
     font-size: .75em;
@@ -104,6 +134,20 @@ input[type=submit] { font-family: inherit !important; width: auto; overflow: vis
       margin-left: 7px;
       padding: 7px 14px;
     }
+
+    .limitInfo {
+      display: block;
+      text-align: left;
+      margin: -2.15em 0 0em 0;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+      .limitInfo a:link,
+      .limitInfo a:visited {
+        color: #237fc6;
+        font-weight: bold;
+      }
 
 .pageTitle h1 {
   float: left;
@@ -148,6 +192,13 @@ hgroup.separator {
     padding-top: .5em;
   }
 
+/* Blue links */
+
+a.vlink:link,
+a.vlink:visited {
+  color: #237fc6;
+}
+
 /* !Tables */
 
 table {
@@ -184,6 +235,24 @@ table {
     color: #999;
   }
 
+  /* Show all row */
+  
+  .showAll td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: .85em;
+    background: transparent !important;
+  }
+  
+  .showAll td:hover {
+    background: transparent;
+  }
+    
+    .showAll a:link,
+    .showAll a:visited {
+      color: #999;
+    }
+
 /* Code */
 
 pre {
@@ -192,12 +261,20 @@ pre {
   padding: 28px;
   overflow: auto;
   background: #f9f9f9;
+  color: #555;
        border-radius: 3px;
   -moz-border-radius: 3px;
     -o-border-radius: 3px;
        box-shadow: 0 0 5px 1px rgba(0,0,0,.1) inset;
   -moz-box-shadow: 0 0 5px 1px rgba(0,0,0,.1) inset;
     -o-box-shadow: 0 0 5px 1px rgba(0,0,0,.1) inset;
+}
+
+code {
+  padding: 1px 4px;
+  color: #555;
+  background-color: #f4f4f4;
+  border-radius: 3px;
 }
 
 /* !Misc */
@@ -211,3 +288,11 @@ sub, sup { line-height: 0; }
 pre, code { font: 100% monospace; }
 
 table { border-collapse: collapse; border-spacing: 0; }
+
+.footnote {
+  margin: 3em 0;
+  padding-top: 1em;
+  font-size: .85em;
+  border-top: 1px solid #dfdfdf;
+  color: #999;
+}

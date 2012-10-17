@@ -38,8 +38,6 @@ a:active {}
 
 
 
-
-
 /* !Nav bar ------------------------------------------------------------- */
 
 body > nav {
@@ -211,3 +209,4 @@ aside {
     }
 
     .primary li { list-style: disc; margin-left: 1.5em; }
+

@@ -49,11 +49,33 @@
 .txtr { text-align: right;  }
 .txtc { text-align: center; }
 
+.bigTarget {
+  margin-left: -7px;
+  margin-right: -7px;
+  padding: 4px 7px;
+}
+
+.defaultLink:link,
+.defaultLink:visited {
+  color: #237fc6;
+  font-weight: bold;
+}
+
+a.important {
+  font-weight: bold;
+  color: #8f3131 !important;
+}
+
 /* Iconified links */
 
 .sync {
   padding-left: 18px;
-  background: url(/assets/design/icn-sync.png) 0 50% no-repeat;
+  background: url(../images/design/icn-sync.png) 0 50% no-repeat;
+}
+
+.settingsLink {
+  padding-left: 14px;
+  background: url(../images/design/icn-settings.png) 0 1px no-repeat;
 }
 
 /* !More */
@@ -62,7 +84,7 @@ p.more {
   border-top: 1px solid #dfdfdf;
   padding-top: 1em;
 }
-
+  
   p.more a {
     font-size: .85em;
   }
@@ -114,12 +136,12 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
 
 .noShow { position: absolute !important; top: -9999px !important; left: -9999px !important; visibility: none !important; display: block !important; height: 0 !important; width: 0 !important; overflow: hidden !important; }
 
-/* Default button styles */
+/* Default button styles */ 
 
-.button {
+.button { 
   margin: 0;
   padding: 11px 21px;
-  font-size: 1.15em; font-weight: bold;
+  font-size: 1em; font-weight: bold;
   line-height: 1;
   color: #343434 !important;
   background: #f0b910;
@@ -147,7 +169,12 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
 
 .button.secondary {
   padding: 7px 14px;
-  font-size: .85em;
+  font-size: 12px;
+}
+
+.button.quiet {
+  background-color: #efefef;
+  border-color: #ccc;
 }
 
 .button.alert {
@@ -192,7 +219,7 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
 
 /* !Grid (add to body element) */
 
-.showGrid:before { content: "\00a0"; display: block; width: 964px; position: fixed; top: 0; left: 50%; z-index: 9999; margin-left: -482px; height: 100%; background: url(/assets/design/saf-grid.png) 0 0 repeat-y; }
+.showGrid:before { content: "\00a0"; display: block; width: 964px; position: fixed; top: 0; left: 50%; z-index: 9999; margin-left: -482px; height: 100%; background: url(../images/design/saf-grid.png) 0 0 repeat-y; }
 
 
 
@@ -211,6 +238,8 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
   display: inline-block;
   text-align: left;
   width: 1.25em;
+  height: 1em;
+  overflow: hidden;
 }
 
   .loader b {
@@ -226,11 +255,11 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
     -webkit-animation: loader 0.9s infinite alternate;
     -moz-animation: loader 0.9s infinite alternate;
   }
-
+    
     .building .loader b {
       background: #fff;
     }
-
+    
     .loader b:nth-of-type(2) {
       -webkit-animation-delay: 0.3s;
       -moz-animation-delay: 0.3s;
@@ -239,39 +268,37 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
       -webkit-animation-delay: 0.6s;
       -moz-animation-delay: 0.6s;
     }
-
+  
 @-webkit-keyframes loader {
-
+  
   0% {
     opacity: 0.9;
     -webkit-transform: translateY(0);
   }
-
+  
   100% {
     width: 4px;
     height: 4px;
     opacity: 0.1;
     -webkit-transform: translateY(-3px);
   }
-
+  
 }
 
 @-moz-keyframes loader {
 
   0% {
-    width: 7px;
-    height: 7px;
     opacity: 0.9;
     -moz-transform: translateY(0);
   }
-
+  
   100% {
-    width: 11px;
-    height: 11px;
+    width: 4px;
+    height: 4px;
     opacity: 0.1;
     -moz-transform: translateY(-3px);
   }
-
+  
 }
 
 
@@ -291,36 +318,36 @@ em, .na, .quiet, small { font-size: 1em; font-style: normal !important; font-wei
 
 
 /* Basic styles for print */
-
+  
 @media print {
-
+  
   * { background: transparent !important; color: #444 !important; text-shadow: none; }
-
+ 
   a, a:visited { color: #444 !important; text-decoration: underline; }
-
+ 
   a:after { content: " (" attr(href) ")"; }
-
+ 
   abbr:after { content: " (" attr(title) ")"; }
-
+   
   .ir a:after { content: ""; }  /* Don't show links for images */
-
+   
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-
+   
   img { page-break-inside: avoid; }
-
+ 
   @page { margin: 3cm; }
-
+ 
   p, h2, h3 { orphans: 3; widows: 3; }
-
+ 
   h2, h3 { page-break-after: avoid; }
-
+  
 }
 
 
 
 
 
-/* Latest version of Uni-Form, get from GitHub:
+/* Latest version of Uni-Form, get from GitHub: 
 
 GitHub: http://github.com/draganbabic/uni-form/
 

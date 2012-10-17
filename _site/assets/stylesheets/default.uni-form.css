@@ -76,7 +76,7 @@
                                                  }
       .uniForm .buttonHolder .primaryAction:active{ background: #dfdfdf; }
       .uniForm .secondaryAction            { text-align: left; margin-top: 7px; }
-      .uniForm a.secondaryAction           { color: #343434; font-weight: bold; }
+      .uniForm a.secondaryAction           { color: #237fc6; font-weight: bold; }
       .uniForm button.secondaryAction      { background: transparent; border: none; color: #777; margin: 1.25em 0 0 0; padding: 0; }
 
       .uniForm label{ font-weight: bold; }
@@ -111,6 +111,10 @@
       .uniForm .inlineLabels .formHint      { padding-top: .5em; }
       .uniForm .ctrlHolder.focused .formHint{ color: #333; }
 
+      /* Input actions */
+      .inputActions { float: right; margin-top: .25em; font-size: .85em; line-height: 1; }
+        .inputActions-remove{ margin-left: 1em; font-size: 1.5em; }
+
       /* Inline labels */
 
       .uniForm .inlineLabels select{ width: auto; }
@@ -121,7 +125,8 @@
 
   /* Error message at the top of the form */
   .uniForm .errorMsg,
-  .uniForm #errorMsg{ background: #ffdfdf; border: 1px solid #f3afb5; margin: 28px; padding: 0 1.5em;
+  .uniForm #errorMsg,
+  .errorExplanation{ background: #ffdfdf; border: 1px solid #f3afb5; margin: 28px 0; padding: 0 28px;
                       /* CSS3 */
                       border-radius:         4px;
                       -webkit-border-radius: 4px;
@@ -132,9 +137,11 @@
     .uniForm .errorMsg h2,
     .uniForm #errorMsg h3{} /* Feel free to use a heading level suitable to your page structure */
     .uniForm .errorMsg ol,
-    .uniForm #errorMsg ol{ margin: 0 0 1.5em 0; padding: 0; }
+    .uniForm #errorMsg ol,
+    .uniForm .errorExplanation ul{ margin: 0 0 1.5em 0; padding: 0; float: none; width: auto; }
       .uniForm .errorMsg ol li,
-      .uniForm #errorMsg ol li{ margin: 0 0 3px 0; padding: 7px; background: #f6bec1; position: relative; font-size: .85em;
+      .uniForm #errorMsg ol li,
+      .uniForm .errorExplanation li{ margin: 0 0 3px 0; padding: 7px; background: #f6bec1; position: relative; font-size: .85em; font-weight: bold;
                                 /* CSS3 */
                                 border-radius:         4px;
                                 -webkit-border-radius: 4px;
@@ -186,3 +193,35 @@
 .signUp .uniForm .inlineLabels .selectInput,
 .signUp .uniForm .inlineLabels select,
 .signUp .uniForm .inlineLabels textarea{ width: 50%; }
+
+/* Errors on sign up page */ 
+
+.signUp .errorMsg {
+  margin: 28px 28px 4px 28px;
+}
+
+.signUp .ctrlHolder.error {
+  background-color: transparent;
+}
+
+/* Simple .buttonHolder */
+
+.tab li.button-action .buttonHolder { text-align: right; }
+
+.tab .uniForm .buttonHolder { background: transparent; border-top: none; padding: 28px 0;
+                                       border-radius:         0 0 6px 6px;
+                                       -webkit-border-radius: 0 0 6px 6px;
+                                       -moz-border-radius:    0 0 6px 6px;
+                                       -o-border-radius:      0 0 6px 6px;
+                                       -khtml-border-radius:  0 0 6px 6px;
+                                     }
+
+/* When on settings page */
+.settings .buildSettings .uniForm .buttonHolder{ margin: 0; }
+
+/* When on build page */
+.buildSettings .uniForm .buttonHolder{ margin-left: -27px; margin-right: -27px; margin-top: -1px; }
+
+  .buildSettings .uniForm .buttonHolder .secondaryAction{ float: right; font-size: .85em; margin-top: 1.25em; }
+
+    .buildSettings .uniForm .buttonHolder .secondaryAction a{ color: #999; }
