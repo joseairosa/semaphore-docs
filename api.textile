@@ -3,12 +3,19 @@ layout: default
 title: API
 ---
 
-Semaphore has an API for viewing:
-* list of project's branches
+Semaphore provides an API for the following:
+* listing of user's projects
+* listing of project's branches
 * status of a project's branch
 * history of a project's branch
 
-To use the API for your project, follow these steps:
+p(accent). All API access is over HTTPS and requires the user to provide his authentication token via <strong>auth_token</strong> parameter.
+
+For example:
+
+<pre>$ curl -i https://semaphoreapp.com/api/v1/projects?auth_token=Yds3w6o26FLfJTnVK2y9</pre>
+
+To see your authentication token and request URIs of a specific project, follow these steps:
 
 # Click on "settings" next to your project on the dashboard.
 
@@ -18,29 +25,78 @@ To use the API for your project, follow these steps:
 
 !/assets/images/api-tab-link.png!
 
+h3. 1. User's projects
 
-h3. 1. Branches
-
-To get a list of all the project's branches:
-# Perform a HTTP GET request on the provieded URL.
-
-!/assets/images/api-branches.png!
+<pre>GET /api/v1/projects</pre>
 
 Example response:
-<pre>[{"id": 1324, "name": "new-build-page"}, {"id": 1, "name": "development"}, {"id": 987, "name": "branches_api"}]</pre>
+<pre>[
+  { "id": 61,
+    "hash_id": "3f1004b8343faabda63d441734526c854380ab89",
+    "name": "testapp-sphinx",
+    "owner": "renderedtext",
+    "created_at": "2012-09-04T11:53:22Z",
+    "updated_at": "2012-09-04T12:01:17Z",
+    "branches":[
+      { "branch_name": "master",
+        "branch_url": "http://10.0.1.76:3000/projects/61/branches/85",
+        "branch_status_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+        "branch_history_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
+        "project_name": "testapp-sphinx",
+        "build_url": "http://10.0.1.76:3000/projects/61/branches/85/builds/1",
+        "build_number": 1,
+        "result": "passed",
+        "started_at": "2012-09-04T11:55:07Z",
+        "finished_at": "2012-09-04T12:01:16Z" }]},
+  { "id": 63,
+    "hash_id": "649e584dc507ca4b73e1374d3125ef0b567a949c",
+    "name": "testapp-mongodb",
+    "owner": "renderedtext",
+    "created_at": "2012-09-14T10:53:38Z",
+    "updated_at": "2012-09-14T11:16:51Z",
+    "branches":[
+      { "branch_name": "mongoid3",
+        "branch_url": "http://10.0.1.76:3000/projects/63/branches/89",
+        "branch_status_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+        "branch_history_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
+        "project_name": "testapp-mongodb",
+        "build_url": "http://10.0.1.76:3000/projects/63/branches/89/builds/3",
+        "build_number": 3,
+        "result": "passed",
+        "started_at": "2012-09-14T11:11:39Z", "finished_at": "2012-09-14T11:16:51Z"}]}
+]
+</pre>
 
-h3. 2. Branch Status
+h3. 2. Project's branches
 
-To view the status of a project's branch:
-# Select a branch of which you want to view the status.
-# Perform a HTTP GET request on the provieded URL.
+<pre>GET /api/v1/projects/:hash_id/branches</pre>
 
-!/assets/images/api-status.png!
+h4. Arguments
+
+# <code>hash_id</code> of the project
+
+Example response:
+<pre>[
+  {"id": 1324, "name": "new-build-page"},
+  {"id": 1, "name": "development"},
+  {"id": 987, "name": "branches_api"}
+]</pre>
+
+h3. 3. Branch Status
+
+<pre>GET /api/v1/projects/:hash_id/:id/status</pre>
+
+h4. Arguments
+
+# <code>hash_id</code> of the project
+# <code>id</code> of the branch
 
 Example response:
 <pre>{
   "branch_name": "gem_updates",
   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
+  "branch_status_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+  "branch_history_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
   "project_name": "base-app",
   "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
   "build_number": 15,
@@ -56,32 +112,35 @@ Example response:
     "timestamp": "2012-07-04T18:14:08Z"}
 }</pre>
 
-h3. 3. Branch History
+h3. 4. Branch History
 
-To view build history of a project's branch:
-# Select a branch of which you want to view the status.
-# Perform a HTTP GET request on the provieded URL.
+<pre>GET /api/v1/projects/:hash_id/:id</pre>
 
-!/assets/images/api-history.png!
+h4. Arguments
 
-Branch builds are returned paginated by 10 per page. A specific page can be requested using the <i>?page</i> parameter. The pagination info is included in the response header.
+# <code>hash_id</code> of the project
+# <code>id</code> of the branch
+
+Branch builds are returned paginated by 10 per page. A specific page can be requested using the <code>page</code> parameter. The pagination info is included in the response header.
 
 Example of the pagination header:
 <pre>Pagination: {
-              "total_entries": 46,
-              "total_pages": 5,
-              "per_page": 10,
-              "current_page": 1,
-              "first_page": true,
-              "last_page": false,
-              "previous_page": null,
-              "next_page": 2
-            }</pre>
+  "total_entries": 46,
+  "total_pages": 5,
+  "per_page": 10,
+  "current_page": 1,
+  "first_page": true,
+  "last_page": false,
+  "previous_page": null,
+  "next_page": 2
+}</pre>
 
 Example response:
 <pre>{
   "branch_name": "gem_updates",
   "branch_url":"https://semaphoreapp.com/projects/44/branches/50",
+  "branch_status_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+  "branch_history_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
   "project_name":"base-app",
   "builds": [
     {

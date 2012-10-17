@@ -2,9 +2,9 @@
 <html lang="en" class="docs">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-typography.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-layout.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf-extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.extras.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
@@ -42,13 +42,17 @@
         </header>
 
         <section class="body">
-          <p>Semaphore has an <span class="caps">API</span> for viewing:</p>
+          <p>Semaphore provides an <span class="caps">API</span> for the following:</p>
 <ul>
-	<li>list of project&#8217;s branches</li>
+	<li>listing of user&#8217;s projects</li>
+	<li>listing of project&#8217;s branches</li>
 	<li>status of a project&#8217;s branch</li>
 	<li>history of a project&#8217;s branch</li>
 </ul>
-<p>To use the <span class="caps">API</span> for your project, follow these steps:</p>
+<p class="accent">All <span class="caps">API</span> access is over <span class="caps">HTTPS</span> and requires the user to provide his authentication token via <strong>auth_token</strong> parameter.</p>
+<p>For example:</p>
+<pre>$ curl -i https://semaphoreapp.com/api/v1/projects?auth_token=Yds3w6o26FLfJTnVK2y9</pre>
+<p>To see your authentication token and request URIs of a specific project, follow these steps:</p>
 <ol>
 	<li>Click on &#8220;settings&#8221; next to your project on the dashboard.</li>
 </ol>
@@ -57,25 +61,70 @@
 	<li>Open the &#8220;<span class="caps">API</span>&#8221; tab on project settings page.</li>
 </ol>
 <p><img src="/assets/images/api-tab-link.png" alt="" /></p>
-<h3>1. Branches</h3>
-<p>To get a list of all the project&#8217;s branches:</p>
-<ol>
-	<li>Perform a <span class="caps">HTTP</span> <span class="caps">GET</span> request on the provieded <span class="caps">URL</span>.</li>
-</ol>
-<p><img src="/assets/images/api-branches.png" alt="" /></p>
+<h3>1. User&#8217;s projects</h3>
+<pre>GET /api/v1/projects</pre>
 <p>Example response:<br />
-<pre>[{&quot;id&quot;: 1324, &#8220;name&#8221;: &#8220;new-build-page&#8221;}, {&quot;id&quot;: 1, &#8220;name&#8221;: &quot;development&quot;}, {&quot;id&quot;: 987, &#8220;name&#8221;: &quot;branches_api&quot;}]</pre></p>
-<h3>2. Branch Status</h3>
-<p>To view the status of a project&#8217;s branch:</p>
+<pre>[<br />
+  { &#8220;id&#8221;: 61,<br />
+    &#8220;hash_id&#8221;: &#8220;3f1004b8343faabda63d441734526c854380ab89&#8221;,<br />
+    &#8220;name&#8221;: &#8220;testapp-sphinx&#8221;,<br />
+    &#8220;owner&#8221;: &#8220;renderedtext&#8221;,<br />
+    &#8220;created_at&#8221;: &#8220;2012-09-04T11:53:22Z&#8221;,<br />
+    &#8220;updated_at&#8221;: &#8220;2012-09-04T12:01:17Z&#8221;,<br />
+    &#8220;branches&#8221;:[<br />
+      { &#8220;branch_name&#8221;: &#8220;master&#8221;,<br />
+        &#8220;branch_url&#8221;: &#8220;http://10.0.1.76:3000/projects/61/branches/85&#8221;,<br />
+        &#8220;branch_status_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
+        &#8220;branch_history_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
+        &#8220;project_name&#8221;: &#8220;testapp-sphinx&#8221;,<br />
+        &#8220;build_url&#8221;: &#8220;http://10.0.1.76:3000/projects/61/branches/85/builds/1&#8221;,<br />
+        &#8220;build_number&#8221;: 1,<br />
+        &#8220;result&#8221;: &#8220;passed&#8221;,<br />
+        &#8220;started_at&#8221;: &#8220;2012-09-04T11:55:07Z&#8221;,<br />
+        &#8220;finished_at&#8221;: &#8220;2012-09-04T12:01:16Z&#8221; }]},<br />
+  { &#8220;id&#8221;: 63,<br />
+    &#8220;hash_id&#8221;: &#8220;649e584dc507ca4b73e1374d3125ef0b567a949c&#8221;,<br />
+    &#8220;name&#8221;: &#8220;testapp-mongodb&#8221;,<br />
+    &#8220;owner&#8221;: &#8220;renderedtext&#8221;,<br />
+    &#8220;created_at&#8221;: &#8220;2012-09-14T10:53:38Z&#8221;,<br />
+    &#8220;updated_at&#8221;: &#8220;2012-09-14T11:16:51Z&#8221;,<br />
+    &#8220;branches&#8221;:[<br />
+      { &#8220;branch_name&#8221;: &#8220;mongoid3&#8221;,<br />
+        &#8220;branch_url&#8221;: &#8220;http://10.0.1.76:3000/projects/63/branches/89&#8221;,<br />
+        &#8220;branch_status_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
+        &#8220;branch_history_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
+        &#8220;project_name&#8221;: &#8220;testapp-mongodb&#8221;,<br />
+        &#8220;build_url&#8221;: &#8220;http://10.0.1.76:3000/projects/63/branches/89/builds/3&#8221;,<br />
+        &#8220;build_number&#8221;: 3,<br />
+        &#8220;result&#8221;: &#8220;passed&#8221;,<br />
+        &#8220;started_at&#8221;: &#8220;2012-09-14T11:11:39Z&#8221;, &#8220;finished_at&#8221;: &#8220;2012-09-14T11:16:51Z&#8221;}]}<br />
+]<br />
+</pre></p>
+<h3>2. Project&#8217;s branches</h3>
+<pre>GET /api/v1/projects/:hash_id/branches</pre>
+<h4>Arguments</h4>
 <ol>
-	<li>Select a branch of which you want to view the status.</li>
-	<li>Perform a <span class="caps">HTTP</span> <span class="caps">GET</span> request on the provieded <span class="caps">URL</span>.</li>
+	<li><code>hash_id</code> of the project</li>
 </ol>
-<p><img src="/assets/images/api-status.png" alt="" /></p>
+<p>Example response:<br />
+<pre>[<br />
+  {&quot;id&quot;: 1324, &#8220;name&#8221;: &#8220;new-build-page&#8221;},<br />
+  {&quot;id&quot;: 1, &#8220;name&#8221;: &quot;development&quot;},<br />
+  {&quot;id&quot;: 987, &#8220;name&#8221;: &quot;branches_api&quot;}<br />
+]</pre></p>
+<h3>3. Branch Status</h3>
+<pre>GET /api/v1/projects/:hash_id/:id/status</pre>
+<h4>Arguments</h4>
+<ol>
+	<li><code>hash_id</code> of the project</li>
+	<li><code>id</code> of the branch</li>
+</ol>
 <p>Example response:<br />
 <pre>{<br />
   &#8220;branch_name&#8221;: &#8220;gem_updates&#8221;,<br />
   &#8220;branch_url&#8221;: &#8220;https://semaphoreapp.com/projects/44/branches/50&#8221;,<br />
+  &#8220;branch_status_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
+  &#8220;branch_history_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
   &#8220;project_name&#8221;: &#8220;base-app&#8221;,<br />
   &#8220;build_url&#8221;: &#8220;https://semaphoreapp.com/projects/44/branches/50/builds/15&#8221;,<br />
   &#8220;build_number&#8221;: 15,<br />
@@ -90,29 +139,31 @@
     &#8220;message&#8221;: &#8220;Update &#8216;shoulda&#8217; gem.&#8221;,<br />
     &#8220;timestamp&#8221;: &#8220;2012-07-04T18:14:08Z&#8221;}<br />
 }</pre></p>
-<h3>3. Branch History</h3>
-<p>To view build history of a project&#8217;s branch:</p>
+<h3>4. Branch History</h3>
+<pre>GET /api/v1/projects/:hash_id/:id</pre>
+<h4>Arguments</h4>
 <ol>
-	<li>Select a branch of which you want to view the status.</li>
-	<li>Perform a <span class="caps">HTTP</span> <span class="caps">GET</span> request on the provieded <span class="caps">URL</span>.</li>
+	<li><code>hash_id</code> of the project</li>
+	<li><code>id</code> of the branch</li>
 </ol>
-<p><img src="/assets/images/api-history.png" alt="" /></p>
-<p>Branch builds are returned paginated by 10 per page. A specific page can be requested using the <i>?page</i> parameter. The pagination info is included in the response header.</p>
+<p>Branch builds are returned paginated by 10 per page. A specific page can be requested using the <code>page</code> parameter. The pagination info is included in the response header.</p>
 <p>Example of the pagination header:<br />
 <pre>Pagination: {<br />
-              &#8220;total_entries&#8221;: 46,<br />
-              &#8220;total_pages&#8221;: 5,<br />
-              &#8220;per_page&#8221;: 10,<br />
-              &#8220;current_page&#8221;: 1,<br />
-              &#8220;first_page&#8221;: true,<br />
-              &#8220;last_page&#8221;: false,<br />
-              &#8220;previous_page&#8221;: null,<br />
-              &#8220;next_page&#8221;: 2<br />
-            }</pre></p>
+  &#8220;total_entries&#8221;: 46,<br />
+  &#8220;total_pages&#8221;: 5,<br />
+  &#8220;per_page&#8221;: 10,<br />
+  &#8220;current_page&#8221;: 1,<br />
+  &#8220;first_page&#8221;: true,<br />
+  &#8220;last_page&#8221;: false,<br />
+  &#8220;previous_page&#8221;: null,<br />
+  &#8220;next_page&#8221;: 2<br />
+}</pre></p>
 <p>Example response:<br />
 <pre>{<br />
   &#8220;branch_name&#8221;: &#8220;gem_updates&#8221;,<br />
   &#8220;branch_url&#8221;:&#8220;https://semaphoreapp.com/projects/44/branches/50&#8221;,<br />
+  &#8220;branch_status_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
+  &#8220;branch_history_url&#8221;: &#8220;http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9&#8221;,<br />
   &#8220;project_name&#8221;:&#8220;base-app&#8221;,<br />
   &#8220;builds&#8221;: [<br />
     {<br />
