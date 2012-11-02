@@ -23,7 +23,7 @@ System packages installed by default include:
   <tbody>
     <tr>
       <td>Firefox</td>
-      <td>13.0.1</td>
+      <td>16.0.1</td>
     </tr>
     <tr>
       <td>libqtwebkit4</td>
@@ -63,7 +63,7 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>9.1.4</td>
+      <td>9.1.6</td>
     </tr>
     <tr>
       <td>Redis</td>
