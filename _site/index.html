@@ -41,9 +41,73 @@
         </header>
 
         <section class="body">
-          <p>Semaphore is a web service for continuous integration of Ruby applications.</p>
-<p>We&#8217;re designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can browse available articles in the sidebar on the right hand side.</p>
-<p>If you cannot find an answer here, please do not hesitate to email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
+          <p><a href="https://semaphoreapp.com">Semaphore</a> is a hosted continuous integration service for Ruby applications.</p>
+<p>We&#8217;re designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can find the <strong><span class="caps">FAQ</span></strong> below and browse available articles in the sidebar.</p>
+<h3>F.A.Q.</h3>
+<h3>&#8220;fatal: Could not parse object&#8221; during bundle install</h3>
+<p>If bundle install output looks like this:</p>
+<pre>
+Fetching gem metadata from http://rubygems.org/.......
+Fetching gem metadata from http://rubygems.org/..
+Updating git://github.com/some/gem.git
+fatal: Could not parse object 'a84dd3407eaf064064cca9650c354cb163384467'.
+Git error: command `git reset --hard a84dd3407eaf064064cca9650c354cb163384467` in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
+If this error persists you could try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
+</pre>
+<p>This problem occurs when there have been changes like force-pushes to a git repo which is referenced in a Gemfile.</p>
+<p>The solution is is to comment that gem line in Gemfile, run bundle, uncomment it and bundle again. Then the Gemfile.lock will reference a valid git revision.</p>
+<h3>How do I configure the database?</h3>
+<p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working database.yml in your project, based on the database selected in your project&#8217;s settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
+<p>If you have or need to write a custom build script, you can use the database name and password specified by exported <a href="/available-environment-variables">environment variables</a>.</p>
+<h3>How do I build a project with private gems?</h3>
+<p>Either use <a href="http://www.gemfury.com">Gemfury</a>, or follow this procedure:</p>
+<p>1) Generate a new passwordless <span class="caps">SSH</span> key pair:</p>
+<pre>ssh-keygen -f /tmp/key -t dsa</pre>
+<p>2) Put the content of <code>/tmp/key</code> into a private gist on GitHub and name the file <code>id_dsa</code>.</p>
+<p>3) Put the content of <code>/tmp/key.pub</code> as a new deploy key in your <a href="http://d.pr/i/qFcv">gem&#8217;s admin screen on GitHub</a>.</p>
+<p>4) Go to your app&#8217;s project settings on Semaphore and add the following build commands before all:</p>
+<pre>mkdir -p ~/.ssh
+cd ~/.ssh
+wget https://raw.github.com/gist/.../id_dsa (this is the path you get through the "raw" link on gist's page)
+chmod 600 id_dsa
+cd -
+</pre>
+<p>We&#8217;re considering to hide this behind a nice UI.</p>
+<h3>My project depends on X and you don&#8217;t seem to have it</h3>
+<p>Important packages that are available are listed in the <a href="/version-information">Version Information</a> article.</p>
+<p>We can enable any additional software on a per-project basis, just <a href="mailto:semaphore@renderedtext.com">email us</a> with your needs. Soon this will be freely available to all users.</p>
+<h3>How can I execute PostgreSQL commands?</h3>
+<p>Add a build command which looks something like:</p>
+<pre>psql -c "anything" -d $DATABASE_NAME_TEST -P pager</pre>
+<h3>My tests / integration specs / scenarios fail on Semaphore but pass locally</h3>
+<p>Headless, clean CI environment may make some tests more vulnerable:</p>
+<ul>
+	<li>Check if all your testing gems are up to date.</li>
+	<li>sleep() is a common source of <a href="http://www.eurostarconferences.com/blog/2012/10/17/test-leaders-live-webinar-qa-with-simon-stewart">flaky tests</a>.</li>
+	<li>Having your tests depend on a certain order of records will probably not work.</li>
+	<li>Tests depending on external web services will likely fail at some point &#8211; when that service blocks repeated access or becomes unavailable; use <a href="https://github.com/myronmarston/vcr"><span class="caps">VCR</span></a> to record responses once and play them back every next time</li>
+	<li>Avoid mixing mocks with real records.</li>
+	<li>If using Timecop, remember to reset any changes to time.</li>
+	<li>Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn&#8217;t rely on such deep system configuration changes.</li>
+</ul>
+<h3>Selenium tests are unable to obtain connection to Firefox</h3>
+<p>Make sure selenium-webdriver gem is at latest available version specified on <a href="https://rubygems.org">rubygems.org</a>. Use <code>bundle update selenium-webdriver capybara</code>, commit and push the resulting changes to Gemfile.lock.</p>
+<h3>I&#8217;m having issues with capybara-webkit</h3>
+<p>1. Check how your configuration compares to our <a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/steak">test app</a>, which is known to pass. The <code>spec_helper.rb</code>, for example, should have minimal configuration necessary.</p>
+<p>2. Do not run <code>xvfb</code> &#8211; Semaphore does that before each build.</p>
+<p>3. You can dump the content of the page to file with <a href="http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#save_page-instance_method">save_page</a>.</p>
+<p>That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what&#8217;s going on.</p>
+<p>We&#8217;ve found Selenium and Firefox to be more stable and predictable than Webkit.</p>
+<h3>My build takes longer than an hour</h3>
+<p>Semaphore automatically halts the build if a command takes longer than an hour &#8211; in most cases so far it has been a sign of something going wrong, like a debugger statement left in source code.</p>
+<p>But if your build really takes longer than an hour, you can you try running the specs or scenarios in two or more commands, eg:</p>
+<pre>
+bundle exec cucumber features/shopping_cart/*
+bundle exec cucumber features/reporting/*
+bundle exec cucumber features/something_else/*
+</pre>
+<p>You can then leverage Semaphore&#8217;s <a href="http://renderedtext.com/blog/2012/10/25/semaphore-can-now-parallelize-your-builds/">build parallelization feature</a> and run these simultaneously.</p>
+<p>If you have not found an answer here, please email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
         </section>
 
       </article>
