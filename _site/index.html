@@ -89,6 +89,7 @@ cd -
 	<li>Avoid mixing mocks with real records.</li>
 	<li>If using Timecop, remember to reset any changes to time.</li>
 	<li>Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn&#8217;t rely on such deep system configuration changes.</li>
+	<li>Changed the database_cleaner strategy to truncation for specs with :js =&gt; true.</li>
 </ul>
 <h3>Selenium tests are unable to obtain connection to Firefox</h3>
 <p>Make sure selenium-webdriver gem is at latest available version specified on <a href="https://rubygems.org">rubygems.org</a>. Use <code>bundle update selenium-webdriver capybara</code>, commit and push the resulting changes to Gemfile.lock.</p>

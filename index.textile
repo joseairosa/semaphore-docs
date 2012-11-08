@@ -78,6 +78,7 @@ Headless, clean CI environment may make some tests more vulnerable:
 * Avoid mixing mocks with real records.
 * If using Timecop, remember to reset any changes to time.
 * Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn't rely on such deep system configuration changes.
+* Changed the database_cleaner strategy to truncation for specs with :js => true.
 
 h3. Selenium tests are unable to obtain connection to Firefox
 
