@@ -79,6 +79,7 @@ Headless, clean CI environment may make some tests more vulnerable:
 * If using Timecop, remember to reset any changes to time.
 * Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn't rely on such deep system configuration changes.
 * Changed the database_cleaner strategy to truncation for specs with :js => true.
+* Make sure that your code is not prone to race conditions.
 
 h3. Selenium tests are unable to obtain connection to Firefox
 
@@ -95,6 +96,12 @@ h3. I'm having issues with capybara-webkit
 That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what's going on.
 
 We've found Selenium and Firefox to be more stable and predictable than Webkit.
+
+h3. My build fails if I have pending Cucumber scenarios
+
+This is by design - Cucumber returns with an error code if you have pending scenarios.
+
+If you'd like to avoid this, tag the work-in-progress scenarios and exclude them from your build via <code>--tags ~tag-to-exclude</code>.
 
 h3. My build takes longer than an hour
 

@@ -90,6 +90,7 @@ cd -
 	<li>If using Timecop, remember to reset any changes to time.</li>
 	<li>Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn&#8217;t rely on such deep system configuration changes.</li>
 	<li>Changed the database_cleaner strategy to truncation for specs with :js =&gt; true.</li>
+	<li>Make sure that your code is not prone to race conditions.</li>
 </ul>
 <h3>Selenium tests are unable to obtain connection to Firefox</h3>
 <p>Make sure selenium-webdriver gem is at latest available version specified on <a href="https://rubygems.org">rubygems.org</a>. Use <code>bundle update selenium-webdriver capybara</code>, commit and push the resulting changes to Gemfile.lock.</p>
@@ -99,6 +100,9 @@ cd -
 <p>3. You can dump the content of the page to file with <a href="http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#save_page-instance_method">save_page</a>.</p>
 <p>That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what&#8217;s going on.</p>
 <p>We&#8217;ve found Selenium and Firefox to be more stable and predictable than Webkit.</p>
+<h3>My build fails if I have pending Cucumber scenarios</h3>
+<p>This is by design &#8211; Cucumber returns with an error code if you have pending scenarios.</p>
+<p>If you&#8217;d like to avoid this, tag the work-in-progress scenarios and exclude them from your build via <code>--tags ~tag-to-exclude</code>.</p>
 <h3>My build takes longer than an hour</h3>
 <p>Semaphore automatically halts the build if a command takes longer than an hour &#8211; in most cases so far it has been a sign of something going wrong, like a debugger statement left in source code.</p>
 <p>But if your build really takes longer than an hour, you can you try running the specs or scenarios in two or more commands, eg:</p>
