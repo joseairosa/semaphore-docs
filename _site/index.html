@@ -99,6 +99,7 @@ cd -
 <p>2. Do not run <code>xvfb</code> &#8211; Semaphore does that before each build.</p>
 <p>3. You can dump the content of the page to file with <a href="http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#save_page-instance_method">save_page</a>.</p>
 <p>That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what&#8217;s going on.</p>
+<p>4. Make sure your views don&#8217;t have scripts such as Google Analytics running in test environment &#8211; they will cause timeouts.</p>
 <p>We&#8217;ve found Selenium and Firefox to be more stable and predictable than Webkit.</p>
 <h3>My build fails if I have pending Cucumber scenarios</h3>
 <p>This is by design &#8211; Cucumber returns with an error code if you have pending scenarios.</p>

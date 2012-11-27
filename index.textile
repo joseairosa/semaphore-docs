@@ -95,6 +95,8 @@ h3. I'm having issues with capybara-webkit
 
 That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what's going on.
 
+4. Make sure your views don't have scripts such as Google Analytics running in test environment - they will cause timeouts.
+
 We've found Selenium and Firefox to be more stable and predictable than Webkit.
 
 h3. My build fails if I have pending Cucumber scenarios
