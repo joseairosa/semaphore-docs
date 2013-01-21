@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="docs">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.typography.css"/>
+
+    <title>
+      
+      Heroku add-on -
+       Semaphore Documentation</title>
+  </head>
+  <body>
+    <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Try out Semaphore for free</a>
+  </div>
+
+  <ul>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
+  </ul>
+
+</nav>
+
+    <div id="mainContent" class="safGrid">
+
+      <header class="pageTitle">
+        <h1 class="col cs-8 first">Semaphore Documentation</h1>
+      </header>
+
+      <article class="primary col cs-9 first">
+
+        <header class="title">
+          <h2>Heroku add-on</h2>
+        </header>
+
+        <section class="body">
+          <p><a href='http://addons.heroku.com/semaphore'>Semaphore</a> is an <a href='http://addons.heroku.com'>add-on</a> for providing Semaphore service to all Heroku users.</p>
+
+<p><a href='https://semaphoreapp.com'>Semaphore app</a> is a hosted continuous integration service for Ruby applications.</p>
+
+<p>We’re designing it to be very easy to use, but if you need any help, we hope this document will give you all information which you need to use Semaphore with Heroku add-on</p>
+
+<h2 id='activating_addon'>Activating add-on</h2>
+
+<p>Semaphore add-on can be attached to a Heroku application on two ways:</p>
+<div class='callout'>
+<p>A list of all plans available can be found <a href='http://addons.heroku.com/semaphore'>here</a>.</p>
+</div>
+<ul>
+<li>
+<p>via Heroku interface at <a href='http://addons.heroku.com'>add-on catalog</a></p>
+</li>
+
+<li>
+<p>via Heroku command-line interface with command <code>heroku addons:add</code></p>
+</li>
+</ul>
+
+<p><code>
+  $ heroku addons:add semaphore
+  -----&gt; Adding semaphore to sharp-mountain-4005... done, v18 (free)
+</code></p>
+
+<p>After installing Semaphore add-on the application should be configured to fully integrate with the application. Next step is to access Semaphore through Heroku interface and run your first build.</p>
+
+<h2 id='using_semaphore_with_addon'>Using Semaphore with add-on</h2>
+
+<p>Using Semaphore is easy, just follow this simple steps:</p>
+
+<ul>
+<li>Authorize Github account</li>
+
+<li>Select project</li>
+
+<li>Select build commands</li>
+
+<li>Build</li>
+</ul>
+
+<p>After adding Semaphore add-on to your application you are be able to access Semaphore via Heroku interface (Just click on add-on name on your application resources page).</p>
+
+<h3 id='_authorize_github_account'>- Authorize Github account</h3>
+
+<p>First thing you must do is to chose would you like to build from private or public repository on github.</p>
+
+<p><img alt='Github authentication screen' src='/assets/images/heroku-addon-1.jpg' /></p>
+
+<p>After choosing repository, you will have to autorize your github account.</p>
+
+<p><img alt='Authorize github account' src='/assets/images/heroku-addon-2.jpg' /></p>
+
+<h3 id='_select_project'>- Select project</h3>
+
+<p>After authorizing github account, you are able to select which project and which branch you want to build.</p>
+
+<p><img alt='Select project' src='/assets/images/heroku-addon-3.jpg' /></p>
+
+<h3 id='_select_build_commands'>- Select build commands</h3>
+
+<p>Semaphore will analyze your project and after that you are ready to build, select build commands for your project and Semaphore will run your builds every time you push to selected repository. If you add any branches later to your repository, we will detect that and you will be able to run tests for that branches too.</p>
+
+<p><img alt='Build settings' src='/assets/images/heroku-addon-4.jpg' /></p>
+
+<h3 id='_build'>- Build</h3>
+
+<p>When setup is done, you have simple interface for viewing status of your build. Here you can see current status, or find more about successful/failed build when build process completes.</p>
+
+<p><img alt='Build status' src='/assets/images/heroku-addon-5.jpg' /></p>
+
+<h2 id='migrating_between_plans'>Migrating between plans</h2>
+
+<p>Migrating between plans can be done:</p>
+
+<ul>
+<li>
+<p>via Heroku interface at <a href='http://addons.heroku.com'>add-on catalog</a></p>
+</li>
+
+<li>
+<p>via Heroku command-line interface with command <code>heroku addons:upgrade</code></p>
+</li>
+</ul>
+
+<p><code>
+  $ heroku addons:upgrade semaphore:newplan
+  -----&gt; Upgrading semaphore:newplan to sharp-mountain-4005... done, v18 ($49/mo)
+         Your plan has been updated to: semaphore:newplan
+</code></p>
+
+<h2 id='removing_the_addon'>Removing the add-on</h2>
+<div class='warning'>
+<p>This will destroy all associated data and cannot be undone!</p>
+</div>
+<p>Semaphore add-on can be removed:</p>
+
+<ul>
+<li>
+<p>via Heroku interface at <a href='http://addons.heroku.com'>add-on catalog</a></p>
+</li>
+
+<li>
+<p>via Heroku command-line interface with command <code>heroku addons:remove</code></p>
+</li>
+</ul>
+
+<p><code>
+  $ heroku addons:remove semaphore
+  -----&gt; Removing semaphore from sharp-mountain-4005... done, v20 (free)
+</code></p>
+
+<h2 id='supported_application_stack'>Supported application stack</h2>
+
+<p>Semaphore can build programs based on Ruby and Bundler. At the moment it fully supports the following:</p>
+
+<p><strong>Database engines</strong></p>
+
+<ul>
+<li>PostgreSQL</li>
+
+<li>MySQL</li>
+
+<li>SQLite</li>
+
+<li>Redis</li>
+
+<li>MongoDB</li>
+</ul>
+
+<p><strong>Test frameworks and backends</strong></p>
+
+<ul>
+<li>test/unit</li>
+
+<li>RSpec</li>
+
+<li>Cucumber</li>
+
+<li>Steak</li>
+
+<li>Capybara with Selenium</li>
+
+<li>Capybara Webkit</li>
+
+<li>Poltergeist and PhantomJS</li>
+</ul>
+
+<p>You can also use any other, provided it’s configured in your bundle and you <strong>add a custom build command</strong>, including:</p>
+
+<ul>
+<li>Jasmine</li>
+
+<li>Minitest</li>
+</ul>
+
+<p>To find more about supported application stack please visit <a href='http://docs.semaphoreapp.com/supported-stack'>Semaphore Docs</a>.</p>
+
+<h2 id='support'>Support</h2>
+
+<p>Semaphore support and runtime issues should be logged with Heroku Support at <a href='support.heroku.com'>Heroku Support channels</a>. Any non-support related issues or product feedback is welcome at <a href='semaphore@renderedtext.com'>semaphore@renderedtext.com</a> or via Twitter <a href='http://twitter.com/semaphoreapp'>@SemaphoreApp</a></p>
+
+<p>For more information about Semaphore visit <a href='https://semaphoreapp.com/'>SemaphoreApp.com</a> and <a href='http://docs.semaphoreapp.com/'>Semaphorore docs</a>.</p>
+        </section>
+
+      </article>
+
+      <aside class="col cs-3">
+        <h2>Articles</h2>
+        <ul>
+          <li><a href="/adding-new-project">Adding a New Project</a></li>
+          <li><a href="/api">API</a></li>
+          <li><a href="/available-environment-variables">Available Environment Variables</a></li>
+          <li><a href="/collaborator-notifications">Collaborator Notifications</a></li>
+          <li><a href="/custom-build-commands">Custom Build Commands</a></li>
+          <li><a href="/supported-stack">Supported Stack</a></li>
+          <li><a href="/test-apps">Test Apps</a></li>
+          <li><a href="/version-information">Version Information</a></li>
+          <li><a href="/webhooks">Webhooks</a></li>
+          <li><a href="/wkhtmltopdf-configuration">Wkhtmltopdf Configuration</a></li>
+        </ul>
+      </aside>
+    </div>
+    <footer class="safGrid">
+  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
+  </body>
+</html>
