@@ -47,17 +47,17 @@
 
 <p><a href='https://semaphoreapp.com'>Semaphore app</a> is a hosted continuous integration service for Ruby applications.</p>
 
-<p>We’re designing it to be very easy to use, but if you need any help, we hope this document will give you all information which you need to use Semaphore with Heroku add-on</p>
+<p>This document provides all the information you need in order to use Semaphore with your application hosted on Heroku.</p>
 
-<h2 id='activating_addon'>Activating add-on</h2>
+<h2 id='activating_the_addon'>Activating the add-on</h2>
 
 <p>Semaphore add-on can be attached to a Heroku application on two ways:</p>
-<div class='callout'>
-<p>A list of all plans available can be found <a href='http://addons.heroku.com/semaphore'>here</a>.</p>
-</div>
+<!-- <div class="callout" markdown="1">
+A list of all plans available can be found [here](http://addons.heroku.com/semaphore).
+</div> -->
 <ul>
 <li>
-<p>via Heroku interface at <a href='http://addons.heroku.com'>add-on catalog</a></p>
+<p>via Heroku web interface at <a href='http://addons.heroku.com'>the add-on catalog</a></p>
 </li>
 
 <li>
@@ -74,45 +74,45 @@
 
 <h2 id='using_semaphore_with_addon'>Using Semaphore with add-on</h2>
 
-<p>Using Semaphore is easy, just follow this simple steps:</p>
+<p>Using Semaphore is easy, just follow these steps:</p>
 
 <ul>
-<li>Authorize Github account</li>
+<li>Connect with GitHub</li>
 
 <li>Select project</li>
 
-<li>Select build commands</li>
+<li>Review build commands</li>
 
 <li>Build</li>
 </ul>
 
-<p>After adding Semaphore add-on to your application you are be able to access Semaphore via Heroku interface (Just click on add-on name on your application resources page).</p>
+<p>After adding Semaphore add-on to your application you will be able to access Semaphore via Heroku interface, from your application resources page.</p>
 
-<h3 id='_authorize_github_account'>- Authorize Github account</h3>
+<h3 id='_connect_with_github'>- Connect with GitHub</h3>
 
-<p>First thing you must do is to chose would you like to build from private or public repository on github.</p>
+<p>First thing you must do is to choose whether you&#8217;d like to build from a private or public repository on GitHub.</p>
 
-<p><img alt='Github authentication screen' src='/assets/images/heroku-addon-1.jpg' /></p>
+<p><img alt='GitHub authentication screen' src='/assets/images/heroku-addon-1.jpg' /></p>
 
-<p>After choosing repository, you will have to autorize your github account.</p>
+<p>Authorize Semaphore with your GitHub account.</p>
 
-<p><img alt='Authorize github account' src='/assets/images/heroku-addon-2.jpg' /></p>
+<p><img alt='Authorize GitHub account' src='/assets/images/heroku-addon-2.jpg' /></p>
 
 <h3 id='_select_project'>- Select project</h3>
 
-<p>After authorizing github account, you are able to select which project and which branch you want to build.</p>
+<p>After authorizing GitHub account, you are able to select a project and branch that you want to build.</p>
 
 <p><img alt='Select project' src='/assets/images/heroku-addon-3.jpg' /></p>
 
-<h3 id='_select_build_commands'>- Select build commands</h3>
+<h3 id='_review_build_commands'>- Review build commands</h3>
 
-<p>Semaphore will analyze your project and after that you are ready to build, select build commands for your project and Semaphore will run your builds every time you push to selected repository. If you add any branches later to your repository, we will detect that and you will be able to run tests for that branches too.</p>
+<p>Semaphore will analyze your project and present you a suggested configuration and build commands that will run every time you push to the selected repository. If necessary you can change the version of Ruby or build commands at this step.</p>
 
 <p><img alt='Build settings' src='/assets/images/heroku-addon-4.jpg' /></p>
 
 <h3 id='_build'>- Build</h3>
 
-<p>When setup is done, you have simple interface for viewing status of your build. Here you can see current status, or find more about successful/failed build when build process completes.</p>
+<p>At this point, setup is complete and your build will begin. You can watch its&#8217; progress live or come back and view the logs later. Semaphore will automatically test your application every time you push to GitHub. New branches will be detected and built automatically.</p>
 
 <p><img alt='Build status' src='/assets/images/heroku-addon-5.jpg' /></p>
 
@@ -159,55 +159,13 @@
 
 <h2 id='supported_application_stack'>Supported application stack</h2>
 
-<p>Semaphore can build programs based on Ruby and Bundler. At the moment it fully supports the following:</p>
-
-<p><strong>Database engines</strong></p>
-
-<ul>
-<li>PostgreSQL</li>
-
-<li>MySQL</li>
-
-<li>SQLite</li>
-
-<li>Redis</li>
-
-<li>MongoDB</li>
-</ul>
-
-<p><strong>Test frameworks and backends</strong></p>
-
-<ul>
-<li>test/unit</li>
-
-<li>RSpec</li>
-
-<li>Cucumber</li>
-
-<li>Steak</li>
-
-<li>Capybara with Selenium</li>
-
-<li>Capybara Webkit</li>
-
-<li>Poltergeist and PhantomJS</li>
-</ul>
-
-<p>You can also use any other, provided it’s configured in your bundle and you <strong>add a custom build command</strong>, including:</p>
-
-<ul>
-<li>Jasmine</li>
-
-<li>Minitest</li>
-</ul>
-
-<p>To find more about supported application stack please visit <a href='http://docs.semaphoreapp.com/supported-stack'>Semaphore Docs</a>.</p>
+<p>Semaphore can build programs based on Ruby and Bundler. To find out more about supported application stack please visit <a href='http://docs.semaphoreapp.com/supported-stack'>Semaphore documentation</a>.</p>
 
 <h2 id='support'>Support</h2>
 
 <p>Semaphore support and runtime issues should be logged with Heroku Support at <a href='support.heroku.com'>Heroku Support channels</a>. Any non-support related issues or product feedback is welcome at <a href='semaphore@renderedtext.com'>semaphore@renderedtext.com</a> or via Twitter <a href='http://twitter.com/semaphoreapp'>@SemaphoreApp</a></p>
 
-<p>For more information about Semaphore visit <a href='https://semaphoreapp.com/'>SemaphoreApp.com</a> and <a href='http://docs.semaphoreapp.com/'>Semaphorore docs</a>.</p>
+<p>For more information about Semaphore visit <a href='https://semaphoreapp.com/'>SemaphoreApp.com</a> and <a href='http://docs.semaphoreapp.com/'>Semaphore docs</a>.</p>
         </section>
 
       </article>
