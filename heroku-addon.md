@@ -7,18 +7,17 @@ title: Heroku add-on
 
 [Semaphore app](https://semaphoreapp.com) is a hosted continuous integration service for Ruby applications.
 
-We’re designing it to be very easy to use, but if you need any help, we hope this document will give you all information which you need to use Semaphore with Heroku add-on
+This document provides all the information you need in order to use Semaphore with your application hosted on Heroku.
 
-
-## Activating add-on
+## Activating the add-on
 
 Semaphore add-on can be attached to a Heroku application on two ways:
   
-<div class="callout" markdown="1">
+<!-- <div class="callout" markdown="1">
 A list of all plans available can be found [here](http://addons.heroku.com/semaphore).
-</div>
+</div> -->
 
-- via Heroku interface at [add-on catalog](http://addons.heroku.com)
+- via Heroku web interface at [the add-on catalog](http://addons.heroku.com)
 
 - via Heroku command-line interface with command `heroku addons:add`
 
@@ -33,40 +32,41 @@ Next step is to access Semaphore through Heroku interface and run your first bui
 
 ## Using Semaphore with add-on
 
-Using Semaphore is easy, just follow this simple steps:
+Using Semaphore is easy, just follow these steps:
 
-- Authorize Github account
+- Connect with GitHub
 - Select project
-- Select build commands
+- Review build commands
 - Build
 
-After adding Semaphore add-on to your application you are be able to access Semaphore via Heroku interface (Just click on add-on name on your application resources page).
+After adding Semaphore add-on to your application you will be able to access Semaphore via Heroku interface, from your application resources page.
 
-### - Authorize Github account
+### - Connect with GitHub 
 
-First thing you must do is to chose would you like to build from private or public repository on github.
+First thing you must do is to choose whether you'd like to build from a private or public repository on GitHub.
 
-![Github authentication screen](/assets/images/heroku-addon-1.jpg)
 
-After choosing repository, you will have to autorize your github account.
+![GitHub authentication screen](/assets/images/heroku-addon-1.jpg)
 
-![Authorize github account](/assets/images/heroku-addon-2.jpg)
+Authorize Semaphore with your GitHub account.
+
+![Authorize GitHub account](/assets/images/heroku-addon-2.jpg)
 
 ### - Select project
 
-After authorizing github account, you are able to select which project and which branch you want to build.
+After authorizing GitHub account, you are able to select a project and branch that you want to build.
 
 ![Select project](/assets/images/heroku-addon-3.jpg)
 
-### - Select build commands
+### - Review build commands
 
-Semaphore will analyze your project and after that you are ready to build, select build commands for your project and Semaphore will run your builds every time you push to selected repository. If you add any branches later to your repository, we will detect that and you will be able to run tests for that branches too.
+Semaphore will analyze your project and present you a suggested configuration and build commands that will run every time you push to the selected repository. If necessary you can change the version of Ruby or build commands at this step.
 
 ![Build settings](/assets/images/heroku-addon-4.jpg)
 
 ### - Build
 
-When setup is done, you have simple interface for viewing status of your build. Here you can see current status, or find more about successful/failed build when build process completes.
+At this point, setup is complete and your build will begin. You can watch its' progress live or come back and view the logs later. Semaphore will automatically test your application every time you push to GitHub. New branches will be detected and built automatically.
 
 ![Build status](/assets/images/heroku-addon-5.jpg)
 
@@ -101,35 +101,11 @@ Semaphore add-on can be removed:
 
 ## Supported application stack
 
-Semaphore can build programs based on Ruby and Bundler. At the moment it fully supports the following:
-
-__Database engines__
-
-- PostgreSQL
-- MySQL
-- SQLite
-- Redis
-- MongoDB
-
-__Test frameworks and backends__
-
-- test/unit
-- RSpec
-- Cucumber
-- Steak
-- Capybara with Selenium
-- Capybara Webkit
-- Poltergeist and PhantomJS
-
-You can also use any other, provided it’s configured in your bundle and you __add a custom build command__, including:
-
-- Jasmine
-- Minitest
-
-To find more about supported application stack please visit [Semaphore Docs](http://docs.semaphoreapp.com/supported-stack).
+Semaphore can build programs based on Ruby and Bundler. To find out more about supported application stack please visit 
+[Semaphore documentation](http://docs.semaphoreapp.com/supported-stack).
 
 ## Support
 
 Semaphore support and runtime issues should be logged with Heroku Support at [Heroku Support channels](support.heroku.com). Any non-support related issues or product feedback is welcome at [semaphore@renderedtext.com](semaphore@renderedtext.com) or via Twitter [@SemaphoreApp](http://twitter.com/semaphoreapp)
 
-For more information about Semaphore visit [SemaphoreApp.com](https://semaphoreapp.com/) and [Semaphorore docs](http://docs.semaphoreapp.com/).
+For more information about Semaphore visit [SemaphoreApp.com](https://semaphoreapp.com/) and [Semaphore docs](http://docs.semaphoreapp.com/).
