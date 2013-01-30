@@ -3,7 +3,7 @@ layout: default
 title: Supported application stack
 ---
 
-Semaphore can build programs based on Ruby and Bundler. At the moment it fully supports the following:
+Semaphore can build programs based on Ruby and Bundler. Out of the box it fully supports the following:
 
 h3. Database engines
 
