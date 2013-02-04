@@ -6,7 +6,7 @@ title: Version information
 Builds on Semaphore run on Ubuntu 12.04 Precise LTS. The following Ruby versions are available via "rbenv":https://github.com/sstephenson/rbenv/:
 
 * 1.9.2-p320
-* 1.9.3-p327
+* 1.9.3-p374
 * ree-1.8.7-2012.02
 * JRuby 1.7.1
 * Bundler 1.2.3 (on all)
