@@ -113,6 +113,21 @@ bundle exec cucumber features/reporting/*
 bundle exec cucumber features/something_else/*
 </pre>
 <p>You can then leverage Semaphore&#8217;s <a href="http://renderedtext.com/blog/2012/10/25/semaphore-can-now-parallelize-your-builds/">build parallelization feature</a> and run these simultaneously.</p>
+<h3>My Sphinx tests fail</h3>
+<p>If you are using Thinking Sphinx, make sure that that you run this command before your tests:</p>
+<pre>
+RAILS_ENV=test bundle exec rake ts:index
+</pre>
+<p>Than you can either run</p>
+<pre>
+RAILS_ENV=test bundle exec rake ts:start &amp;
+</pre>
+<p>or use</p>
+<pre>
+ThinkingSphinx::Test.start
+ThinkingSphinx::Test.stop
+</pre>
+<p>directly in the source code of your tests.</p>
 <p>If you have not found an answer here, please email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
         </section>
 
