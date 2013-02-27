@@ -5,8 +5,9 @@ title: Version information
 
 Builds on Semaphore run on Ubuntu 12.04 Precise LTS. The following Ruby versions are available via "rbenv":https://github.com/sstephenson/rbenv/:
 
-* 1.9.2-p320
+* 2.0.0-p0
 * 1.9.3-p374 (p327 is also available)
+* 1.9.2-p320
 * ree-1.8.7-2012.02
 * JRuby 1.7.1
 * Bundler 1.2.4 (on all)
@@ -31,7 +32,7 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>Firefox</td>
-      <td>18.0.2</td>
+      <td>19.0</td>
     </tr>
     <tr>
       <td>libqtwebkit4</td>
@@ -43,7 +44,7 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>Java (openjdk)</td>
-      <td>7u13-2.3.6</td>
+      <td>7u13-2.3.7</td>
     </tr>
     <tr>
       <td>Linux kernel</td>
@@ -59,11 +60,11 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>5.5.28</td>
+      <td>5.5.29</td>
     </tr>
     <tr>
       <td>Node.js</td>
-      <td>0.8.19</td>
+      <td>0.8.21</td>
     </tr>
     <tr>
       <td>PhantomJS</td>
@@ -75,7 +76,7 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>Redis</td>
-      <td>2.2.12</td>
+      <td>2.6.10</td>
     </tr>
     <tr>
       <td>Sphinx</td>
