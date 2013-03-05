@@ -9,6 +9,10 @@ We're designing it to be very easy to use, but if you have any questions, we hop
 
 h3. F.A.Q.
 
+h3. "file not found: db:create (ArgumentError)"
+
+Add test-unit gem to your Gemfile. More info "here":http://stackoverflow.com/a/9571551.
+
 h3. "fatal: Could not parse object" during bundle install
 
 If bundle install output looks like this:
