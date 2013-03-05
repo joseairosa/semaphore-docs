@@ -11,7 +11,7 @@ h3. F.A.Q.
 
 h3. "file not found: db:create (ArgumentError)"
 
-Add test-unit gem to your Gemfile. More info "here":http://stackoverflow.com/a/9571551.
+Add test-unit gem to your Gemfile. More info "here":http://stackoverflow.com/a/9571551 and "here":http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test.
 
 h3. "fatal: Could not parse object" during bundle install
 
