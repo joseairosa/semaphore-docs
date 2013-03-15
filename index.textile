@@ -146,4 +146,8 @@ ThinkingSphinx::Test.stop
 
 directly in the source code of your tests.
 
+h3. I'm having problems with git submodules
+
+Due to current internal mechanism of repository and bundle caching, Semaphore is known for not working well with projects that contain git submodules.
+
 If you have not found an answer here, please email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.
