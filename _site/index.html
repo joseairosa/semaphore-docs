@@ -44,23 +44,21 @@
           <p><a href="https://semaphoreapp.com">Semaphore</a> is a hosted continuous integration service for Ruby applications.</p>
 <p>We&#8217;re designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can find the <strong><span class="caps">FAQ</span></strong> below and browse available articles in the sidebar.</p>
 <h3>F.A.Q.</h3>
-<h3>&#8220;file not found: db:create (ArgumentError)&#8221;</h3>
-<p>Upgrade shoulda gem, or add <code>:require =&gt; false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info <a href="http://stackoverflow.com/a/9571551">here</a> and <a href="http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test">here</a>.</p>
-<h3>&#8220;fatal: Could not parse object&#8221; during bundle install</h3>
-<p>If bundle install output looks like this:</p>
+<h3>Is it possible to override build commands on some branches?</h3>
+<p>Yes. Since the environment variable <code>BRANCH_NAME</code> is <a href="/available-environment-variables">available</a>, you can add a new build command to your project settings such as:</p>
 <pre>
-Fetching gem metadata from http://rubygems.org/.......
-Fetching gem metadata from http://rubygems.org/..
-Updating git://github.com/some/gem.git
-fatal: Could not parse object 'a84dd3407eaf064064cca9650c354cb163384467'.
-Git error: command `git reset --hard a84dd3407eaf064064cca9650c354cb163384467` in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
-If this error persists you could try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
+if [ "$BRANCH_NAME" = "acceptance-tests" ]; then bundle exec rake spec:acceptance ; fi
 </pre>
-<p>This problem occurs when there have been changes like force-pushes to a git repo which is referenced in a Gemfile.</p>
-<p>The solution is is to comment that gem line in Gemfile, run bundle, uncomment it and bundle again. Then the Gemfile.lock will reference a valid git revision.</p>
 <h3>How do I configure the database?</h3>
 <p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working database.yml in your project, based on the database selected in your project&#8217;s settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
 <p>If you have or need to write a custom build script, you can use the database name and password specified by exported <a href="/available-environment-variables">environment variables</a>.</p>
+<h3>Can I use Postgres, MongoDB and Redis on one project?</h3>
+<p>Yes. Select Postgres as your database in project settings; that will make sure that Semaphore injects a working <code>database.yml</code> file.</p>
+<p>For Mongo, you&#8217;ll need to add build command such as:</p>
+<pre>
+cp config/mongoid.yml.example config/mongoid.yml</pre>
+<p>Default MongoDB configuration file that you use in development will work, no credentials are required.</p>
+<p>Redis is running on default port and by default works without any configuration.</p>
 <h3>How do I build a project with private gems?</h3>
 <p>Either use <a href="http://www.gemfury.com">Gemfury</a>, or follow this procedure:</p>
 <p>1) Generate a new passwordless <span class="caps">SSH</span> key pair:</p>
@@ -76,22 +74,41 @@ cd -
 </pre>
 <p>We&#8217;re considering to hide this behind a nice UI.</p>
 <h3>My project depends on X and you don&#8217;t seem to have it</h3>
-<p>Important packages that are available are listed in the <a href="/version-information">Version Information</a> article.</p>
-<p>We can enable any additional software on a per-project basis, just <a href="mailto:semaphore@renderedtext.com">email us</a> with your needs. Soon this will be freely available to all users.</p>
-<h3>How can I execute PostgreSQL commands?</h3>
+<p>Important packages that are available in the platform are listed in the <a href="/version-information">Version Information</a> article.</p>
+<p>Additional dependencies can be added by simply adding an installation command to your build settings:</p>
+<pre>
+sudo apt-get install -y libawesome-dev
+</pre>
+<p>If you need help, just <a href="mailto:semaphore@renderedtext.com">email us</a> with your needs. If not, we&#8217;d still love to hear from you &#8211; knowing that many people are using a particular dependency generally encourages us to add it to platform.</p>
+<h3>How can I execute Postgres commands?</h3>
 <p>Add a build command which looks something like:</p>
 <pre>psql -c "anything" -d $DATABASE_NAME_TEST -P pager</pre>
+<h3>&#8220;fatal: Could not parse object&#8221; during bundle install</h3>
+<p>If bundle install output looks like this:</p>
+<pre>
+Fetching gem metadata from http://rubygems.org/.......
+Fetching gem metadata from http://rubygems.org/..
+Updating git://github.com/some/gem.git
+fatal: Could not parse object 'a84dd3407eaf064064cca9650c354cb163384467'.
+Git error: command `git reset --hard a84dd3407eaf064064cca9650c354cb163384467` in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
+If this error persists you could try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
+</pre>
+<p>This problem occurs when there have been changes like force-pushes to a git repo which is referenced in a Gemfile.</p>
+<p>The solution is is to comment that gem line in Gemfile, run bundle, uncomment it and bundle again. Then the Gemfile.lock will reference a valid git revision.</p>
+<h3>&#8220;file not found: db:create (ArgumentError)&#8221;</h3>
+<p>Upgrade shoulda gem, or add <code>:require =&gt; false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info <a href="http://stackoverflow.com/a/9571551">here</a> and <a href="http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test">here</a>.</p>
 <h3>My tests / integration specs / scenarios fail on Semaphore but pass locally</h3>
 <p>Headless, clean CI environment may make some tests more vulnerable:</p>
 <ul>
-	<li>Check if all your testing gems are up to date.</li>
-	<li>sleep() is a common source of <a href="http://www.eurostarconferences.com/blog/2012/10/17/test-leaders-live-webinar-qa-with-simon-stewart">flaky tests</a>.</li>
+	<li>Double-check if your local development environment has some configuration which was introduced manually and is not available after a fresh repository checkout.</li>
+	<li>Check if all your testing gems and configuration are up to date.</li>
+	<li><code>sleep()</code> is a common source of <a href="http://www.eurostarconferences.com/blog/2012/10/17/test-leaders-live-webinar-qa-with-simon-stewart">flaky tests</a>.</li>
 	<li>Having your tests depend on a certain order of records will probably not work.</li>
 	<li>Tests depending on external web services will likely fail at some point &#8211; when that service blocks repeated access or becomes unavailable; use <a href="https://github.com/myronmarston/vcr"><span class="caps">VCR</span></a> to record responses once and play them back every next time</li>
 	<li>Avoid mixing mocks with real records.</li>
 	<li>If using Timecop, remember to reset any changes to time.</li>
 	<li>Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn&#8217;t rely on such deep system configuration changes.</li>
-	<li>Changed the database_cleaner strategy to truncation for specs with :js =&gt; true.</li>
+	<li>Change the database_cleaner strategy to truncation for specs with :js =&gt; true.</li>
 	<li>Make sure that your code is not prone to race conditions.</li>
 </ul>
 <h3>Selenium tests are unable to obtain connection to Firefox</h3>
