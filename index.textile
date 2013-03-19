@@ -81,6 +81,12 @@ Add a build command which looks something like:
 
 <pre>psql -c "anything" -d $DATABASE_NAME_TEST -P pager</pre>
 
+h3. Build fails with "Unknown database 'xyz_test'"
+
+That message usually means that rake db:* tasks have set up the @_development@ database and not the @_test@ one which is required by the tests.
+
+Try adding @RAILS_ENV=test@ to your build commands.
+
 h3. "fatal: Could not parse object" during bundle install
 
 If bundle install output looks like this:

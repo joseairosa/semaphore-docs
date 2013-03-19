@@ -85,6 +85,9 @@ sudo apt-get install -y libawesome-dev
 <h3>How can I execute Postgres commands?</h3>
 <p>Add a build command which looks something like:</p>
 <pre>psql -c "anything" -d $DATABASE_NAME_TEST -P pager</pre>
+<h3>Build fails with &#8220;Unknown database &#8216;xyz_test&#8217;&#8221;</h3>
+<p>That message usually means that rake db:* tasks have set up the <code>_development</code> database and not the <code>_test</code> one which is required by the tests.</p>
+<p>Try adding <code>RAILS_ENV=test</code> to your build commands.</p>
 <h3>&#8220;fatal: Could not parse object&#8221; during bundle install</h3>
 <p>If bundle install output looks like this:</p>
 <pre>
