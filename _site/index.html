@@ -49,8 +49,10 @@
 <pre>
 if [ "$BRANCH_NAME" = "acceptance-tests" ]; then bundle exec rake spec:acceptance ; fi
 </pre>
+<h3>How can I export some environment variables or insert my configuration file?</h3>
+<p>Simply add <code>export VAR=foo</code> or <code>cp config/.env.sample config/.env</code> to your build commands (in project settings).</p>
 <h3>How do I configure the database?</h3>
-<p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working database.yml in your project, based on the database selected in your project&#8217;s settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
+<p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working <code>database.yml</code> in your project, based on the database selected in your project&#8217;s settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
 <p>If you have or need to write a custom build script, you can use the database name and password specified by exported <a href="/available-environment-variables">environment variables</a>.</p>
 <h3>Can I use Postgres, MongoDB and Redis on one project?</h3>
 <p>Yes. Select Postgres as your database in project settings; that will make sure that Semaphore injects a working <code>database.yml</code> file.</p>
@@ -60,7 +62,7 @@ cp config/mongoid.yml.example config/mongoid.yml</pre>
 <p>Default MongoDB configuration file that you use in development will work, no credentials are required.</p>
 <p>Redis is running on default port and by default works without any configuration.</p>
 <h3>How do I build a project with private gems?</h3>
-<p>Either use <a href="http://www.gemfury.com">Gemfury</a>, or follow this procedure:</p>
+<p>Either use a hosted private gem repository such as <a href="http://www.gemfury.com">Gemfury</a>, or follow this procedure:</p>
 <p>1) Generate a new passwordless <span class="caps">SSH</span> key pair:</p>
 <pre>ssh-keygen -f /tmp/key -t dsa</pre>
 <p>2) Put the content of <code>/tmp/key</code> into a private gist on GitHub and name the file <code>id_dsa</code>.</p>

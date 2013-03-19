@@ -17,9 +17,13 @@ Yes. Since the environment variable @BRANCH_NAME@ is "available":/available-envi
 if [ "$BRANCH_NAME" = "acceptance-tests" ]; then bundle exec rake spec:acceptance ; fi
 </pre>
 
+h3. How can I export some environment variables or insert my configuration file?
+
+Simply add @export VAR=foo@ or @cp config/.env.sample config/.env@ to your build commands (in project settings).
+
 h3. How do I configure the database?
 
-You shouldn't normally need to do that, as Semaphore automatically inserts a working database.yml in your project, based on the database selected in your project's settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.
+You shouldn't normally need to do that, as Semaphore automatically inserts a working @database.yml@ in your project, based on the database selected in your project's settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.
 
 If you have or need to write a custom build script, you can use the database name and password specified by exported "environment variables":/available-environment-variables.
 
@@ -38,7 +42,7 @@ Redis is running on default port and by default works without any configuration.
 
 h3. How do I build a project with private gems?
 
-Either use "Gemfury":http://www.gemfury.com, or follow this procedure:
+Either use a hosted private gem repository such as "Gemfury":http://www.gemfury.com, or follow this procedure:
 
 1) Generate a new passwordless SSH key pair:
 
