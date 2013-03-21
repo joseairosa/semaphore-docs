@@ -61,7 +61,7 @@ sudo sh -c "echo 'yourchange' &gt;&gt; /etc/hosts"
 sudo sh -c "curl https://raw.github.com/gist/raw_url &gt;&gt; /etc/hosts"
 </pre>
 <h3>How do I configure the database?</h3>
-<p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working <code>database.yml</code> in your project, based on the database selected in your project&#8217;s settings. On top of that, we insert <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
+<p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working <code>database.yml</code> in your project, based on the database selected in your project&#8217;s settings. On top of that, project analysis usually inserts <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
 <p>If you have or need to write a custom build script, you can use the database name and password specified by exported <a href="/available-environment-variables">environment variables</a>.</p>
 <h3>Can I use Postgres, MongoDB and Redis on one project?</h3>
 <p>Yes. Select Postgres as your database in project settings; that will make sure that Semaphore injects a working <code>database.yml</code> file.</p>
@@ -94,9 +94,9 @@ sudo apt-get install -y libawesome-dev
 <h3>How can I execute Postgres commands?</h3>
 <p>Add a build command which looks something like:</p>
 <pre>psql -c "anything" -d $DATABASE_NAME_TEST -P pager</pre>
-<h3>Build fails with &#8220;Unknown database &#8216;xyz_test&#8217;&#8221;</h3>
-<p>That message usually means that rake db:* tasks have set up the <code>_development</code> database and not the <code>_test</code> one which is required by the tests.</p>
-<p>Try adding <code>RAILS_ENV=test</code> to your build commands.</p>
+<h3>Build fails with &#8220;Unknown database &#8216;xyz_test&#8217;&#8221; or &quot;FATAL:  database &#8220;xyx_test&#8221; does not exist&quot;</h3>
+<p>The first message usually means that rake db:* tasks have set up the <code>_development</code> database and not the <code>_test</code> one which is required by the tests. Try adding <code>RAILS_ENV=test</code> to your build commands.</p>
+<p>In the second case, make sure you have <code>bundle exec rake db:setup</code> and <code>bundle exec rake db:test:prepare</code> in your build commands, as the test database is not created before the build begins.</p>
 <h3>&#8220;fatal: Could not parse object&#8221; during bundle install</h3>
 <p>If bundle install output looks like this:</p>
 <pre>
@@ -163,6 +163,8 @@ ThinkingSphinx::Test.stop
 <p>directly in the source code of your tests.</p>
 <h3>I&#8217;m having problems with git submodules</h3>
 <p>Due to current internal mechanism of repository and bundle caching, Semaphore is known for not working well with projects that contain git submodules.</p>
+<h3>How do I change my credit card information?</h3>
+<p>In the top left corner, click on &#8220;Manage your account&#8221; &gt; &#8220;Subscriptions&#8221; &gt; &#8220;Your billing history&#8221; &gt; &#8220;Update Payment Method&#8221;.</p>
 <p>If you have not found an answer here, please email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
         </section>
 
