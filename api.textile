@@ -9,6 +9,7 @@ Semaphore provides an API for the following:
 * listing of project's branches
 * status of a project's branch
 * history of a project's branch
+* build information
 
 p(accent). All API access is over HTTPS. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter.
 
@@ -200,4 +201,38 @@ h4. Response
          }
       }
    ]
+}</code></pre>
+
+h3. 5. Build Information
+
+<pre>GET /api/v1/projects/:hash_id/:id/builds/:number</pre>
+
+h4. Arguments
+
+# <code>hash_id</code> of the project
+# <code>id</code> of the branch
+# <code>number</code> of the build
+
+h4. Response
+
+<pre><code>{
+  "commits": [
+    {
+      "id": "47b51ec00ce04dd78fdefe65428e4216580ce89a",
+      "url": "https://github.com/renderedtext/base-app/commit/47b51ec00ce04dd78fdefe65428e4216580ce89a",
+      "author_name": "Marko Anastasov",
+      "author_email": "marko@renderedtext.com",
+      "message": "Update cucumber and related stuff.",
+      "timestamp": "2013-03-18T09:59:29Z"
+    }
+  ],
+  "project_name": "base-app",
+  "branch_name": "master",
+  "number": 1,
+  "result": "passed",
+  "created_at": "2013-03-18T10:40:13Z",
+  "updated_at": "2013-03-18T10:51:27Z",
+  "started_at": "2013-03-18T10:40:20Z",
+  "finished_at": "2013-03-18T10:51:26Z",
+  "html_url": "https://semaphoreapp.com/projects/653/branches/4204/builds/26"
 }</code></pre>
