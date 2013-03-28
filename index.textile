@@ -122,6 +122,14 @@ h3. "file not found: db:create (ArgumentError)"
 
 Upgrade shoulda gem, or add <code>:require => false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info "here":http://stackoverflow.com/a/9571551 and "here":http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test.
 
+h3. Failed build reported as passed
+
+For Semaphore, a command has failed if its exit status code is != 0 (zero means success).
+
+To see this locally, @echo $?@ after a failing @rake spec@.
+
+@rake spec@ always returns non-zero on failure - unless there's eg a code coverage report being hooked up to run after the specs.
+
 h3. My tests / integration specs / scenarios fail on Semaphore but pass locally
 
 Headless, clean CI environment may make some tests more vulnerable:
