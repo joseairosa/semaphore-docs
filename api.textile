@@ -45,6 +45,7 @@ h4. Response
             "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
             "project_name": "testapp-sphinx",
             "build_url": "https://semaphoreapp.com/projects/61/branches/85/builds/1",
+            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
             "build_number": 1,
             "result": "passed",
             "started_at": "2012-09-04T11:55:07Z",
@@ -67,6 +68,7 @@ h4. Response
             "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
             "project_name": "testapp-mongodb",
             "build_url": "https://semaphoreapp.com/projects/63/branches/89/builds/3",
+            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
             "build_number": 3,
             "result": "passed",
             "started_at": "2012-09-14T11:11:39Z",
@@ -122,6 +124,7 @@ h4. Response
    "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
    "project_name": "base-app",
    "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
+   "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
    "build_number": 15,
    "result": "passed",
    "started_at": "2012-07-09T15:23:53Z",
@@ -172,6 +175,7 @@ h4. Response
    "builds": [
       {
          "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/46",
+         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
          "build_number": 46,
          "result": "failed",
          "started_at": "2012-10-02T15:01:41Z",
@@ -187,6 +191,7 @@ h4. Response
       },
       {
          "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/45",
+         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
          "build_number": 45,
          "result": "passed",
          "started_at": "2012-10-02T14:47:06Z",
