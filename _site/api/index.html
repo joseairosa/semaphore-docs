@@ -49,6 +49,7 @@
 	<li>listing of project&#8217;s branches</li>
 	<li>status of a project&#8217;s branch</li>
 	<li>history of a project&#8217;s branch</li>
+	<li>build information</li>
 </ul>
 <p class="accent">All <span class="caps">API</span> access is over <span class="caps">HTTPS</span>. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter.</p>
 <p>Example request:</p>
@@ -70,11 +71,12 @@
       "branches": [
          {
             "branch_name": "master",
-            "branch_url": "http://10.0.1.76:3000/projects/61/branches/85",
-            "branch_status_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "branch_history_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "branch_url": "https://semaphoreapp.com/projects/61/branches/85",
+            "branch_status_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
             "project_name": "testapp-sphinx",
-            "build_url": "http://10.0.1.76:3000/projects/61/branches/85/builds/1",
+            "build_url": "https://semaphoreapp.com/projects/61/branches/85/builds/1",
+            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
             "build_number": 1,
             "result": "passed",
             "started_at": "2012-09-04T11:55:07Z",
@@ -92,11 +94,12 @@
       "branches": [
          {
             "branch_name": "mongoid3",
-            "branch_url": "http://10.0.1.76:3000/projects/63/branches/89",
-            "branch_status_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "branch_history_url": "http://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "branch_url": "https://semaphoreapp.com/projects/63/branches/89",
+            "branch_status_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
             "project_name": "testapp-mongodb",
-            "build_url": "http://10.0.1.76:3000/projects/63/branches/89/builds/3",
+            "build_url": "https://semaphoreapp.com/projects/63/branches/89/builds/3",
+            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
             "build_number": 3,
             "result": "passed",
             "started_at": "2012-09-14T11:11:39Z",
@@ -139,10 +142,11 @@
 <pre><code>{
    "branch_name": "gem_updates",
    "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
-   "branch_status_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "branch_history_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
    "project_name": "base-app",
    "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
+   "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
    "build_number": 15,
    "result": "passed",
    "started_at": "2012-07-09T15:23:53Z",
@@ -179,12 +183,13 @@
 <pre><code>{
    "branch_name": "gem_updates",
    "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
-   "branch_status_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "branch_history_url": "http://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
    "project_name": "base-app",
    "builds": [
       {
-         "build_url": "http://semaphoreapp.com/projects/57/branches/80/builds/46",
+         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/46",
+         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
          "build_number": 46,
          "result": "failed",
          "started_at": "2012-10-02T15:01:41Z",
@@ -199,7 +204,8 @@
          }
       },
       {
-         "build_url": "http://semaphoreapp.com/projects/57/branches/80/builds/45",
+         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/45",
+         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
          "build_number": 45,
          "result": "passed",
          "started_at": "2012-10-02T14:47:06Z",
@@ -214,6 +220,36 @@
          }
       }
    ]
+}</code></pre>
+<h3>5. Build Information</h3>
+<pre>GET /api/v1/projects/:hash_id/:id/builds/:number</pre>
+<h4>Arguments</h4>
+<ol>
+	<li><code>hash_id</code> of the project</li>
+	<li><code>id</code> of the branch</li>
+	<li><code>number</code> of the build</li>
+</ol>
+<h4>Response</h4>
+<pre><code>{
+  "commits": [
+    {
+      "id": "47b51ec00ce04dd78fdefe65428e4216580ce89a",
+      "url": "https://github.com/renderedtext/base-app/commit/47b51ec00ce04dd78fdefe65428e4216580ce89a",
+      "author_name": "Marko Anastasov",
+      "author_email": "marko@renderedtext.com",
+      "message": "Update cucumber and related stuff.",
+      "timestamp": "2013-03-18T09:59:29Z"
+    }
+  ],
+  "project_name": "base-app",
+  "branch_name": "master",
+  "number": 1,
+  "result": "passed",
+  "created_at": "2013-03-18T10:40:13Z",
+  "updated_at": "2013-03-18T10:51:27Z",
+  "started_at": "2013-03-18T10:40:20Z",
+  "finished_at": "2013-03-18T10:51:26Z",
+  "html_url": "https://semaphoreapp.com/projects/653/branches/4204/builds/26"
 }</code></pre>
         </section>
 
