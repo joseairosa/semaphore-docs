@@ -292,12 +292,12 @@
       "duration": "00:45"
     },
     {
-      "name": "bundle exec rake db:setup",
-      "result": "0",
-      "output": "-- create_table("roles", {:force=&gt;true}) NOTICE: CREATE TABLE will create implicit sequence "roles_id_seq" for serial column "roles.id" NOTICE: CREATE TABLE / PRIMARY KEY will create implicit index "roles_pkey" for table "roles" -&gt; 0.0108s -- create_table("roles_users", {:id=&gt;false, :force=&gt;true}) -&gt; 0.0016s -- create_table("users", {:force=&gt;true}) NOTICE: CREATE TABLE will create implicit sequence "users_id_seq" for serial column "users.id" NOTICE: CREATE TABLE / PRIMARY KEY will create implicit index "users_pkey" for table "users" -&gt; 0.0428s -- add_index("users", ["email"], {:name=&gt;"index_users_on_email", :unique=&gt;true}) -&gt; 0.0046s -- add_index("users", ["reset_password_token"], {:name=&gt;"index_users_on_reset_password_token", :unique=&gt;true}) -&gt; 0.0047s -- initialize_schema_migrations_table() -&gt; 0.0056s -- assume_migrated_upto_version(20110415110329, ["/home/runner/7125513058752c2b810876888101979db1811477/db/migrate"]) -&gt; 0.0028s",
-      "start_time": "2013-03-12T09:24:30Z",
-      "finish_time": "2013-03-12T09:24:37Z",
-      "duration": "00:07"
+      name: "bundle exec rake db:test:prepare",
+      result: "0",
+      output: "",
+      start_time: "2013-03-12T09:24:37Z",
+      finish_time: "2013-03-12T09:24:44Z",
+      duration: "00:07"
     }
   ]
 }</code></pre>
