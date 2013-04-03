@@ -56,7 +56,7 @@
 <pre>$ curl -i https://semaphoreapp.com/api/v1/projects?auth_token=Yds3w6o26FLfJTnVK2y9</pre>
 <p>To see your authentication token and request URIs of a specific project, open a project&#8217;s settings, then find the &#8220;<span class="caps">API</span>&#8221; tab.</p>
 <h2><span class="caps">API</span> methods</h2>
-<h3>1. User&#8217;s projects</h3>
+<h3>1. User&#8217;s projects<a name="projects">↩</a></h3>
 <p>List all projects that user has access to and their current status.</p>
 <pre>GET /api/v1/projects</pre>
 <h4>Response</h4>
@@ -110,7 +110,7 @@
 ]
 </code></pre>
 <p>A build&#8217;s result can be either &#8220;passed&#8221;, &#8220;failed&#8221; or &#8220;pending&#8221;.</p>
-<h3>2. Project&#8217;s branches</h3>
+<h3>2. Project&#8217;s branches<a name="branches">&nbsp;</a></h3>
 <pre>GET /api/v1/projects/:hash_id/branches</pre>
 <h4>Arguments</h4>
 <ol>
@@ -131,7 +131,7 @@
       "name": "branches_api"
    }
 ]</code></pre>
-<h3>3. Branch Status</h3>
+<h3>3. Branch Status<a name="branch_status">&nbsp;</a></h3>
 <pre>GET /api/v1/projects/:hash_id/:id/status</pre>
 <h4>Arguments</h4>
 <ol>
@@ -160,7 +160,7 @@
       "timestamp": "2012-07-04T18:14:08Z"
    }
 }</code></pre>
-<h3>4. Branch History</h3>
+<h3>4. Branch History<a name="branch_history">&nbsp;</a></h3>
 <pre>GET /api/v1/projects/:hash_id/:id</pre>
 <h4>Arguments</h4>
 <ol>
@@ -221,7 +221,7 @@
       }
    ]
 }</code></pre>
-<h3>5. Build Information</h3>
+<h3>5. Build Information<a name="build_information">&nbsp;</a></h3>
 <pre>GET /api/v1/projects/:hash_id/:id/builds/:number</pre>
 <h4>Arguments</h4>
 <ol>
@@ -251,7 +251,7 @@
   "finished_at": "2013-03-18T10:51:26Z",
   "html_url": "https://semaphoreapp.com/projects/653/branches/4204/builds/26"
 }</code></pre>
-<h3>6. Build Log</h3>
+<h3>6. Build Log<a name="build_log">&nbsp;</a></h3>
 <pre>GET /api/v1/projects/:hash_id/:id/builds/:number/log</pre>
 <h4>Arguments</h4>
 <ol>

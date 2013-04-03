@@ -21,7 +21,7 @@ To see your authentication token and request URIs of a specific project, open a 
 
 h2. API methods
 
-h3. 1. User's projects
+h3. 1. User's projects<a name="projects">&nbsp;</a>
 
 List all projects that user has access to and their current status.
 
@@ -81,7 +81,7 @@ h4. Response
 
 A build's result can be either "passed", "failed" or "pending".
 
-h3. 2. Project's branches
+h3. 2. Project's branches<a name="branches">&nbsp;</a>
 
 <pre>GET /api/v1/projects/:hash_id/branches</pre>
 
@@ -106,7 +106,7 @@ h4. Response
    }
 ]</code></pre>
 
-h3. 3. Branch Status
+h3. 3. Branch Status<a name="branch_status">&nbsp;</a>
 
 <pre>GET /api/v1/projects/:hash_id/:id/status</pre>
 
@@ -140,7 +140,7 @@ h4. Response
 }</code></pre>
 
 
-h3. 4. Branch History
+h3. 4. Branch History<a name="branch_history">&nbsp;</a>
 
 <pre>GET /api/v1/projects/:hash_id/:id</pre>
 
@@ -208,7 +208,7 @@ h4. Response
    ]
 }</code></pre>
 
-h3. 5. Build Information
+h3. 5. Build Information<a name="build_information">&nbsp;</a>
 
 <pre>GET /api/v1/projects/:hash_id/:id/builds/:number</pre>
 
@@ -242,7 +242,7 @@ h4. Response
   "html_url": "https://semaphoreapp.com/projects/653/branches/4204/builds/26"
 }</code></pre>
 
-h3. 6. Build Log
+h3. 6. Build Log<a name="build_log">&nbsp;</a>
 
 <pre>GET /api/v1/projects/:hash_id/:id/builds/:number/log</pre>
 
