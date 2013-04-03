@@ -5,11 +5,12 @@ title: API
 
 Semaphore provides an API for the following:
 
-* listing of user's projects
-* listing of project's branches
-* status of a project's branch
-* history of a project's branch
-* build information
+* "listing of user's projects":#projects
+* "listing of project's branches":#branches
+* "status of a project's branch":#branch_status
+* "history of a project's branch":#branch_history
+* "build information":#build_information
+* "build log":#build_log
 
 p(accent). All API access is over HTTPS. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter.
 
