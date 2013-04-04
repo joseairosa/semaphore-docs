@@ -11,6 +11,10 @@ BRANCH_NAME=#{current_branch_name}
 RACK_ENV=test
 RAILS_ENV=test
 WKHTMLTOPDF_PATH
+SEMAPHORE_PROJECT_HASH_ID
+SEMAPHORE_BRANCH_ID
+SEMAPHORE_BUILD_NUMBER
+SEMAPHORE_REPO_SLUG
 </pre>
 
 The following apply if you are using a MySQL or PostgreSQL database. You can use them in any custom scripts that your build depends on:
