@@ -111,6 +111,8 @@ If this error persists you could try removing the cache directory '/home/runner/
 <p>The solution is is to comment that gem line in Gemfile, run bundle, uncomment it and bundle again. Then the Gemfile.lock will reference a valid git revision.</p>
 <h3>&#8220;file not found: db:create (ArgumentError)&#8221;</h3>
 <p>Upgrade shoulda gem, or add <code>:require =&gt; false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info <a href="http://stackoverflow.com/a/9571551">here</a> and <a href="http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test">here</a>.</p>
+<h3>Tests or setup failed with &#8220;Real <span class="caps">HTTP</span> connections are disabled.&#8221;</h3>
+<p>If you&#8217;re using webmock: as webmock is required by default, it disables all <span class="caps">HTTP</span> connections (including connections to localhost). What you can do is disable autorequire for webmock in Gemfile and disable connections by hand in the spec helper.</p>
 <h3>Failed build reported as passed</h3>
 <p>For Semaphore, a command has failed if its exit status code is != 0 (zero means success).</p>
 <p>To see this locally, <code>echo $?</code> after a failing <code>rake spec</code>.</p>
