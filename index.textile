@@ -214,4 +214,8 @@ h3. How do I change my credit card information?
 
 In the top left corner, click on "Manage your account" > "Subscriptions" > "Your billing history" > "Update Payment Method".
 
+h3. I have a new person on my GitHub team that I'd like to invite to Semaphore.
+
+The project owner (on Semaphore) should go to project settings > "Collaborators" and then click on "Sync collaborators from GitHub".
+
 If you have not found an answer here, please email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.
