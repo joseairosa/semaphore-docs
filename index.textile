@@ -17,9 +17,13 @@ Yes. Since the environment variable @BRANCH_NAME@ is "available":/available-envi
 if [ "$BRANCH_NAME" = "acceptance-tests" ]; then bundle exec rake spec:acceptance ; fi
 </pre>
 
-h3. How can I export some environment variables or insert my configuration file?
+h3. How can I export some environment variables before the build?
 
-Simply add @export VAR=foo@ or @cp config/.env.sample config/.env@ to your build commands (in project settings).
+Add @export VAR=foo@ to your build commands (in project settings)
+
+h3. How can I insert my configuration file for X?
+
+Add something like @cp config/s3.example.yml config/s3.yml@ to your build commands.
 
 h3. How can I change /etc/hosts or another system configuration file?
 

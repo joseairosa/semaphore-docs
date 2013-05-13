@@ -49,8 +49,10 @@
 <pre>
 if [ "$BRANCH_NAME" = "acceptance-tests" ]; then bundle exec rake spec:acceptance ; fi
 </pre>
-<h3>How can I export some environment variables or insert my configuration file?</h3>
-<p>Simply add <code>export VAR=foo</code> or <code>cp config/.env.sample config/.env</code> to your build commands (in project settings).</p>
+<h3>How can I export some environment variables before the build?</h3>
+<p>Add <code>export VAR=foo</code> to your build commands (in project settings)</p>
+<h3>How can I insert my configuration file for X?</h3>
+<p>Add something like <code>cp config/s3.example.yml config/s3.yml</code> to your build commands.</p>
 <h3>How can I change /etc/hosts or another system configuration file?</h3>
 <p>If it&#8217;s short, this will do:</p>
 <pre>
