@@ -46,3 +46,7 @@ Payload is JSON in the same structure as "build notification API":/api.
     "timestamp": "2012-07-04T18:14:08Z"}
 }
 </pre>
+
+h3. Retry on failure
+
+In case of a delivery failure, Semaphore will retry, twice, to send the webhook.
