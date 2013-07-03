@@ -1,0 +1,24 @@
+---
+layout: default
+title: Platform changelog
+---
+
+Current package versions are listed on the "Version information":/version-information page.
+
+h3. 2013-06-07 (upcoming)
+
+<pre>
+- ruby 1.9.3 is the default for new projects
+- removed ruby 1.9.3-p327
+- added heroku client 2.39.4
+- upgrades:
+  - ruby          2.0.0-p247
+  - ruby          1.9.3-p448
+  - jruby         1.7.4
+  - bundler       1.3.5
+  - nodejs        0.10.12
+  - phantomjs     1.9.1
+  - elasticsearch 0.90.2
+  - firefox       22.0
+  - chrome        28.0
+</pre>
