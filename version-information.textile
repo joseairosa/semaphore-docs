@@ -5,12 +5,12 @@ title: Version information
 
 Builds on Semaphore run on Ubuntu 12.04 Precise LTS. The following Ruby versions are available via "rbenv":https://github.com/sstephenson/rbenv/:
 
-* 2.0.0-p0
-* 1.9.3-p374 (p327 is also available)
+* 2.0.0-p247
+* 1.9.3-p448
 * 1.9.2-p320
 * ree-1.8.7-2012.02
-* JRuby 1.7.3
-* Bundler 1.3.0
+* JRuby 1.7.4
+* Bundler 1.3.5
 
 System packages installed by default include:
 
@@ -24,15 +24,15 @@ System packages installed by default include:
   <tbody>
     <tr>
       <td>chromedriver</td>
-      <td>23.0.1240</td>
+      <td>28.0.1500</td>
     </tr>
     <tr>
       <td>Elasticsearch</td>
-      <td>0.20.2</td>
+      <td>0.90.2</td>
     </tr>
     <tr>
       <td>Firefox</td>
-      <td>19.0</td>
+      <td>22.0</td>
     </tr>
     <tr>
       <td>libqtwebkit4</td>
@@ -44,11 +44,11 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>Java (openjdk)</td>
-      <td>7u13-2.3.7</td>
+      <td>7u21-2.3.9</td>
     </tr>
     <tr>
       <td>Linux kernel</td>
-      <td>3.2.0-35</td>
+      <td>3.2.0-38</td>
     </tr>
     <tr>
       <td>memcached</td>
@@ -60,23 +60,23 @@ System packages installed by default include:
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>5.5.29</td>
+      <td>5.5.31</td>
     </tr>
     <tr>
       <td>Node.js</td>
-      <td>0.8.21</td>
+      <td>0.10.12</td>
     </tr>
     <tr>
       <td>PhantomJS</td>
-      <td>1.8.1</td>
+      <td>1.9.1</td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>9.1.7</td>
+      <td>9.1.9</td>
     </tr>
     <tr>
       <td>Redis</td>
-      <td>2.6.10</td>
+      <td>2.6.14</td>
     </tr>
     <tr>
       <td>Sphinx</td>
@@ -93,4 +93,4 @@ System packages installed by default include:
   </tbody>
 </table>
 
-Note: this is a partial list. Upgrades and additional packages can be installed with "apt-get":https://help.ubuntu.com/community/AptGet/Howto commands either from Ubuntu's "official distribution channels":http://packages.ubuntu.com or PPAs.
+Note: this is a partial list. You can upgrade or add additional packages for your builds with "apt-get":https://help.ubuntu.com/community/AptGet/Howto - either from Ubuntu's "official distribution channels":http://packages.ubuntu.com or third-party PPAs.
