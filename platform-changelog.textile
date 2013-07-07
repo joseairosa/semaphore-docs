@@ -5,7 +5,7 @@ title: Platform changelog
 
 Current package versions are listed on the "Version information":/version-information page.
 
-h3. 2013-06-07 (upcoming)
+h3. 2013-06-07
 
 <pre>
 - ruby 1.9.3 is the default for new projects
