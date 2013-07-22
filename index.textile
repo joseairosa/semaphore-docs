@@ -1,7 +1,20 @@
 ---
 layout: default
-title: Semaphore Documentation
+title: Frequently Asked Questions
+summary: There's a good chance your question might be answered here.
 ---
+<ul class="questionList">
+  <li><a href="#">Is it possible to override build commands on some branches?</a></li>
+  <li><a href="#">How can I export some environment variables or insert my configuration file?</a> </li>
+  <li><a href="#">How can I change /etc/hosts or another system configuration file?</a></li>
+  <li><a href="#">How do I configure the database?</a></li>
+  <li><a href="#">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+  <li><a href="#">How do I build a project with private gems?</a></li>
+  <li><a href="#">My project depends on X and you don’t seem to have it</a></li>
+  <li><a href="#">How can I execute Postgres commands?</a></li>
+  <li><a href="#">Build fails with “Unknown database ‘xyz_test’” or “FATAL: database "xyx_test" does not exist”</a></li>
+  <li><a href="#">“fatal: Could not parse object” during bundle install</a></li>
+</ul>
 
 "Semaphore":https://semaphoreapp.com is a hosted continuous integration service for Ruby applications.
 

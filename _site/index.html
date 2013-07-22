@@ -9,7 +9,6 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.typography.css"/>
 
     <title>
        Semaphore Documentation</title>
@@ -30,18 +29,32 @@
 
     <div id="mainContent" class="safGrid">
 
-      <header class="pageTitle">
-        <h1 class="col cs-8 first">Semaphore Documentation</h1>
-      </header>
+      
 
-      <article class="primary col cs-9 first">
+      <article class="primary">
 
         <header class="title">
-          <h2>Semaphore Documentation</h2>
+          <h2>Frequently Asked Questions</h2>
+
+          
+            <h3>There's a good chance your question might be answered here.</h3>
+          
         </header>
 
         <section class="body">
-          <p><a href="https://semaphoreapp.com">Semaphore</a> is a hosted continuous integration service for Ruby applications.</p>
+          <ul class="questionList">
+  <li><a href="#">Is it possible to override build commands on some branches?</a></li>
+  <li><a href="#">How can I export some environment variables or insert my configuration file?</a> </li>
+  <li><a href="#">How can I change /etc/hosts or another system configuration file?</a></li>
+  <li><a href="#">How do I configure the database?</a></li>
+  <li><a href="#">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+  <li><a href="#">How do I build a project with private gems?</a></li>
+  <li><a href="#">My project depends on X and you don’t seem to have it</a></li>
+  <li><a href="#">How can I execute Postgres commands?</a></li>
+  <li><a href="#">Build fails with “Unknown database ‘xyz_test’” or “FATAL: database &#8220;xyx_test&#8221; does not exist”</a></li>
+  <li><a href="#">“fatal: Could not parse object” during bundle install</a></li>
+</ul>
+<p><a href="https://semaphoreapp.com">Semaphore</a> is a hosted continuous integration service for Ruby applications.</p>
 <p>We&#8217;re designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can find the <strong><span class="caps">FAQ</span></strong> below and browse available articles in the sidebar.</p>
 <h3>F.A.Q.</h3>
 <h3>Is it possible to override build commands on some branches?</h3>
@@ -180,27 +193,107 @@ ThinkingSphinx::Test.stop
 
       </article>
 
-      <aside class="col cs-3">
-        <h2>Articles</h2>
-        <ul>
-          <li><a href="/adding-new-project">Adding a New Project</a></li>
-          <li><a href="/api">API</a></li>
-          <li><a href="/available-environment-variables">Available Environment Variables</a></li>
-          <li><a href="/collaborator-notifications">Collaborator Notifications</a></li>
-          <li><a href="/custom-build-commands">Custom Build Commands</a></li>
-          <li><a href="/platform-changelog">Platform changelog</a></li>
-          <li><a href="/supported-stack">Supported Stack</a></li>
-          <li><a href="/test-apps">Test Apps</a></li>
-          <li><a href="/version-information">Version Information</a></li>
-          <li><a href="/webhooks">Webhooks</a></li>
-          <li><a href="/wkhtmltopdf-configuration">Wkhtmltopdf Configuration</a></li>
-        </ul>
-      </aside>
+      <div class="articles col cs-6">
+  <h2>FAQ</h2>
+  <ul>
+    <li><a href="/adding-new-project">How can I insert my configuration file for X?</a></li>
+    <li><a href="/collaborator-notifications">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/supported-stack">Version information </a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>API</h2>
+  <ul>
+    <li><a href="/adding-new-project">Projects</a></li>
+    <li><a href="/collaborator-notifications">Branches & builds</a></li>
+    <li><a href="/supported-stack">Servers & deploys</a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Billing</h2>
+  <ul>
+    <li><a href="/adding-new-project">How do I change my credit card information?</a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Build platform</h2>
+  <ul>
+    <li><a href="/adding-new-project">Platform changelog</a></li>
+    <li><a href="/collaborator-notifications">Supported stack</a></li>
+    <li><a href="/supported-stack">Version information </a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Collaboration</h2>
+  <ul>
+    <li><a href="/adding-new-project">I have a new person on my GitHub team that I’d like to invite to Semaphore</a></li>
+    <li><a href="/collaborator-notifications">How can I add or remove a collaborator from my project?</a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Customizing your build</h2>
+  <ul>
+    <li><a href="/adding-new-project">Available environment variables</a></li>
+    <li><a href="/collaborator-notifications">Custom build commands</a></li>
+    <li><a href="/supported-stack">How can I export some environment variables before the build?</a></li>
+    <li><a href="/test-apps">How can I insert my configuration file for X?</a></li>
+    <li><a href="/test-apps">How can I change /etc/hosts or another system configuration file?</a></li>
+    <li><a href="/test-apps">How do I configure the database?</a></li>
+    <li><a href="/test-apps">How do I build a project with private gems?</a></li>
+    <li><a href="/test-apps">How can I execute Postgres commands?</a></li>
+    <li><a href="/test-apps">Is it possible to override build commands on some branches?</a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Dependencies</h2>
+  <ul>
+    <li><a href="/adding-new-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+    <li><a href="/collaborator-notifications">My project depends on X and you don’t seem to have it</a></li>
+    <li><a href="/supported-stack">wkhtmltopodf configuration</a></li>
+    <li><a href="/test-apps">Test apps</a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Notifications</h2>
+  <ul>
+    <li><a href="/adding-new-project">Post-build webhooks</a></li>
+    <li><a href="/collaborator-notifications">Post-deploy webhooks</a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><a href="/adding-new-project"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
+    <li><a href="/collaborator-notifications">“fatal: Could not parse object” during bundle install</a></li>
+    <li><a href="/supported-stack">file not found: db:create (ArgumentError)”</a></li>
+    <li><a href="/test-apps">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
+    <li><a href="/test-apps">Failed build reported as passed</a></li>
+    <li><a href="/test-apps">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/test-apps">Selenium tests are unable to obtain connection to Firefox</a></li>
+    <li><a href="/test-apps">I’m having issues with capybara-webkit</a></li>
+    <li><a href="/test-apps">My build fails if I have pending Cucumber scenarios</a></li>
+    <li><a href="/test-apps">My build takes longer than an hour</a></li>
+    <li><a href="/test-apps">My Sphinx tests fail</a></li>
+    <li><a href="/test-apps">I’m having problems with git submodules </a></li>
+  </ul>
+</div>
+
+
     </div>
+
     <footer class="safGrid">
   <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
   <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
 </footer>
+
 
   </body>
 </html>

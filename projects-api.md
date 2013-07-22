@@ -1,0 +1,69 @@
+---
+layout: default
+title: Projects API
+---
+
+### User's projects
+
+List all projects that user has access to and their current status.
+
+{% highlight bash %}
+GET /api/v1/projects
+{% endhighlight %}
+
+#### Response
+
+{% highlight bash %}
+
+[
+   {
+      "id": 61,
+      "hash_id": "3f1004b8343faabda63d441734526c854380ab89",
+      "name": "testapp-sphinx",
+      "owner": "renderedtext",
+      "created_at": "2012-09-04T11:53:22Z",
+      "updated_at": "2012-09-04T12:01:17Z",
+      "branches": [
+         {
+            "branch_name": "master",
+            "branch_url": "https://semaphoreapp.com/projects/61/branches/85",
+            "branch_status_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "project_name": "testapp-sphinx",
+            "build_url": "https://semaphoreapp.com/projects/61/branches/85/builds/1",
+            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "build_number": 1,
+            "result": "passed",
+            "started_at": "2012-09-04T11:55:07Z",
+            "finished_at": "2012-09-04T12:01:16Z"
+         }
+      ]
+   },
+   {
+      "id": 63,
+      "hash_id": "649e584dc507ca4b73e1374d3125ef0b567a949c",
+      "name": "testapp-mongodb",
+      "owner": "renderedtext",
+      "created_at": "2012-09-14T10:53:38Z",
+      "updated_at": "2012-09-14T11:16:51Z",
+      "branches": [
+         {
+            "branch_name": "mongoid3",
+            "branch_url": "https://semaphoreapp.com/projects/63/branches/89",
+            "branch_status_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "project_name": "testapp-mongodb",
+            "build_url": "https://semaphoreapp.com/projects/63/branches/89/builds/3",
+            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
+            "build_number": 3,
+            "result": "passed",
+            "started_at": "2012-09-14T11:11:39Z",
+            "finished_at": "2012-09-14T11:16:51Z"
+         }
+      ]
+   }
+]
+{% endhighlight %}
+
+
+A build's result can be either "passed", "failed" or "pending".
