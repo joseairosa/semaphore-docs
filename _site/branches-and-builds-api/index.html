@@ -57,10 +57,12 @@
 
 <li><a href='#build_log'>Build Log</a></li>
 </ul>
-
+<p class='accent'>
+All API access is over HTTPS. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter. To see your authentication token and project hash id, open a project’s settings, then find the “API” tab.
+</p>
 <h3 id='projects_branches'>Project&#8217;s branches</h3>
 <div>
-  <pre><code class='bash'>GET /api/v1/projects/:hash_id/branches</code></pre>
+  <pre><code class='javascript'>GET /api/v1/projects/:hash_id/branches</code></pre>
 </div>
 <h4 id='arguments'>Arguments</h4>
 
@@ -70,24 +72,27 @@
 
 <h4 id='response'>Response</h4>
 <div>
-  <pre><code class='bash'>[
+  <pre><code class='javascript'>[
    {
       &quot;id&quot;: 1324,
-      &quot;name&quot;: &quot;new-build-page&quot;
+      &quot;name&quot;: &quot;new-build-page&quot;,
+      &quot;branch_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/:hash_id/1324/status?auth_token=:auth_token&quot;
    },
    {
       &quot;id&quot;: 1120,
-      &quot;name&quot;: &quot;development&quot;
+      &quot;name&quot;: &quot;development&quot;,
+      &quot;branch_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/:hash_id/1120/status?auth_token=:auth_token&quot;
    },
    {
       &quot;id&quot;: 987,
-      &quot;name&quot;: &quot;branches_api&quot;
+      &quot;name&quot;: &quot;branches_api&quot;,
+      &quot;branch_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/:hash_id/987/status?auth_token=:auth_token&quot;
    }
 ]</code></pre>
 </div>
 <h3 id='branch_status'>Branch Status</h3>
 <div>
-  <pre><code class='bash'>GET /api/v1/projects/:hash_id/:id/status</code></pre>
+  <pre><code class='javascript'>GET /api/v1/projects/:hash_id/:id/status</code></pre>
 </div>
 <h4 id='arguments'>Arguments</h4>
 
@@ -99,7 +104,7 @@
 
 <h4 id='response'>Response</h4>
 <div>
-  <pre><code class='bash'>{
+  <pre><code class='javascript'>{
    &quot;branch_name&quot;: &quot;gem_updates&quot;,
    &quot;branch_url&quot;: &quot;https://semaphoreapp.com/projects/44/branches/50&quot;,
    &quot;branch_status_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
@@ -123,7 +128,7 @@
 </div>
 <h3 id='branch_history'>Branch History</h3>
 <div>
-  <pre><code class='bash'>GET /api/v1/projects/:hash_id/:id</code></pre>
+  <pre><code class='javascript'>GET /api/v1/projects/:hash_id/:id</code></pre>
 </div>
 <h4 id='arguments'>Arguments</h4>
 
@@ -137,7 +142,7 @@
 
 <h4 id='pagination_header'>Pagination header</h4>
 <div>
-  <pre><code class='bash'>Pagination: {
+  <pre><code class='javascript'>Pagination: {
   &quot;total_entries&quot;: 46,
   &quot;total_pages&quot;: 5,
   &quot;per_page&quot;: 10,
@@ -150,7 +155,7 @@
 </div>
 <h4 id='response'>Response</h4>
 <div>
-  <pre><code class='bash'>{
+  <pre><code class='javascript'>{
    &quot;branch_name&quot;: &quot;gem_updates&quot;,
    &quot;branch_url&quot;: &quot;https://semaphoreapp.com/projects/44/branches/50&quot;,
    &quot;branch_status_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
@@ -194,7 +199,7 @@
 </div>
 <h3 id='build_information'>Build Information</h3>
 <div>
-  <pre><code class='bash'>GET /api/v1/projects/:hash_id/:id/builds/:number</code></pre>
+  <pre><code class='javascript'>GET /api/v1/projects/:hash_id/:id/builds/:number</code></pre>
 </div>
 <h4 id='arguments'>Arguments</h4>
 
@@ -208,7 +213,7 @@
 
 <h4 id='response'>Response</h4>
 <div>
-  <pre><code class='bash'>{
+  <pre><code class='javascript'>{
   &quot;commits&quot;: [
     {
       &quot;id&quot;: &quot;47b51ec00ce04dd78fdefe65428e4216580ce89a&quot;,
@@ -232,7 +237,7 @@
 </div>
 <h3 id='build_log'>Build Log</h3>
 <div>
-  <pre><code class='bash'>GET /api/v1/projects/:hash_id/:id/builds/:number/log</code></pre>
+  <pre><code class='javascript'>GET /api/v1/projects/:hash_id/:id/builds/:number/log</code></pre>
 </div>
 <h4 id='arguments'>Arguments</h4>
 
@@ -246,7 +251,7 @@
 
 <h4 id='response'>Response</h4>
 <div>
-  <pre><code class='bash'>{
+  <pre><code class='javascript'>{
   &quot;threads&quot;: [
     {
       &quot;number&quot;: 1,
@@ -291,95 +296,71 @@
       </article>
 
       <div class="articles col cs-6">
-  <h2>FAQ</h2>
+
+  <h2>Billing</h2>
   <ul>
-    <li><a href="/adding-new-project">How can I insert my configuration file for X?</a></li>
-    <li><a href="/collaborator-notifications">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
-    <li><a href="/supported-stack">Version information </a></li>
+    <li><a href="/how-to-change-credit-card-information">How do I change my credit card information?</a></li>
+  </ul>
+  <h2>Collaboration</h2>
+  <ul>
+    <li><a href="/how-to-invite-someone">I have a new person on my GitHub team that I’d like to invite to Semaphore</a></li>
+    <li><a href="/how-to-add-or-remove-collaborator">How can I add or remove a collaborator from my project?</a></li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <ul>
+    <li><a href="/how-to-use-postgres-mongodb-and-redis-on-one-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+    <li><a href="/how-to-install-dependency">My project depends on X and you don’t seem to have it</a></li>
+    <li><a href="/wkhtmltopdf-configuration">wkhtmltopodf configuration</a></li>
+    <li><a href="/test-apps">Test apps</a></li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><a href="/failed-with-unknown-database"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
+    <li><a href="/failed-with-could-not-parse-object">“fatal: Could not parse object” during bundle install</a></li>
+    <li><a href="/failed-with-file-not-found-db-create">file not found: db:create (ArgumentError)”</a></li>
+    <li><a href="/failed-with-real-http-connections-are-disabled">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
+    <li><a href="/failed-build-reported-as-passed">Failed build reported as passed</a></li>
+    <li><a href="/build-fail-on-semaphore">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/selenium-unable-to-obtain-connection">Selenium tests are unable to obtain connection to Firefox</a></li>
+    <li><a href="/issues-with-capybara-webkit">I’m having issues with capybara-webkit</a></li>
+    <li><a href="/build-fails-with-pending-cucumber-scenarios">My build fails if I have pending Cucumber scenarios</a></li>
+    <li><a href="/build-takes-longer-than-an-hour">My build takes longer than an hour</a></li>
+    <li><a href="/sphinx-tests-fail">My Sphinx tests fail</a></li>
+    <li><a href="/problems-with-git-submodules">I’m having problems with git submodules </a></li>
   </ul>
 </div>
 
 <div class="articles col cs-6">
   <h2>API</h2>
   <ul>
-    <li><a href="/adding-new-project">Projects</a></li>
-    <li><a href="/collaborator-notifications">Branches & builds</a></li>
-    <li><a href="/supported-stack">Servers & deploys</a></li>
+    <li><a href="/projects-api">Projects</a></li>
+    <li><a href="/branches-and-builds-api">Branches & builds</a></li>
+    <li><a href="/servers-and-deploys-api">Servers & deploys</a></li>
   </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Billing</h2>
-  <ul>
-    <li><a href="/adding-new-project">How do I change my credit card information?</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
   <h2>Build platform</h2>
   <ul>
-    <li><a href="/adding-new-project">Platform changelog</a></li>
-    <li><a href="/collaborator-notifications">Supported stack</a></li>
-    <li><a href="/supported-stack">Version information </a></li>
+    <li><a href="/platform-changelog">Platform changelog</a></li>
+    <li><a href="/supported-stack">Supported stack</a></li>
+    <li><a href="/version-information">Version information </a></li>
   </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Collaboration</h2>
-  <ul>
-    <li><a href="/adding-new-project">I have a new person on my GitHub team that I’d like to invite to Semaphore</a></li>
-    <li><a href="/collaborator-notifications">How can I add or remove a collaborator from my project?</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
   <h2>Customizing your build</h2>
   <ul>
-    <li><a href="/adding-new-project">Available environment variables</a></li>
-    <li><a href="/collaborator-notifications">Custom build commands</a></li>
-    <li><a href="/supported-stack">How can I export some environment variables before the build?</a></li>
-    <li><a href="/test-apps">How can I insert my configuration file for X?</a></li>
-    <li><a href="/test-apps">How can I change /etc/hosts or another system configuration file?</a></li>
-    <li><a href="/test-apps">How do I configure the database?</a></li>
-    <li><a href="/test-apps">How do I build a project with private gems?</a></li>
-    <li><a href="/test-apps">How can I execute Postgres commands?</a></li>
-    <li><a href="/test-apps">Is it possible to override build commands on some branches?</a></li>
+    <li><a href="/available-environment-variables">Available environment variables</a></li>
+    <li><a href="/custom-build-commands">Custom build commands</a></li>
+    <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
+    <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>
+    <li><a href="/how-to-change-system-configuration-file">How can I change /etc/hosts or another system configuration file?</a></li>
+    <li><a href="/how-to-configure-database">How do I configure the database?</a></li>
+    <li><a href="/how-to-build-project-with-private-gems">How do I build a project with private gems?</a></li>
+    <li><a href="/how-to-execute-postgres-commands">How can I execute Postgres commands?</a></li>
+    <li><a href="/how-to-override-build-commands">Is it possible to override build commands on some branches?</a></li>
   </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Dependencies</h2>
-  <ul>
-    <li><a href="/adding-new-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
-    <li><a href="/collaborator-notifications">My project depends on X and you don’t seem to have it</a></li>
-    <li><a href="/supported-stack">wkhtmltopodf configuration</a></li>
-    <li><a href="/test-apps">Test apps</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
   <h2>Notifications</h2>
   <ul>
-    <li><a href="/adding-new-project">Post-build webhooks</a></li>
-    <li><a href="/collaborator-notifications">Post-deploy webhooks</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li><a href="/adding-new-project"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
-    <li><a href="/collaborator-notifications">“fatal: Could not parse object” during bundle install</a></li>
-    <li><a href="/supported-stack">file not found: db:create (ArgumentError)”</a></li>
-    <li><a href="/test-apps">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
-    <li><a href="/test-apps">Failed build reported as passed</a></li>
-    <li><a href="/test-apps">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
-    <li><a href="/test-apps">Selenium tests are unable to obtain connection to Firefox</a></li>
-    <li><a href="/test-apps">I’m having issues with capybara-webkit</a></li>
-    <li><a href="/test-apps">My build fails if I have pending Cucumber scenarios</a></li>
-    <li><a href="/test-apps">My build takes longer than an hour</a></li>
-    <li><a href="/test-apps">My Sphinx tests fail</a></li>
-    <li><a href="/test-apps">I’m having problems with git submodules </a></li>
+    <li><a href="/post-build-webhooks">Post-build webhooks</a></li>
+    <li><a href="/post-deploy-webhooks">Post-deploy webhooks</a></li>
   </ul>
 </div>
 

@@ -42,247 +42,81 @@
         </header>
 
         <section class="body">
-          <ul class="questionList">
-  <li><a href="#">Is it possible to override build commands on some branches?</a></li>
-  <li><a href="#">How can I export some environment variables or insert my configuration file?</a> </li>
-  <li><a href="#">How can I change /etc/hosts or another system configuration file?</a></li>
-  <li><a href="#">How do I configure the database?</a></li>
-  <li><a href="#">Can I use Postgres, MongoDB and Redis on one project?</a></li>
-  <li><a href="#">How do I build a project with private gems?</a></li>
-  <li><a href="#">My project depends on X and you don’t seem to have it</a></li>
-  <li><a href="#">How can I execute Postgres commands?</a></li>
-  <li><a href="#">Build fails with “Unknown database ‘xyz_test’” or “FATAL: database &#8220;xyx_test&#8221; does not exist”</a></li>
-  <li><a href="#">“fatal: Could not parse object” during bundle install</a></li>
+          <ul class='questionList'>
+  <li><a href='/how-to-insert-configuration-file'>How can I insert my configuration file for X?</a></li>
+  <li><a href='/build-fail-on-semaphore'>My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+  <li><a href='/version-information'>Version information </a></li>
 </ul>
-<p><a href="https://semaphoreapp.com">Semaphore</a> is a hosted continuous integration service for Ruby applications.</p>
-<p>We&#8217;re designing it to be very easy to use, but if you have any questions, we hope this site will give you an answer. You can find the <strong><span class="caps">FAQ</span></strong> below and browse available articles in the sidebar.</p>
-<h3>F.A.Q.</h3>
-<h3>Is it possible to override build commands on some branches?</h3>
-<p>Yes. Since the environment variable <code>BRANCH_NAME</code> is <a href="/available-environment-variables">available</a>, you can add a new build command to your project settings such as:</p>
-<pre>
-if [ "$BRANCH_NAME" = "acceptance-tests" ]; then bundle exec rake spec:acceptance ; fi
-</pre>
-<h3>How can I export some environment variables before the build?</h3>
-<p>Add <code>export VAR=foo</code> to your build commands (in project settings)</p>
-<h3>How can I insert my configuration file for X?</h3>
-<p>Add something like <code>cp config/s3.example.yml config/s3.yml</code> to your build commands.</p>
-<h3>How can I change /etc/hosts or another system configuration file?</h3>
-<p>If it&#8217;s short, this will do:</p>
-<pre>
-sudo sh -c "echo 'yourchange' &gt;&gt; /etc/hosts"
-</pre>
-<p>If it&#8217;s longer, we recommend saving your content in a private <a href="https://gist.github.com">gist</a> and then downloading via raw <span class="caps">URL</span>:</p>
-<pre>
-sudo sh -c "curl https://raw.github.com/gist/raw_url &gt;&gt; /etc/hosts"
-</pre>
-<h3>How do I configure the database?</h3>
-<p>You shouldn&#8217;t normally need to do that, as Semaphore automatically inserts a working <code>database.yml</code> in your project, based on the database selected in your project&#8217;s settings. On top of that, project analysis usually inserts <code>rake db:setup</code> and <code>rake db:test:prepare</code> build commands, which is enough in most cases.</p>
-<p>If you have or need to write a custom build script, you can use the database name and password specified by exported <a href="/available-environment-variables">environment variables</a>.</p>
-<h3>Can I use Postgres, MongoDB and Redis on one project?</h3>
-<p>Yes. Select Postgres as your database in project settings; that will make sure that Semaphore injects a working <code>database.yml</code> file.</p>
-<p>For Mongo, you&#8217;ll need to add build command such as:</p>
-<pre>
-cp config/mongoid.yml.example config/mongoid.yml</pre>
-<p>Default MongoDB configuration file that you use in development will work, no credentials are required.</p>
-<p>Redis is running on default port and by default works without any configuration.</p>
-<h3>How do I build a project with private gems?</h3>
-<p>Either use a hosted private gem repository such as <a href="http://www.gemfury.com">Gemfury</a>, or follow this procedure:</p>
-<p>1) Generate a new passwordless <span class="caps">SSH</span> key pair:</p>
-<pre>ssh-keygen -f /tmp/key -t dsa</pre>
-<p>2) Put the content of <code>/tmp/key</code> into a private gist on GitHub and name the file <code>id_dsa</code>.</p>
-<p>3) Put the content of <code>/tmp/key.pub</code> as a new deploy key in your <a href="http://d.pr/i/qFcv">gem&#8217;s admin screen on GitHub</a>.</p>
-<p>4) Go to your app&#8217;s project settings on Semaphore and add the following build commands before all:</p>
-<pre>mkdir -p ~/.ssh
-cd ~/.ssh
-wget https://raw.github.com/gist/.../id_dsa (this is the path you get through the "raw" link on gist's page)
-chmod 600 id_dsa
-cd -
-</pre>
-<p>We&#8217;re considering to hide this behind a nice UI.</p>
-<h3>My project depends on X and you don&#8217;t seem to have it</h3>
-<p>Important packages that are available in the platform are listed in the <a href="/version-information">Version Information</a> article.</p>
-<p>Additional dependencies can be added by simply adding an installation command to your build settings:</p>
-<pre>
-sudo apt-get install -y libawesome-dev
-</pre>
-<p>If you need help, just <a href="mailto:semaphore@renderedtext.com">email us</a> with your needs. If not, we&#8217;d still love to hear from you &#8211; knowing that many people are using a particular dependency generally encourages us to add it to platform.</p>
-<h3>How can I execute Postgres commands?</h3>
-<p>Add a build command which looks something like:</p>
-<pre>psql -c "anything" -d $DATABASE_NAME_TEST -P pager</pre>
-<h3>Build fails with &#8220;Unknown database &#8216;xyz_test&#8217;&#8221; or &quot;FATAL:  database &#8220;xyx_test&#8221; does not exist&quot;</h3>
-<p>The first message usually means that rake db:* tasks have set up the <code>_development</code> database and not the <code>_test</code> one which is required by the tests. Try adding <code>RAILS_ENV=test</code> to your build commands.</p>
-<p>In the second case, make sure you have <code>bundle exec rake db:setup</code> and <code>bundle exec rake db:test:prepare</code> in your build commands, as the test database is not created before the build begins.</p>
-<h3>&#8220;fatal: Could not parse object&#8221; during bundle install</h3>
-<p>If bundle install output looks like this:</p>
-<pre>
-Fetching gem metadata from http://rubygems.org/.......
-Fetching gem metadata from http://rubygems.org/..
-Updating git://github.com/some/gem.git
-fatal: Could not parse object 'a84dd3407eaf064064cca9650c354cb163384467'.
-Git error: command `git reset --hard a84dd3407eaf064064cca9650c354cb163384467` in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
-If this error persists you could try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
-</pre>
-<p>This problem occurs when there have been changes like force-pushes to a git repo which is referenced in a Gemfile.</p>
-<p>The solution is is to comment that gem line in Gemfile, run bundle, uncomment it and bundle again. Then the Gemfile.lock will reference a valid git revision.</p>
-<h3>&#8220;file not found: db:create (ArgumentError)&#8221;</h3>
-<p>Upgrade shoulda gem, or add <code>:require =&gt; false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info <a href="http://stackoverflow.com/a/9571551">here</a> and <a href="http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test">here</a>.</p>
-<h3>Tests or setup failed with &#8220;Real <span class="caps">HTTP</span> connections are disabled.&#8221;</h3>
-<p>If you&#8217;re using webmock: as webmock is required by default, it disables all <span class="caps">HTTP</span> connections (including connections to localhost). What you can do is disable autorequire for webmock in Gemfile and disable connections by hand in the spec helper.</p>
-<h3>Failed build reported as passed</h3>
-<p>For Semaphore, a command has failed if its exit status code is != 0 (zero means success).</p>
-<p>To see this locally, <code>echo $?</code> after a failing <code>rake spec</code>.</p>
-<p><code>rake spec</code> always returns non-zero on failure &#8211; unless there&#8217;s eg a code coverage report being hooked up to run after the specs.</p>
-<h3>My tests / integration specs / scenarios fail on Semaphore but pass locally</h3>
-<p>Headless, clean CI environment may make some tests more vulnerable:</p>
-<ul>
-	<li>Double-check if your local development environment has some configuration which was introduced manually and is not available after a fresh repository checkout.</li>
-	<li>Check if all your testing gems and configuration are up to date.</li>
-	<li><code>sleep()</code> is a common source of <a href="http://www.eurostarconferences.com/blog/2012/10/17/test-leaders-live-webinar-qa-with-simon-stewart">flaky tests</a>.</li>
-	<li>Having your tests depend on a certain order of records will probably not work.</li>
-	<li>Tests depending on external web services will likely fail at some point &#8211; when that service blocks repeated access or becomes unavailable; use <a href="https://github.com/myronmarston/vcr"><span class="caps">VCR</span></a> to record responses once and play them back every next time</li>
-	<li>Avoid mixing mocks with real records.</li>
-	<li>If using Timecop, remember to reset any changes to time.</li>
-	<li>Check if your specs are relying on specific domain configuration in <code>/etc/hosts</code>. We can add special configuration for you but in general your tests shouldn&#8217;t rely on such deep system configuration changes.</li>
-	<li>Change the database_cleaner strategy to truncation for specs with :js =&gt; true.</li>
-	<li>Make sure that your code is not prone to race conditions.</li>
-</ul>
-<h3>Selenium tests are unable to obtain connection to Firefox</h3>
-<p>Make sure selenium-webdriver gem is at latest available version specified on <a href="https://rubygems.org">rubygems.org</a>. Use <code>bundle update selenium-webdriver capybara</code>, commit and push the resulting changes to Gemfile.lock.</p>
-<h3>I&#8217;m having issues with capybara-webkit</h3>
-<p>1. Check how your configuration compares to our <a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/steak">test app</a>, which is known to pass. The <code>spec_helper.rb</code>, for example, should have minimal configuration necessary.</p>
-<p>2. Do not run <code>xvfb</code> &#8211; Semaphore does that before each build.</p>
-<p>3. You can dump the content of the page to file with <a href="http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#save_page-instance_method">save_page</a>.</p>
-<p>That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what&#8217;s going on.</p>
-<p>4. Make sure your views don&#8217;t have scripts such as Google Analytics running in test environment &#8211; they will cause timeouts.</p>
-<p>We&#8217;ve found Selenium and Firefox to be more stable and predictable than Webkit.</p>
-<h3>My build fails if I have pending Cucumber scenarios</h3>
-<p>This is by design &#8211; Cucumber returns with an error code if you have pending scenarios.</p>
-<p>If you&#8217;d like to avoid this, tag the work-in-progress scenarios and exclude them from your build via <code>--tags ~tag-to-exclude</code>.</p>
-<h3>My build takes longer than an hour</h3>
-<p>Semaphore automatically halts the build if a command takes longer than an hour &#8211; in most cases so far it has been a sign of something going wrong, like a debugger statement left in source code.</p>
-<p>But if your build really takes longer than an hour, you can you try running the specs or scenarios in two or more commands, eg:</p>
-<pre>
-bundle exec cucumber features/shopping_cart/*
-bundle exec cucumber features/reporting/*
-bundle exec cucumber features/something_else/*
-</pre>
-<p>You can then leverage Semaphore&#8217;s <a href="http://renderedtext.com/blog/2012/10/25/semaphore-can-now-parallelize-your-builds/">build parallelization feature</a> and run these simultaneously.</p>
-<h3>My Sphinx tests fail</h3>
-<p>If you are using Thinking Sphinx, make sure that that you run this command before your tests:</p>
-<pre>
-RAILS_ENV=test bundle exec rake ts:index
-</pre>
-<p>Than you can either run</p>
-<pre>
-RAILS_ENV=test bundle exec rake ts:start &amp;
-</pre>
-<p>or use</p>
-<pre>
-ThinkingSphinx::Test.start
-ThinkingSphinx::Test.stop
-</pre>
-<p>directly in the source code of your tests.</p>
-<h3>I&#8217;m having problems with git submodules</h3>
-<p>Due to current internal mechanism of repository and bundle caching, Semaphore is known for not working well with projects that contain git submodules.</p>
-<h3>How do I change my credit card information?</h3>
-<p>In the top left corner, click on &#8220;Manage your account&#8221; &gt; &#8220;Subscriptions&#8221; &gt; &#8220;Your billing history&#8221; &gt; &#8220;Update Payment Method&#8221;.</p>
-<h3>I have a new person on my GitHub team that I&#8217;d like to invite to Semaphore.</h3>
-<p>The project owner (on Semaphore) should go to project settings &gt; &#8220;Collaborators&#8221; and then click on &#8220;Sync collaborators from GitHub&#8221;.</p>
-<p>If you have not found an answer here, please email us at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
         </section>
 
       </article>
 
       <div class="articles col cs-6">
-  <h2>FAQ</h2>
+
+  <h2>Billing</h2>
   <ul>
-    <li><a href="/adding-new-project">How can I insert my configuration file for X?</a></li>
-    <li><a href="/collaborator-notifications">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
-    <li><a href="/supported-stack">Version information </a></li>
+    <li><a href="/how-to-change-credit-card-information">How do I change my credit card information?</a></li>
+  </ul>
+  <h2>Collaboration</h2>
+  <ul>
+    <li><a href="/how-to-invite-someone">I have a new person on my GitHub team that I’d like to invite to Semaphore</a></li>
+    <li><a href="/how-to-add-or-remove-collaborator">How can I add or remove a collaborator from my project?</a></li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <ul>
+    <li><a href="/how-to-use-postgres-mongodb-and-redis-on-one-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+    <li><a href="/how-to-install-dependency">My project depends on X and you don’t seem to have it</a></li>
+    <li><a href="/wkhtmltopdf-configuration">wkhtmltopodf configuration</a></li>
+    <li><a href="/test-apps">Test apps</a></li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><a href="/failed-with-unknown-database"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
+    <li><a href="/failed-with-could-not-parse-object">“fatal: Could not parse object” during bundle install</a></li>
+    <li><a href="/failed-with-file-not-found-db-create">file not found: db:create (ArgumentError)”</a></li>
+    <li><a href="/failed-with-real-http-connections-are-disabled">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
+    <li><a href="/failed-build-reported-as-passed">Failed build reported as passed</a></li>
+    <li><a href="/build-fail-on-semaphore">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/selenium-unable-to-obtain-connection">Selenium tests are unable to obtain connection to Firefox</a></li>
+    <li><a href="/issues-with-capybara-webkit">I’m having issues with capybara-webkit</a></li>
+    <li><a href="/build-fails-with-pending-cucumber-scenarios">My build fails if I have pending Cucumber scenarios</a></li>
+    <li><a href="/build-takes-longer-than-an-hour">My build takes longer than an hour</a></li>
+    <li><a href="/sphinx-tests-fail">My Sphinx tests fail</a></li>
+    <li><a href="/problems-with-git-submodules">I’m having problems with git submodules </a></li>
   </ul>
 </div>
 
 <div class="articles col cs-6">
   <h2>API</h2>
   <ul>
-    <li><a href="/adding-new-project">Projects</a></li>
-    <li><a href="/collaborator-notifications">Branches & builds</a></li>
-    <li><a href="/supported-stack">Servers & deploys</a></li>
+    <li><a href="/projects-api">Projects</a></li>
+    <li><a href="/branches-and-builds-api">Branches & builds</a></li>
+    <li><a href="/servers-and-deploys-api">Servers & deploys</a></li>
   </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Billing</h2>
-  <ul>
-    <li><a href="/adding-new-project">How do I change my credit card information?</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
   <h2>Build platform</h2>
   <ul>
-    <li><a href="/adding-new-project">Platform changelog</a></li>
-    <li><a href="/collaborator-notifications">Supported stack</a></li>
-    <li><a href="/supported-stack">Version information </a></li>
+    <li><a href="/platform-changelog">Platform changelog</a></li>
+    <li><a href="/supported-stack">Supported stack</a></li>
+    <li><a href="/version-information">Version information </a></li>
   </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Collaboration</h2>
-  <ul>
-    <li><a href="/adding-new-project">I have a new person on my GitHub team that I’d like to invite to Semaphore</a></li>
-    <li><a href="/collaborator-notifications">How can I add or remove a collaborator from my project?</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
   <h2>Customizing your build</h2>
   <ul>
-    <li><a href="/adding-new-project">Available environment variables</a></li>
-    <li><a href="/collaborator-notifications">Custom build commands</a></li>
-    <li><a href="/supported-stack">How can I export some environment variables before the build?</a></li>
-    <li><a href="/test-apps">How can I insert my configuration file for X?</a></li>
-    <li><a href="/test-apps">How can I change /etc/hosts or another system configuration file?</a></li>
-    <li><a href="/test-apps">How do I configure the database?</a></li>
-    <li><a href="/test-apps">How do I build a project with private gems?</a></li>
-    <li><a href="/test-apps">How can I execute Postgres commands?</a></li>
-    <li><a href="/test-apps">Is it possible to override build commands on some branches?</a></li>
+    <li><a href="/available-environment-variables">Available environment variables</a></li>
+    <li><a href="/custom-build-commands">Custom build commands</a></li>
+    <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
+    <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>
+    <li><a href="/how-to-change-system-configuration-file">How can I change /etc/hosts or another system configuration file?</a></li>
+    <li><a href="/how-to-configure-database">How do I configure the database?</a></li>
+    <li><a href="/how-to-build-project-with-private-gems">How do I build a project with private gems?</a></li>
+    <li><a href="/how-to-execute-postgres-commands">How can I execute Postgres commands?</a></li>
+    <li><a href="/how-to-override-build-commands">Is it possible to override build commands on some branches?</a></li>
   </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Dependencies</h2>
-  <ul>
-    <li><a href="/adding-new-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
-    <li><a href="/collaborator-notifications">My project depends on X and you don’t seem to have it</a></li>
-    <li><a href="/supported-stack">wkhtmltopodf configuration</a></li>
-    <li><a href="/test-apps">Test apps</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
   <h2>Notifications</h2>
   <ul>
-    <li><a href="/adding-new-project">Post-build webhooks</a></li>
-    <li><a href="/collaborator-notifications">Post-deploy webhooks</a></li>
-  </ul>
-</div>
-
-<div class="articles col cs-6">
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li><a href="/adding-new-project"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
-    <li><a href="/collaborator-notifications">“fatal: Could not parse object” during bundle install</a></li>
-    <li><a href="/supported-stack">file not found: db:create (ArgumentError)”</a></li>
-    <li><a href="/test-apps">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
-    <li><a href="/test-apps">Failed build reported as passed</a></li>
-    <li><a href="/test-apps">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
-    <li><a href="/test-apps">Selenium tests are unable to obtain connection to Firefox</a></li>
-    <li><a href="/test-apps">I’m having issues with capybara-webkit</a></li>
-    <li><a href="/test-apps">My build fails if I have pending Cucumber scenarios</a></li>
-    <li><a href="/test-apps">My build takes longer than an hour</a></li>
-    <li><a href="/test-apps">My Sphinx tests fail</a></li>
-    <li><a href="/test-apps">I’m having problems with git submodules </a></li>
+    <li><a href="/post-build-webhooks">Post-build webhooks</a></li>
+    <li><a href="/post-deploy-webhooks">Post-deploy webhooks</a></li>
   </ul>
 </div>
 

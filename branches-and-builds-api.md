@@ -9,9 +9,13 @@ title: Branches & builds API
 - [Build Information](#build_information)
 - [Build Log](#build_log)
 
+<p class="accent">
+All API access is over HTTPS. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter. To see your authentication token and project hash id, open a project’s settings, then find the “API” tab.
+</p>
+
 ### Project's branches
 
-{% highlight bash %}
+{% highlight javascript %}
 GET /api/v1/projects/:hash_id/branches
 {% endhighlight %}
 
@@ -21,26 +25,29 @@ GET /api/v1/projects/:hash_id/branches
 
 #### Response
 
-{% highlight bash %}
+{% highlight javascript %}
 [
    {
       "id": 1324,
-      "name": "new-build-page"
+      "name": "new-build-page",
+      "branch_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/1324/status?auth_token=:auth_token"
    },
    {
       "id": 1120,
-      "name": "development"
+      "name": "development",
+      "branch_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/1120/status?auth_token=:auth_token"
    },
    {
       "id": 987,
-      "name": "branches_api"
+      "name": "branches_api",
+      "branch_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/987/status?auth_token=:auth_token"
    }
 ]
 {% endhighlight %}
 
 ### Branch Status
 
-{% highlight bash %}
+{% highlight javascript %}
 GET /api/v1/projects/:hash_id/:id/status
 {% endhighlight %}
 
@@ -51,7 +58,7 @@ GET /api/v1/projects/:hash_id/:id/status
 
 #### Response
 
-{% highlight bash %}
+{% highlight javascript %}
 {
    "branch_name": "gem_updates",
    "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
@@ -78,7 +85,7 @@ GET /api/v1/projects/:hash_id/:id/status
 
 ### Branch History
 
-{% highlight bash %}
+{% highlight javascript %}
 GET /api/v1/projects/:hash_id/:id
 {% endhighlight %}
 
@@ -91,7 +98,7 @@ Branch builds are returned paginated by 10 per page. A specific page can be requ
 
 #### Pagination header
 
-{% highlight bash %}
+{% highlight javascript %}
 Pagination: {
   "total_entries": 46,
   "total_pages": 5,
@@ -106,7 +113,7 @@ Pagination: {
 
 #### Response
 
-{% highlight bash %}
+{% highlight javascript %}
 {
    "branch_name": "gem_updates",
    "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
@@ -152,7 +159,7 @@ Pagination: {
 
 ### Build Information
 
-{% highlight bash %}
+{% highlight javascript %}
 GET /api/v1/projects/:hash_id/:id/builds/:number
 {% endhighlight %}
 
@@ -164,7 +171,7 @@ GET /api/v1/projects/:hash_id/:id/builds/:number
 
 #### Response
 
-{% highlight bash %}
+{% highlight javascript %}
 {
   "commits": [
     {
@@ -190,7 +197,7 @@ GET /api/v1/projects/:hash_id/:id/builds/:number
 
 ### Build Log
 
-{% highlight bash %}
+{% highlight javascript %}
 GET /api/v1/projects/:hash_id/:id/builds/:number/log
 {% endhighlight %}
 
@@ -202,7 +209,7 @@ GET /api/v1/projects/:hash_id/:id/builds/:number/log
 
 #### Response
 
-{% highlight bash %}
+{% highlight javascript %}
 {
   "threads": [
     {
