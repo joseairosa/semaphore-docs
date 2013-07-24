@@ -177,6 +177,11 @@ body > footer {
 /* !Primary content ------------------------------------------------------ */
 
 #mainContent.safGrid {}
+  
+  h1.siteHeader {
+    font-size: 2em;
+    margin: 2em 0 0 0;
+  }
 
   .primary {
     margin-top: 56px;
@@ -208,7 +213,7 @@ body > footer {
         -moz-border-radius: 6px 6px 0 0;
           -o-border-radius: 6px 6px 0 0;
       }
-
+      
       .primary > header h2 {
         font-size: 1.5em;
         margin: 0;

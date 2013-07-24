@@ -1,6 +1,6 @@
 ---
 layout: default
-title: API
+title: Semaphore API
 ---
 
 Semaphore provides an API for the following:
