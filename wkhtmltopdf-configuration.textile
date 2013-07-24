@@ -11,21 +11,25 @@ h2. Example configuration
 
 h3. wicked_pdf
 
-bc. # config/initializers/wicked_pdf.rb
+{% highlight ruby %}
+# config/initializers/wicked_pdf.rb
 if ENV['CI'] == 'true'
   WickedPdf.config = {
     :exe_path => ENV['WKHTMLTOPDF_PATH']
   }
 end
+{% endhighlight %}
 
 h3. PDFKit
 
-bc. # config/initializers/pdfkit.rb
+{% highlight ruby %}
+# config/initializers/pdfkit.rb
 if ENV['CI'] == 'true'
   PDFKit.configure do |config|
     config.wkhtmltopdf = ENV['WKHTMLTOPDF_PATH']
   end
 end
+{% endhighlight %}
 
 See our test apps for example source code:
 * "wicked_pdf without additional configuration":https://github.com/renderedtext/testapp-capybara-webkit/tree/pdf

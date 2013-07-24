@@ -9,11 +9,11 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
-    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
-      API -
+      Semaphore API -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -32,299 +32,138 @@
 
     <div id="mainContent" class="safGrid">
 
-      <header class="pageTitle">
-        <h1 class="col cs-8 first">Semaphore Documentation</h1>
-      </header>
+      
+        <nav class="docsNav">
+          <a href="/">← Documentation Index</a>
+        </nav>
+      
+      
+      
 
-      <article class="primary col cs-9 first">
+      <article class="primary">
 
         <header class="title">
-          <h2>API</h2>
+          <h2>Semaphore API</h2>
+
+          
         </header>
 
         <section class="body">
-          <p>Semaphore provides an <span class="caps">API</span> for the following:</p>
+          <p>Semaphore provides an API for the following:</p>
+
+<h2 id='projects'>Projects</h2>
+
 <ul>
-	<li><a href="#projects">listing of user&#8217;s projects</a></li>
-	<li><a href="#branches">listing of project&#8217;s branches</a></li>
-	<li><a href="#branch_status">status of a project&#8217;s branch</a></li>
-	<li><a href="#branch_history">history of a project&#8217;s branch</a></li>
-	<li><a href="#build_information">build information</a></li>
-	<li><a href="#build_log">build log</a></li>
+<li><a href='/projects-api'>listing of user&#8217;s projects</a></li>
 </ul>
-<p class="accent">All <span class="caps">API</span> access is over <span class="caps">HTTPS</span>. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter.</p>
-<p>Example request:</p>
-<pre>$ curl -i https://semaphoreapp.com/api/v1/projects?auth_token=Yds3w6o26FLfJTnVK2y9</pre>
-<p>To see your authentication token and request URIs of a specific project, open a project&#8217;s settings, then find the &#8220;<span class="caps">API</span>&#8221; tab.</p>
-<h2><span class="caps">API</span> methods</h2>
-<h3>1. User&#8217;s projects<a name="projects">&nbsp;</a></h3>
-<p>List all projects that user has access to and their current status.</p>
-<pre>GET /api/v1/projects</pre>
-<h4>Response</h4>
-<pre><code>[
-   {
-      "id": 61,
-      "hash_id": "3f1004b8343faabda63d441734526c854380ab89",
-      "name": "testapp-sphinx",
-      "owner": "renderedtext",
-      "created_at": "2012-09-04T11:53:22Z",
-      "updated_at": "2012-09-04T12:01:17Z",
-      "branches": [
-         {
-            "branch_name": "master",
-            "branch_url": "https://semaphoreapp.com/projects/61/branches/85",
-            "branch_status_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "project_name": "testapp-sphinx",
-            "build_url": "https://semaphoreapp.com/projects/61/branches/85/builds/1",
-            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "build_number": 1,
-            "result": "passed",
-            "started_at": "2012-09-04T11:55:07Z",
-            "finished_at": "2012-09-04T12:01:16Z"
-         }
-      ]
-   },
-   {
-      "id": 63,
-      "hash_id": "649e584dc507ca4b73e1374d3125ef0b567a949c",
-      "name": "testapp-mongodb",
-      "owner": "renderedtext",
-      "created_at": "2012-09-14T10:53:38Z",
-      "updated_at": "2012-09-14T11:16:51Z",
-      "branches": [
-         {
-            "branch_name": "mongoid3",
-            "branch_url": "https://semaphoreapp.com/projects/63/branches/89",
-            "branch_status_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "branch_history_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "project_name": "testapp-mongodb",
-            "build_url": "https://semaphoreapp.com/projects/63/branches/89/builds/3",
-            "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-            "build_number": 3,
-            "result": "passed",
-            "started_at": "2012-09-14T11:11:39Z",
-            "finished_at": "2012-09-14T11:16:51Z"
-         }
-      ]
-   }
-]
-</code></pre>
-<p>A build&#8217;s result can be either &#8220;passed&#8221;, &#8220;failed&#8221; or &#8220;pending&#8221;.</p>
-<h3>2. Project&#8217;s branches<a name="branches">&nbsp;</a></h3>
-<pre>GET /api/v1/projects/:hash_id/branches</pre>
-<h4>Arguments</h4>
-<ol>
-	<li><code>hash_id</code> of the project</li>
-</ol>
-<h4>Response</h4>
-<pre><code>[
-   {
-      "id": 1324,
-      "name": "new-build-page"
-   },
-   {
-      "id": 1120,
-      "name": "development"
-   },
-   {
-      "id": 987,
-      "name": "branches_api"
-   }
-]</code></pre>
-<h3>3. Branch Status<a name="branch_status">&nbsp;</a></h3>
-<pre>GET /api/v1/projects/:hash_id/:id/status</pre>
-<h4>Arguments</h4>
-<ol>
-	<li><code>hash_id</code> of the project</li>
-	<li><code>id</code> of the branch</li>
-</ol>
-<h4>Response</h4>
-<pre><code>{
-   "branch_name": "gem_updates",
-   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
-   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "project_name": "base-app",
-   "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
-   "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "build_number": 15,
-   "result": "passed",
-   "started_at": "2012-07-09T15:23:53Z",
-   "finished_at": "2012-07-09T15:30:16Z",
-   "commit": {
-      "id": "dc395381e650f3bac18457909880829fc20e34ba",
-      "url": "https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba",
-      "author_name": "Vladimir Saric",
-      "author_email": "vladimir@renderedtext.com",
-      "message": "Update 'shoulda' gem.",
-      "timestamp": "2012-07-04T18:14:08Z"
-   }
-}</code></pre>
-<h3>4. Branch History<a name="branch_history">&nbsp;</a></h3>
-<pre>GET /api/v1/projects/:hash_id/:id</pre>
-<h4>Arguments</h4>
-<ol>
-	<li><code>hash_id</code> of the project</li>
-	<li><code>id</code> of the branch</li>
-</ol>
-<p>Branch builds are returned paginated by 10 per page. A specific page can be requested using the <code>page</code> parameter. The pagination information is included in the response header.</p>
-<h4>Pagination header</h4>
-<pre><code>Pagination: {
-  "total_entries": 46,
-  "total_pages": 5,
-  "per_page": 10,
-  "current_page": 1,
-  "first_page": true,
-  "last_page": false,
-  "previous_page": null,
-  "next_page": 2
-}</code></pre>
-<h4>Response</h4>
-<pre><code>{
-   "branch_name": "gem_updates",
-   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
-   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "project_name": "base-app",
-   "builds": [
-      {
-         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/46",
-         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-         "build_number": 46,
-         "result": "failed",
-         "started_at": "2012-10-02T15:01:41Z",
-         "finished_at": "2012-10-02T15:03:53Z",
-         "commit": {
-            "id": "a31d32d5de89613369f934eb7d30fbeb08883334",
-            "url": "https://github.com/renderedtext/base-app/commit/a31d32d5de89613369f934eb7d30fbeb08883334",
-            "author_name": "Vladimir Saric",
-            "author_email": "vladimir@renderedtext.com",
-            "message": "Update 'shoulda' gem.",
-            "timestamp": "2012-10-02T07:00:14Z"
-         }
-      },
-      {
-         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/45",
-         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-         "build_number": 45,
-         "result": "passed",
-         "started_at": "2012-10-02T14:47:06Z",
-         "finished_at": "2012-10-02T14:51:35Z",
-         "commit": {
-            "id": "73fce130ad23f265add5d55ee1da1c23b38f85a4",
-            "url": "https://github.com/renderedtext/base-app/commit/73fce130ad23f265add5d55ee1da1c23b38f85a4",
-            "author_name": "Marko Anastasov",
-            "author_email": "marko@renderedtext.com",
-            "message": "Update 'factory_girl_rails' gem and use new short FactoryGirl syntax.",
-            "timestamp": "2012-10-02T07:00:14Z"
-         }
-      }
-   ]
-}</code></pre>
-<h3>5. Build Information<a name="build_information">&nbsp;</a></h3>
-<pre>GET /api/v1/projects/:hash_id/:id/builds/:number</pre>
-<h4>Arguments</h4>
-<ol>
-	<li><code>hash_id</code> of the project</li>
-	<li><code>id</code> of the branch</li>
-	<li><code>number</code> of the build</li>
-</ol>
-<h4>Response</h4>
-<pre><code>{
-  "commits": [
-    {
-      "id": "47b51ec00ce04dd78fdefe65428e4216580ce89a",
-      "url": "https://github.com/renderedtext/base-app/commit/47b51ec00ce04dd78fdefe65428e4216580ce89a",
-      "author_name": "Marko Anastasov",
-      "author_email": "marko@renderedtext.com",
-      "message": "Update cucumber and related stuff.",
-      "timestamp": "2013-03-18T09:59:29Z"
-    }
-  ],
-  "project_name": "base-app",
-  "branch_name": "master",
-  "number": 1,
-  "result": "passed",
-  "created_at": "2013-03-18T10:40:13Z",
-  "updated_at": "2013-03-18T10:51:27Z",
-  "started_at": "2013-03-18T10:40:20Z",
-  "finished_at": "2013-03-18T10:51:26Z",
-  "html_url": "https://semaphoreapp.com/projects/653/branches/4204/builds/26"
-}</code></pre>
-<h3>6. Build Log<a name="build_log">&nbsp;</a></h3>
-<pre>GET /api/v1/projects/:hash_id/:id/builds/:number/log</pre>
-<h4>Arguments</h4>
-<ol>
-	<li><code>hash_id</code> of the project</li>
-	<li><code>id</code> of the branch</li>
-	<li><code>number</code> of the build</li>
-</ol>
-<h4>Response</h4>
-<pre><code>{
-  "threads": [
-    {
-      "number": 1,
-      "commands": [
-        {
-          "name": "bundle install --deployment --path vendor/bundle",
-          "result": "0",
-          "output": "Fetching source index from http://rubygems.org/ Installing rake (10.0.3) Installing i18n (0.6.1) Installing multi_json (1.6.1) Installing activesupport (3.2.11) Installing builder (3.0.4) Installing activemodel (3.2.11) Installing erubis (2.7.0) Installing journey (1.0.4) Installing rack (1.4.5) Installing rack-cache (1.2) Installing rack-test (0.6.2) Installing hike (1.2.1) Installing tilt (1.3.3) Installing sprockets (2.2.2) Installing actionpack (3.2.11) Installing mime-types (1.21) Installing polyglot (0.3.3) Installing treetop (1.4.12) Installing mail (2.4.4) Installing actionmailer (3.2.11) Installing arel (3.0.2) Installing tzinfo (0.3.35) Installing activerecord (3.2.11) Installing activeresource (3.2.11) Installing addressable (2.3.3) Installing kaminari (0.14.1) Installing polyamorous (0.5.0) Installing meta_search (1.1.3) Using bundler (1.3.0) Installing rack-ssl (1.3.2) Installing json (1.7.7)",
-          "start_time": "2013-03-12T09:24:30Z",
-          "finish_time": "2013-03-12T09:24:37Z",
-          "duration": "00:45"
-        },
-        {
-          "name": "gem --version",
-          "result": "0",
-          "output": "1.8.23",
-          "start_time": "2013-03-12T09:25:30Z",
-          "finish_time": "2013-03-12T09:25:37Z",
-          "duration": "00:00"
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "commands": [
-        {
-          "name": "bundle exec rake db:test:prepare",
-          "result": "0",
-          "output": "",
-          "start_time": "2013-03-12T09:24:37Z",
-          "finish_time": "2013-03-12T09:24:44Z",
-          "duration": "00:07"
-        }
-      ]
-    }
-  ],
-  "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9"
-}</code></pre>
+
+<h2 id='branches__builds'>Branches &amp; builds</h2>
+
+<ul>
+<li><a href='/branches-and-builds-api#projects_branches'>listing of project&#8217;s branches</a></li>
+
+<li><a href='/branches-and-builds-api#branch_status'>status of a project&#8217;s branch</a></li>
+
+<li><a href='/branches-and-builds-api#branch_history'>history of a project&#8217;s branch</a></li>
+
+<li><a href='/branches-and-builds-api#build_information'>build information</a></li>
+
+<li><a href='/branches-and-builds-api#build_log'>build log</a></li>
+</ul>
+
+<h2 id='servers__deploys'>Servers &amp; deploys</h2>
+
+<ul>
+<li><a href='/servers-and-deploys-api#projects_servers'>listing of project&#8217;s servers</a></li>
+
+<li><a href='/servers-and-deploys-api#server_status'>status of a project&#8217;s server</a></li>
+
+<li><a href='/servers-and-deploys-api#server_history'>history of a project&#8217;s server</a></li>
+
+<li><a href='/servers-and-deploys-api#deploy_information'>deploy information</a></li>
+
+<li><a href='/servers-and-deploys-api#deploy_log'>deploy log</a></li>
+</ul>
         </section>
 
       </article>
 
-      <aside class="col cs-3">
-        <h2>Articles</h2>
-        <ul>
-          <li><a href="/adding-new-project">Adding a New Project</a></li>
-          <li><a href="/api">API</a></li>
-          <li><a href="/available-environment-variables">Available Environment Variables</a></li>
-          <li><a href="/collaborator-notifications">Collaborator Notifications</a></li>
-          <li><a href="/custom-build-commands">Custom Build Commands</a></li>
-          <li><a href="/platform-changelog">Platform changelog</a></li>
-          <li><a href="/supported-stack">Supported Stack</a></li>
-          <li><a href="/test-apps">Test Apps</a></li>
-          <li><a href="/version-information">Version Information</a></li>
-          <li><a href="/webhooks">Webhooks</a></li>
-          <li><a href="/wkhtmltopdf-configuration">Wkhtmltopdf Configuration</a></li>
-        </ul>
-      </aside>
+      <div class="articles col cs-6">
+
+  <h2>Billing</h2>
+  <ul>
+    <li><a href="/how-to-change-credit-card-information">How do I change my credit card information?</a></li>
+  </ul>
+  <h2>Collaboration</h2>
+  <ul>
+    <li><a href="/how-to-add-or-remove-collaborator">How can I add or remove a collaborator from my project?</a></li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <ul>
+    <li><a href="/how-to-use-postgres-mongodb-and-redis-on-one-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+    <li><a href="/how-to-install-dependency">My project depends on X and you don’t seem to have it</a></li>
+    <li><a href="/wkhtmltopdf-configuration">wkhtmltopodf configuration</a></li>
+    <li><a href="/test-apps">Test apps</a></li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><a href="/failed-with-unknown-database"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
+    <li><a href="/failed-with-could-not-parse-object">“fatal: Could not parse object” during bundle install</a></li>
+    <li><a href="/failed-with-file-not-found-db-create">file not found: db:create (ArgumentError)”</a></li>
+    <li><a href="/failed-with-real-http-connections-are-disabled">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
+    <li><a href="/failed-build-reported-as-passed">Failed build reported as passed</a></li>
+    <li><a href="/build-fail-on-semaphore">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/selenium-unable-to-obtain-connection">Selenium tests are unable to obtain connection to Firefox</a></li>
+    <li><a href="/issues-with-capybara-webkit">I’m having issues with capybara-webkit</a></li>
+    <li><a href="/build-fails-with-pending-cucumber-scenarios">My build fails if I have pending Cucumber scenarios</a></li>
+    <li><a href="/build-takes-longer-than-an-hour">My build takes longer than an hour</a></li>
+    <li><a href="/sphinx-tests-fail">My Sphinx tests fail</a></li>
+    <li><a href="/problems-with-git-submodules">I’m having problems with git submodules </a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>API</h2>
+  <ul>
+    <li><a href="/projects-api">Projects</a></li>
+    <li><a href="/branches-and-builds-api">Branches & builds</a></li>
+    <li><a href="/servers-and-deploys-api">Servers & deploys</a></li>
+  </ul>
+  <h2>Build platform</h2>
+  <ul>
+    <li><a href="/platform-changelog">Platform changelog</a></li>
+    <li><a href="/supported-stack">Supported stack</a></li>
+    <li><a href="/version-information">Version information </a></li>
+  </ul>
+  <h2>Customizing your build</h2>
+  <ul>
+    <li><a href="/available-environment-variables">Available environment variables</a></li>
+    <li><a href="/custom-build-commands">Custom build commands</a></li>
+    <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
+    <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>
+    <li><a href="/how-to-change-system-configuration-file">How can I change /etc/hosts or another system configuration file?</a></li>
+    <li><a href="/how-to-configure-database">How do I configure the database?</a></li>
+    <li><a href="/how-to-build-project-with-private-gems">How do I build a project with private gems?</a></li>
+    <li><a href="/how-to-execute-postgres-commands">How can I execute Postgres commands?</a></li>
+    <li><a href="/how-to-override-build-commands">Is it possible to override build commands on some branches?</a></li>
+  </ul>
+  <h2>Notifications</h2>
+  <ul>
+    <li><a href="/post-build-webhooks">Post-build webhooks</a></li>
+    <li><a href="/post-deploy-webhooks">Post-deploy webhooks</a></li>
+  </ul>
+</div>
+
+
     </div>
+
     <footer class="safGrid">
-  <p class="logo"><a href="http://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p class="logo"><a href="https://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
   <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
 </footer>
+
 
   </body>
 </html>

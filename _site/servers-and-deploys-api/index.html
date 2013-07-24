@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" class="docs">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
+
+    <title>
+      
+      Servers & deploys API -
+       Semaphore Documentation</title>
+  </head>
+  <body>
+    <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Go to Semaphore</a>
+  </div>
+
+  <ul>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
+  </ul>
+
+</nav>
+
+    <div id="mainContent" class="safGrid">
+
+      
+        <nav class="docsNav">
+          <a href="/">← Documentation Index</a>
+        </nav>
+      
+      
+      
+
+      <article class="primary">
+
+        <header class="title">
+          <h2>Servers & deploys API</h2>
+
+          
+        </header>
+
+        <section class="body">
+          <ul>
+<li><a href='#projects_servers'>Project&#8217;s servers</a></li>
+
+<li><a href='#server_status'>Server Status</a></li>
+
+<li><a href='#server_history'>Server History</a></li>
+
+<li><a href='#deploy_information'>Deploy Information</a></li>
+
+<li><a href='#deploy_log'>Deploy Log</a></li>
+</ul>
+<p class='accent'>
+All API access is over HTTPS. Every method requires the user to provide his authentication token via <strong>auth_token</strong> parameter. To see your authentication token and project hash id, open a project’s settings, then find the “API” tab.
+</p>
+<h3 id='projects_servers'>Project&#8217;s servers</h3>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>GET</span> <span class='o'>/</span><span class='nx'>api</span><span class='o'>/</span><span class='nx'>v1</span><span class='o'>/</span><span class='nx'>projects</span><span class='o'>/:</span><span class='nx'>hash_id</span><span class='o'>/</span><span class='nx'>servers</span>
+</code></pre></div>
+<h4 id='arguments'>Arguments</h4>
+
+<ul>
+<li><code>hash_id</code> of the project</li>
+</ul>
+
+<h4 id='response'>Response</h4>
+<div class='highlight'><pre><code class='javascript'><span class='p'>[</span>
+  <span class='p'>{</span>
+     <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='mi'>9</span><span class='p'>,</span>
+     <span class='s2'>&quot;name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;staging&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;server_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/9/status?auth_token=:auth_token&quot;</span>
+  <span class='p'>},</span>
+  <span class='p'>{</span>
+     <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='mi'>11</span><span class='p'>,</span>
+     <span class='s2'>&quot;name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;production&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;server_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/status?auth_token=:auth_token&quot;</span>
+  <span class='p'>}</span>
+<span class='p'>]</span>
+</code></pre></div>
+<h3 id='server_status'>Server Status</h3>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>GET</span> <span class='o'>/</span><span class='nx'>api</span><span class='o'>/</span><span class='nx'>v1</span><span class='o'>/</span><span class='nx'>projects</span><span class='o'>/:</span><span class='nx'>hash_id</span><span class='o'>/</span><span class='nx'>servers</span><span class='o'>/:</span><span class='nx'>id</span><span class='o'>/</span><span class='nx'>status</span>
+</code></pre></div>
+<h4 id='arguments'>Arguments</h4>
+
+<ul>
+<li><code>hash_id</code> of the project</li>
+
+<li><code>id</code> of the server</li>
+</ul>
+
+<h4 id='response'>Response</h4>
+<div class='highlight'><pre><code class='javascript'><span class='p'>{</span>
+  <span class='s2'>&quot;server_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;production&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;server_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/servers/11&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;server_status_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/status?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;server_history_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;deployment_method&quot;</span><span class='o'>:</span> <span class='s2'>&quot;capistrano&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;strategy&quot;</span><span class='o'>:</span> <span class='s2'>&quot;manual&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;branch_name&quot;</span><span class='o'>:</span> <span class='kc'>null</span><span class='p'>,</span>
+  <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;semaphore&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;number&quot;</span><span class='o'>:</span> <span class='mi'>27</span><span class='p'>,</span>
+  <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;passed&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;created_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:57:42+02:00&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;updated_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T11:00:41+02:00&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;started_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:57:49+02:00&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;finished_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T11:00:41+02:00&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/servers/11/deploys/27&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;deploy_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;deploy_log_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27/log?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;build_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/29803/builds/119?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;build_html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/branches/29803/builds/119&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;commit&quot;</span><span class='o'>:</span> <span class='p'>{</span>
+     <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='s2'>&quot;222f031528545f2bc8284a4725fe160a0fb443x1&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://github.com/renderedtext/semaphore/commit/222f031528545f2bc8284a4725fe160a0fb443x1&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;author_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Marko Anastasov&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;author_email&quot;</span><span class='o'>:</span> <span class='s2'>&quot;marko@renderedtext.com&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;message&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Merge branch &#39;staging&#39;&quot;</span><span class='p'>,</span>
+     <span class='s2'>&quot;timestamp&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-22T17:52:27+02:00&quot;</span>
+   <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h3 id='server_history'>Server History</h3>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>GET</span> <span class='o'>/</span><span class='nx'>api</span><span class='o'>/</span><span class='nx'>v1</span><span class='o'>/</span><span class='nx'>projects</span><span class='o'>/:</span><span class='nx'>hash_id</span><span class='o'>/</span><span class='nx'>servers</span><span class='o'>/:</span><span class='nx'>id</span>
+</code></pre></div>
+<h4 id='arguments'>Arguments</h4>
+
+<ul>
+<li><code>hash_id</code> of the project</li>
+
+<li><code>id</code> of the server</li>
+</ul>
+
+<p>Server deploys are returned paginated by 10 per page. A specific page can be requested using the <code>page</code> parameter. The pagination information is included in the response header.</p>
+
+<h4 id='pagination_header'>Pagination header</h4>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>Pagination</span><span class='o'>:</span> <span class='p'>{</span>
+  <span class='s2'>&quot;total_entries&quot;</span><span class='o'>:</span> <span class='mi'>46</span><span class='p'>,</span>
+  <span class='s2'>&quot;total_pages&quot;</span><span class='o'>:</span> <span class='mi'>5</span><span class='p'>,</span>
+  <span class='s2'>&quot;per_page&quot;</span><span class='o'>:</span> <span class='mi'>10</span><span class='p'>,</span>
+  <span class='s2'>&quot;current_page&quot;</span><span class='o'>:</span> <span class='mi'>1</span><span class='p'>,</span>
+  <span class='s2'>&quot;first_page&quot;</span><span class='o'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+  <span class='s2'>&quot;last_page&quot;</span><span class='o'>:</span> <span class='kc'>false</span><span class='p'>,</span>
+  <span class='s2'>&quot;previous_page&quot;</span><span class='o'>:</span> <span class='kc'>null</span><span class='p'>,</span>
+  <span class='s2'>&quot;next_page&quot;</span><span class='o'>:</span> <span class='mi'>2</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h4 id='response'>Response</h4>
+<div class='highlight'><pre><code class='javascript'><span class='p'>{</span>
+   <span class='s2'>&quot;server_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;production&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;server_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/servers/11&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;server_status_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/status?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;server_history_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;deployment_method&quot;</span><span class='o'>:</span> <span class='s2'>&quot;capistrano&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;strategy&quot;</span><span class='o'>:</span> <span class='s2'>&quot;manual&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;branch_name&quot;</span><span class='o'>:</span> <span class='kc'>null</span><span class='p'>,</span>
+   <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;semaphore&quot;</span><span class='p'>,</span>
+   <span class='s2'>&quot;deploys&quot;</span><span class='o'>:</span> <span class='p'>[</span>
+      <span class='p'>{</span>
+         <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;semaphore&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;server_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;production&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;number&quot;</span><span class='o'>:</span> <span class='mi'>27</span><span class='p'>,</span>
+         <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;passed&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;created_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:57:42+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;updated_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T11:00:41+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;started_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:57:49+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;finished_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T11:00:41+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/servers/11/deploys/27&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;deploy_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;deploy_log_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27/log?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;build_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/29803/builds/119?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;build_html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/branches/29803/builds/119&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;commit&quot;</span><span class='o'>:</span> <span class='p'>{</span>
+            <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='s2'>&quot;222f0123418545f21234184a4725fe16asfa125123&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://github.com/renderedtext/semaphore/commit/222f0123418545f21234184a4725fe16asfa125123&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;author_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Marko Anastasov&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;author_email&quot;</span><span class='o'>:</span> <span class='s2'>&quot;marko@renderedtext.com&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;message&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Merge branch &#39;staging&#39;&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;timestamp&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-22T17:52:27+02:00&quot;</span>
+         <span class='p'>}</span>
+      <span class='p'>},</span>
+      <span class='p'>{</span>
+         <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;semaphore&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;server_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;production&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;number&quot;</span><span class='o'>:</span> <span class='mi'>26</span><span class='p'>,</span>
+         <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;passed&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;created_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T09:57:42+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;updated_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:00:41+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;started_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T09:57:49+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;finished_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:00:41+02:00&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/servers/11/deploys/27&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;deploy_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;deploy_log_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27/log?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;build_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/29803/builds/119?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;build_html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/branches/29803/builds/119&quot;</span><span class='p'>,</span>
+         <span class='s2'>&quot;commit&quot;</span><span class='o'>:</span> <span class='p'>{</span>
+            <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='s2'>&quot;222f0123418545f21234184a4725fe16asfa125123&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://github.com/renderedtext/semaphore/commit/222f0123418545f21234184a4725fe16asfa125123&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;author_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Marko Anastasov&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;author_email&quot;</span><span class='o'>:</span> <span class='s2'>&quot;marko@renderedtext.com&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;message&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Merge branch &#39;staging&#39;&quot;</span><span class='p'>,</span>
+            <span class='s2'>&quot;timestamp&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-22T16:52:27+02:00&quot;</span>
+         <span class='p'>}</span>
+   <span class='p'>]</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h3 id='deploy_information'>Deploy Information</h3>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>GET</span> <span class='o'>/</span><span class='nx'>api</span><span class='o'>/</span><span class='nx'>v1</span><span class='o'>/</span><span class='nx'>projects</span><span class='o'>/:</span><span class='nx'>hash_id</span><span class='o'>/</span><span class='nx'>servers</span><span class='o'>/:</span><span class='nx'>id</span><span class='o'>/</span><span class='nx'>deploys</span><span class='o'>/:</span><span class='nx'>number</span>
+</code></pre></div>
+<h4 id='arguments'>Arguments</h4>
+
+<ul>
+<li><code>hash_id</code> of the project</li>
+
+<li><code>id</code> of the server</li>
+
+<li><code>number</code> of the deploy</li>
+</ul>
+
+<h4 id='response'>Response</h4>
+<div class='highlight'><pre><code class='javascript'><span class='p'>{</span>
+    <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;semaphore&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;server_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;production&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;number&quot;</span><span class='o'>:</span> <span class='mi'>27</span><span class='p'>,</span>
+    <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;passed&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;created_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:57:42+02:00&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;updated_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T11:00:41+02:00&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;started_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T10:57:49+02:00&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;finished_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T11:00:41+02:00&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/servers/11/deploys/27&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;deploy_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;deploy_log_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27/log?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;build_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/29803/builds/119?auth_token=:auth_token&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;build_html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/1/branches/29803/builds/119&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;commit&quot;</span><span class='o'>:</span> <span class='p'>{</span>
+        <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='s2'>&quot;222f0123418545f21234184a4725fe16asfa125123&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://github.com/renderedtext/semaphore/commit/222f0123418545f21234184a4725fe16asfa125123&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;author_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Marko Anastasov&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;author_email&quot;</span><span class='o'>:</span> <span class='s2'>&quot;marko@renderedtext.com&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;message&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Merge branch &#39;staging&#39;&quot;</span><span class='p'>,</span>
+        <span class='s2'>&quot;timestamp&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-22T17:52:27+02:00&quot;</span>
+    <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h3 id='deploy_log'>Deploy Log</h3>
+<div class='highlight'><pre><code class='javascript'><span class='nx'>GET</span> <span class='o'>/</span><span class='nx'>api</span><span class='o'>/</span><span class='nx'>v1</span><span class='o'>/</span><span class='nx'>projects</span><span class='o'>/:</span><span class='nx'>hash_id</span><span class='o'>/</span><span class='nx'>servers</span><span class='o'>/:</span><span class='nx'>id</span><span class='o'>/</span><span class='nx'>deploys</span><span class='o'>/:</span><span class='nx'>number</span><span class='o'>/</span><span class='nx'>log</span>
+</code></pre></div>
+<h4 id='arguments'>Arguments</h4>
+
+<ul>
+<li><code>hash_id</code> of the project</li>
+
+<li><code>id</code> of the server</li>
+
+<li><code>number</code> of the deploy</li>
+</ul>
+
+<h4 id='response'>Response</h4>
+<div class='highlight'><pre><code class='javascript'><span class='p'>{</span>
+    <span class='s2'>&quot;threads&quot;</span><span class='o'>:</span> <span class='p'>[</span>
+        <span class='p'>{</span>
+            <span class='s2'>&quot;number&quot;</span><span class='o'>:</span> <span class='mi'>1</span><span class='p'>,</span>
+            <span class='s2'>&quot;commands&quot;</span><span class='o'>:</span> <span class='p'>[</span>
+                <span class='p'>{</span>
+                    <span class='s2'>&quot;name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;bundle install --path vendor/bundle&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;0&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;output&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Here goes long command output&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;start_time&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T08:58:38Z&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;finish_time&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T08:58:40Z&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;duration&quot;</span><span class='o'>:</span> <span class='s2'>&quot;00:02&quot;</span>
+                <span class='p'>},</span>
+                <span class='p'>{</span>
+                    <span class='s2'>&quot;name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;bundle exec cap -S revision=$REVISION production deploy:migrations&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;0&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;output&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Here goes long command output&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;start_time&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T08:58:40Z&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;finish_time&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-23T08:59:56Z&quot;</span><span class='p'>,</span>
+                    <span class='s2'>&quot;duration&quot;</span><span class='o'>:</span> <span class='s2'>&quot;01:16&quot;</span>
+                <span class='p'>}</span>
+            <span class='p'>]</span>
+        <span class='p'>}</span>
+    <span class='p'>],</span>
+    <span class='s2'>&quot;deploy_info_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/deploys/27?auth_token=:auth_token&quot;</span>
+<span class='p'>}</span>
+</code></pre></div>
+        </section>
+
+      </article>
+
+      <div class="articles col cs-6">
+
+  <h2>Billing</h2>
+  <ul>
+    <li><a href="/how-to-change-credit-card-information">How do I change my credit card information?</a></li>
+  </ul>
+  <h2>Collaboration</h2>
+  <ul>
+    <li><a href="/how-to-add-or-remove-collaborator">How can I add or remove a collaborator from my project?</a></li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <ul>
+    <li><a href="/how-to-use-postgres-mongodb-and-redis-on-one-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+    <li><a href="/how-to-install-dependency">My project depends on X and you don’t seem to have it</a></li>
+    <li><a href="/wkhtmltopdf-configuration">wkhtmltopodf configuration</a></li>
+    <li><a href="/test-apps">Test apps</a></li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><a href="/failed-with-unknown-database"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
+    <li><a href="/failed-with-could-not-parse-object">“fatal: Could not parse object” during bundle install</a></li>
+    <li><a href="/failed-with-file-not-found-db-create">file not found: db:create (ArgumentError)”</a></li>
+    <li><a href="/failed-with-real-http-connections-are-disabled">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
+    <li><a href="/failed-build-reported-as-passed">Failed build reported as passed</a></li>
+    <li><a href="/build-fail-on-semaphore">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/selenium-unable-to-obtain-connection">Selenium tests are unable to obtain connection to Firefox</a></li>
+    <li><a href="/issues-with-capybara-webkit">I’m having issues with capybara-webkit</a></li>
+    <li><a href="/build-fails-with-pending-cucumber-scenarios">My build fails if I have pending Cucumber scenarios</a></li>
+    <li><a href="/build-takes-longer-than-an-hour">My build takes longer than an hour</a></li>
+    <li><a href="/sphinx-tests-fail">My Sphinx tests fail</a></li>
+    <li><a href="/problems-with-git-submodules">I’m having problems with git submodules </a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>API</h2>
+  <ul>
+    <li><a href="/projects-api">Projects</a></li>
+    <li><a href="/branches-and-builds-api">Branches & builds</a></li>
+    <li><a href="/servers-and-deploys-api">Servers & deploys</a></li>
+  </ul>
+  <h2>Build platform</h2>
+  <ul>
+    <li><a href="/platform-changelog">Platform changelog</a></li>
+    <li><a href="/supported-stack">Supported stack</a></li>
+    <li><a href="/version-information">Version information </a></li>
+  </ul>
+  <h2>Customizing your build</h2>
+  <ul>
+    <li><a href="/available-environment-variables">Available environment variables</a></li>
+    <li><a href="/custom-build-commands">Custom build commands</a></li>
+    <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
+    <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>
+    <li><a href="/how-to-change-system-configuration-file">How can I change /etc/hosts or another system configuration file?</a></li>
+    <li><a href="/how-to-configure-database">How do I configure the database?</a></li>
+    <li><a href="/how-to-build-project-with-private-gems">How do I build a project with private gems?</a></li>
+    <li><a href="/how-to-execute-postgres-commands">How can I execute Postgres commands?</a></li>
+    <li><a href="/how-to-override-build-commands">Is it possible to override build commands on some branches?</a></li>
+  </ul>
+  <h2>Notifications</h2>
+  <ul>
+    <li><a href="/post-build-webhooks">Post-build webhooks</a></li>
+    <li><a href="/post-deploy-webhooks">Post-deploy webhooks</a></li>
+  </ul>
+</div>
+
+
+    </div>
+
+    <footer class="safGrid">
+  <p class="logo"><a href="https://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="docs">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
+
+    <title>
+      
+      Build fails with “file not found db:create (ArgumentError)” -
+       Semaphore Documentation</title>
+  </head>
+  <body>
+    <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Go to Semaphore</a>
+  </div>
+
+  <ul>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
+  </ul>
+
+</nav>
+
+    <div id="mainContent" class="safGrid">
+
+      
+        <nav class="docsNav">
+          <a href="/">← Documentation Index</a>
+        </nav>
+      
+      
+      
+
+      <article class="primary">
+
+        <header class="title">
+          <h2>Build fails with “file not found db:create (ArgumentError)”</h2>
+
+          
+        </header>
+
+        <section class="body">
+          <p>Upgrade shoulda gem, or add <code>:require =&gt; false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info <a href='http://stackoverflow.com/a/9571551'>here</a> and <a href='http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test'>here</a>.</p>
+        </section>
+
+      </article>
+
+      <div class="articles col cs-6">
+
+  <h2>Billing</h2>
+  <ul>
+    <li><a href="/how-to-change-credit-card-information">How do I change my credit card information?</a></li>
+  </ul>
+  <h2>Collaboration</h2>
+  <ul>
+    <li><a href="/how-to-add-or-remove-collaborator">How can I add or remove a collaborator from my project?</a></li>
+  </ul>
+
+  <h2>Dependencies</h2>
+  <ul>
+    <li><a href="/how-to-use-postgres-mongodb-and-redis-on-one-project">Can I use Postgres, MongoDB and Redis on one project?</a></li>
+    <li><a href="/how-to-install-dependency">My project depends on X and you don’t seem to have it</a></li>
+    <li><a href="/wkhtmltopdf-configuration">wkhtmltopodf configuration</a></li>
+    <li><a href="/test-apps">Test apps</a></li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li><a href="/failed-with-unknown-database"> Build fails with “Unknown database ‘xyz_test’” or "FATAL: database “xyx_test” does not exist"</a></li>
+    <li><a href="/failed-with-could-not-parse-object">“fatal: Could not parse object” during bundle install</a></li>
+    <li><a href="/failed-with-file-not-found-db-create">file not found: db:create (ArgumentError)”</a></li>
+    <li><a href="/failed-with-real-http-connections-are-disabled">Tests or setup failed with “Real HTTP connections are disabled.”</a></li>
+    <li><a href="/failed-build-reported-as-passed">Failed build reported as passed</a></li>
+    <li><a href="/build-fail-on-semaphore">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
+    <li><a href="/selenium-unable-to-obtain-connection">Selenium tests are unable to obtain connection to Firefox</a></li>
+    <li><a href="/issues-with-capybara-webkit">I’m having issues with capybara-webkit</a></li>
+    <li><a href="/build-fails-with-pending-cucumber-scenarios">My build fails if I have pending Cucumber scenarios</a></li>
+    <li><a href="/build-takes-longer-than-an-hour">My build takes longer than an hour</a></li>
+    <li><a href="/sphinx-tests-fail">My Sphinx tests fail</a></li>
+    <li><a href="/problems-with-git-submodules">I’m having problems with git submodules </a></li>
+  </ul>
+</div>
+
+<div class="articles col cs-6">
+  <h2>API</h2>
+  <ul>
+    <li><a href="/projects-api">Projects</a></li>
+    <li><a href="/branches-and-builds-api">Branches & builds</a></li>
+    <li><a href="/servers-and-deploys-api">Servers & deploys</a></li>
+  </ul>
+  <h2>Build platform</h2>
+  <ul>
+    <li><a href="/platform-changelog">Platform changelog</a></li>
+    <li><a href="/supported-stack">Supported stack</a></li>
+    <li><a href="/version-information">Version information </a></li>
+  </ul>
+  <h2>Customizing your build</h2>
+  <ul>
+    <li><a href="/available-environment-variables">Available environment variables</a></li>
+    <li><a href="/custom-build-commands">Custom build commands</a></li>
+    <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
+    <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>
+    <li><a href="/how-to-change-system-configuration-file">How can I change /etc/hosts or another system configuration file?</a></li>
+    <li><a href="/how-to-configure-database">How do I configure the database?</a></li>
+    <li><a href="/how-to-build-project-with-private-gems">How do I build a project with private gems?</a></li>
+    <li><a href="/how-to-execute-postgres-commands">How can I execute Postgres commands?</a></li>
+    <li><a href="/how-to-override-build-commands">Is it possible to override build commands on some branches?</a></li>
+  </ul>
+  <h2>Notifications</h2>
+  <ul>
+    <li><a href="/post-build-webhooks">Post-build webhooks</a></li>
+    <li><a href="/post-deploy-webhooks">Post-deploy webhooks</a></li>
+  </ul>
+</div>
+
+
+    </div>
+
+    <footer class="safGrid">
+  <p class="logo"><a href="https://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
+
+  </body>
+</html>
