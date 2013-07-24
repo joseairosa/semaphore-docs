@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -49,9 +50,8 @@
 
         <section class="body">
           <p>Yes. Since the environment variable BRANCH_NAME is <a href='/available-environment-variables'>available</a>, you can add a new build command to your project settings such as:</p>
-<div>
-  <pre><code class='javascript'>if [ &quot;$BRANCH_NAME&quot; = &quot;acceptance-tests&quot; ]; then bundle exec rake spec:acceptance ; fi</code></pre>
-</div>
+<div class='highlight'><pre><code class='javascript'><span class='k'>if</span> <span class='p'>[</span> <span class='s2'>&quot;$BRANCH_NAME&quot;</span> <span class='o'>=</span> <span class='s2'>&quot;acceptance-tests&quot;</span> <span class='p'>];</span> <span class='nx'>then</span> <span class='nx'>bundle</span> <span class='nx'>exec</span> <span class='nx'>rake</span> <span class='nx'>spec</span><span class='o'>:</span><span class='nx'>acceptance</span> <span class='p'>;</span> <span class='nx'>fi</span>
+</code></pre></div>
         </section>
 
       </article>

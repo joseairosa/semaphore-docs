@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -51,9 +52,8 @@
           <p>Yes. Select Postgres as your database in project settings; that will make sure that Semaphore injects a working <code>database.yml</code> file.</p>
 
 <p>For Mongo, you’ll need to add build command such as:</p>
-<div>
-  <pre><code class='bash'>cp config/mongoid.yml.example config/mongoid.yml</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'>cp config/mongoid.yml.example config/mongoid.yml
+</code></pre></div>
 <p>Default MongoDB configuration file that you use in development will work, no credentials are required.</p>
 
 <p>Redis is running on default port and by default works without any configuration.</p>

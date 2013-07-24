@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -54,60 +55,58 @@ All API access is over HTTPS. Every method requires the user to provide his auth
 <h3 id='users_projects'>User&#8217;s projects</h3>
 
 <p>List all projects that user has access to and their current status.</p>
-<div>
-  <pre><code class='bash'>GET /api/v1/projects</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'>GET /api/v1/projects
+</code></pre></div>
 <h4 id='response'>Response</h4>
-<div>
-  <pre><code class='bash'>[
-   {
-      &quot;id&quot;: 61,
-      &quot;hash_id&quot;: &quot;3f1004b8343faabda63d441734526c854380ab89&quot;,
-      &quot;name&quot;: &quot;testapp-sphinx&quot;,
-      &quot;owner&quot;: &quot;renderedtext&quot;,
-      &quot;created_at&quot;: &quot;2012-09-04T11:53:22Z&quot;,
-      &quot;updated_at&quot;: &quot;2012-09-04T12:01:17Z&quot;,
-      &quot;branches&quot;: [
-         {
-            &quot;branch_name&quot;: &quot;master&quot;,
-            &quot;branch_url&quot;: &quot;https://semaphoreapp.com/projects/61/branches/85&quot;,
-            &quot;branch_status_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
-            &quot;branch_history_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
-            &quot;project_name&quot;: &quot;testapp-sphinx&quot;,
-            &quot;build_url&quot;: &quot;https://semaphoreapp.com/projects/61/branches/85/builds/1&quot;,
-            &quot;build_info_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
-            &quot;build_number&quot;: 1,
-            &quot;result&quot;: &quot;passed&quot;,
-            &quot;started_at&quot;: &quot;2012-09-04T11:55:07Z&quot;,
-            &quot;finished_at&quot;: &quot;2012-09-04T12:01:16Z&quot;
-         }
-      ]
-   },
-   {
-      &quot;id&quot;: 63,
-      &quot;hash_id&quot;: &quot;649e584dc507ca4b73e1374d3125ef0b567a949c&quot;,
-      &quot;name&quot;: &quot;testapp-mongodb&quot;,
-      &quot;owner&quot;: &quot;renderedtext&quot;,
-      &quot;created_at&quot;: &quot;2012-09-14T10:53:38Z&quot;,
-      &quot;updated_at&quot;: &quot;2012-09-14T11:16:51Z&quot;,
-      &quot;branches&quot;: [
-         {
-            &quot;branch_name&quot;: &quot;mongoid3&quot;,
-            &quot;branch_url&quot;: &quot;https://semaphoreapp.com/projects/63/branches/89&quot;,
-            &quot;branch_status_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
-            &quot;branch_history_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
-            &quot;project_name&quot;: &quot;testapp-mongodb&quot;,
-            &quot;build_url&quot;: &quot;https://semaphoreapp.com/projects/63/branches/89/builds/3&quot;,
-            &quot;build_info_url&quot;: &quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9&quot;,
-            &quot;build_number&quot;: 3,
-            &quot;result&quot;: &quot;passed&quot;,
-            &quot;started_at&quot;: &quot;2012-09-14T11:11:39Z&quot;,
-            &quot;finished_at&quot;: &quot;2012-09-14T11:16:51Z&quot;
-         }
-      ]
-   }
-]</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'><span class='o'>[</span>
+   <span class='o'>{</span>
+      <span class='s2'>&quot;id&quot;</span>: 61,
+      <span class='s2'>&quot;hash_id&quot;</span>: <span class='s2'>&quot;3f1004b8343faabda63d441734526c854380ab89&quot;</span>,
+      <span class='s2'>&quot;name&quot;</span>: <span class='s2'>&quot;testapp-sphinx&quot;</span>,
+      <span class='s2'>&quot;owner&quot;</span>: <span class='s2'>&quot;renderedtext&quot;</span>,
+      <span class='s2'>&quot;created_at&quot;</span>: <span class='s2'>&quot;2012-09-04T11:53:22Z&quot;</span>,
+      <span class='s2'>&quot;updated_at&quot;</span>: <span class='s2'>&quot;2012-09-04T12:01:17Z&quot;</span>,
+      <span class='s2'>&quot;branches&quot;</span>: <span class='o'>[</span>
+         <span class='o'>{</span>
+            <span class='s2'>&quot;branch_name&quot;</span>: <span class='s2'>&quot;master&quot;</span>,
+            <span class='s2'>&quot;branch_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/projects/61/branches/85&quot;</span>,
+            <span class='s2'>&quot;branch_status_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9&quot;</span>,
+            <span class='s2'>&quot;branch_history_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9&quot;</span>,
+            <span class='s2'>&quot;project_name&quot;</span>: <span class='s2'>&quot;testapp-sphinx&quot;</span>,
+            <span class='s2'>&quot;build_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/projects/61/branches/85/builds/1&quot;</span>,
+            <span class='s2'>&quot;build_info_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9&quot;</span>,
+            <span class='s2'>&quot;build_number&quot;</span>: 1,
+            <span class='s2'>&quot;result&quot;</span>: <span class='s2'>&quot;passed&quot;</span>,
+            <span class='s2'>&quot;started_at&quot;</span>: <span class='s2'>&quot;2012-09-04T11:55:07Z&quot;</span>,
+            <span class='s2'>&quot;finished_at&quot;</span>: <span class='s2'>&quot;2012-09-04T12:01:16Z&quot;</span>
+         <span class='o'>}</span>
+      <span class='o'>]</span>
+   <span class='o'>}</span>,
+   <span class='o'>{</span>
+      <span class='s2'>&quot;id&quot;</span>: 63,
+      <span class='s2'>&quot;hash_id&quot;</span>: <span class='s2'>&quot;649e584dc507ca4b73e1374d3125ef0b567a949c&quot;</span>,
+      <span class='s2'>&quot;name&quot;</span>: <span class='s2'>&quot;testapp-mongodb&quot;</span>,
+      <span class='s2'>&quot;owner&quot;</span>: <span class='s2'>&quot;renderedtext&quot;</span>,
+      <span class='s2'>&quot;created_at&quot;</span>: <span class='s2'>&quot;2012-09-14T10:53:38Z&quot;</span>,
+      <span class='s2'>&quot;updated_at&quot;</span>: <span class='s2'>&quot;2012-09-14T11:16:51Z&quot;</span>,
+      <span class='s2'>&quot;branches&quot;</span>: <span class='o'>[</span>
+         <span class='o'>{</span>
+            <span class='s2'>&quot;branch_name&quot;</span>: <span class='s2'>&quot;mongoid3&quot;</span>,
+            <span class='s2'>&quot;branch_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/projects/63/branches/89&quot;</span>,
+            <span class='s2'>&quot;branch_status_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/status?auth_token=Yds3w6o26FLfJTnVK2y9&quot;</span>,
+            <span class='s2'>&quot;branch_history_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85?auth_token=Yds3w6o26FLfJTnVK2y9&quot;</span>,
+            <span class='s2'>&quot;project_name&quot;</span>: <span class='s2'>&quot;testapp-mongodb&quot;</span>,
+            <span class='s2'>&quot;build_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/projects/63/branches/89/builds/3&quot;</span>,
+            <span class='s2'>&quot;build_info_url&quot;</span>: <span class='s2'>&quot;https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9&quot;</span>,
+            <span class='s2'>&quot;build_number&quot;</span>: 3,
+            <span class='s2'>&quot;result&quot;</span>: <span class='s2'>&quot;passed&quot;</span>,
+            <span class='s2'>&quot;started_at&quot;</span>: <span class='s2'>&quot;2012-09-14T11:11:39Z&quot;</span>,
+            <span class='s2'>&quot;finished_at&quot;</span>: <span class='s2'>&quot;2012-09-14T11:16:51Z&quot;</span>
+         <span class='o'>}</span>
+      <span class='o'>]</span>
+   <span class='o'>}</span>
+<span class='o'>]</span>
+</code></pre></div>
 <p>A build&#8217;s result can be either &#8220;passed&#8221;, &#8220;failed&#8221; or &#8220;pending&#8221;.</p>
         </section>
 

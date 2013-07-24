@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -53,9 +54,8 @@
 <ul>
 <li>Generate a new passwordless SSH key pair:</li>
 </ul>
-<div>
-  <pre><code class='bash'>ssh-keygen -f /tmp/key -t dsa</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'>ssh-keygen -f /tmp/key -t dsa
+</code></pre></div>
 <ul>
 <li>
 <p>Put the content of <code>/tmp/key</code> into a private gist on GitHub and name the file id_dsa.</p>
@@ -69,13 +69,12 @@
 <p>Go to your app’s project settings on Semaphore and add the following build commands before all:</p>
 </li>
 </ul>
-<div>
-  <pre><code class='bash'>mkdir -p ~/.ssh
-cd ~/.ssh
-wget https://raw.github.com/gist/.../id_dsa (this is the path you get through the &quot;raw&quot; link on gist's page)
+<div class='highlight'><pre><code class='bash'>mkdir -p ~/.ssh
+<span class='nb'>cd</span> ~/.ssh
+wget https://raw.github.com/gist/.../id_dsa <span class='o'>(</span>this is the path you get through the <span class='s2'>&quot;raw&quot;</span> link on gist<span class='err'>&#39;</span>s page<span class='o'>)</span>
 chmod 600 id_dsa
-cd -</code></pre>
-</div>
+<span class='nb'>cd</span> -
+</code></pre></div>
 <p>We’re considering to hide this behind a nice UI.</p>
         </section>
 

@@ -27,21 +27,21 @@ GET /api/v1/projects/:hash_id/branches
 
 {% highlight javascript %}
 [
-   {
-      "id": 1324,
-      "name": "new-build-page",
+   {
+      "id": 1324,
+      "name": "new-build-page",
       "branch_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/1324/status?auth_token=:auth_token"
-   },
-   {
-      "id": 1120,
-      "name": "development",
+   },
+   {
+      "id": 1120,
+      "name": "development",
       "branch_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/1120/status?auth_token=:auth_token"
-   },
-   {
-      "id": 987,
-      "name": "branches_api",
+   },
+   {
+      "id": 987,
+      "name": "branches_api",
       "branch_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/987/status?auth_token=:auth_token"
-   }
+   }
 ]
 {% endhighlight %}
 
@@ -60,25 +60,25 @@ GET /api/v1/projects/:hash_id/:id/status
 
 {% highlight javascript %}
 {
-   "branch_name": "gem_updates",
-   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
-   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "project_name": "base-app",
-   "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
-   "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "build_number": 15,
-   "result": "passed",
-   "started_at": "2012-07-09T15:23:53Z",
-   "finished_at": "2012-07-09T15:30:16Z",
-   "commit": {
-      "id": "dc395381e650f3bac18457909880829fc20e34ba",
-      "url": "https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba",
-      "author_name": "Vladimir Saric",
-      "author_email": "vladimir@renderedtext.com",
-      "message": "Update 'shoulda' gem.",
-      "timestamp": "2012-07-04T18:14:08Z"
-   }
+   "branch_name": "gem_updates",
+   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
+   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "project_name": "base-app",
+   "build_url": "https://semaphoreapp.com/projects/44/branches/50/builds/15",
+   "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "build_number": 15,
+   "result": "passed",
+   "started_at": "2012-07-09T15:23:53Z",
+   "finished_at": "2012-07-09T15:30:16Z",
+   "commit": {
+      "id": "dc395381e650f3bac18457909880829fc20e34ba",
+      "url": "https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba",
+      "author_name": "Vladimir Saric",
+      "author_email": "vladimir@renderedtext.com",
+      "message": "Update 'shoulda' gem.",
+      "timestamp": "2012-07-04T18:14:08Z"
+   }
 }
 {% endhighlight %}
 
@@ -115,45 +115,45 @@ Pagination: {
 
 {% highlight javascript %}
 {
-   "branch_name": "gem_updates",
-   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
-   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
-   "project_name": "base-app",
-   "builds": [
-      {
-         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/46",
-         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-         "build_number": 46,
-         "result": "failed",
-         "started_at": "2012-10-02T15:01:41Z",
-         "finished_at": "2012-10-02T15:03:53Z",
-         "commit": {
-            "id": "a31d32d5de89613369f934eb7d30fbeb08883334",
-            "url": "https://github.com/renderedtext/base-app/commit/a31d32d5de89613369f934eb7d30fbeb08883334",
-            "author_name": "Vladimir Saric",
-            "author_email": "vladimir@renderedtext.com",
-            "message": "Update 'shoulda' gem.",
-            "timestamp": "2012-10-02T07:00:14Z"
-         }
-      },
-      {
-         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/45",
-         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
-         "build_number": 45,
-         "result": "passed",
-         "started_at": "2012-10-02T14:47:06Z",
-         "finished_at": "2012-10-02T14:51:35Z",
-         "commit": {
-            "id": "73fce130ad23f265add5d55ee1da1c23b38f85a4",
-            "url": "https://github.com/renderedtext/base-app/commit/73fce130ad23f265add5d55ee1da1c23b38f85a4",
-            "author_name": "Marko Anastasov",
-            "author_email": "marko@renderedtext.com",
-            "message": "Update 'factory_girl_rails' gem and use new short FactoryGirl syntax.",
-            "timestamp": "2012-10-02T07:00:14Z"
-         }
-      }
-   ]
+   "branch_name": "gem_updates",
+   "branch_url": "https://semaphoreapp.com/projects/44/branches/50",
+   "branch_status_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89/status?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "branch_history_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/89?auth_token=Yds3w6o26FLfJTnVK2y9",
+   "project_name": "base-app",
+   "builds": [
+      {
+         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/46",
+         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
+         "build_number": 46,
+         "result": "failed",
+         "started_at": "2012-10-02T15:01:41Z",
+         "finished_at": "2012-10-02T15:03:53Z",
+         "commit": {
+            "id": "a31d32d5de89613369f934eb7d30fbeb08883334",
+            "url": "https://github.com/renderedtext/base-app/commit/a31d32d5de89613369f934eb7d30fbeb08883334",
+            "author_name": "Vladimir Saric",
+            "author_email": "vladimir@renderedtext.com",
+            "message": "Update 'shoulda' gem.",
+            "timestamp": "2012-10-02T07:00:14Z"
+         }
+      },
+      {
+         "build_url": "https://semaphoreapp.com/projects/57/branches/80/builds/45",
+         "build_info_url": "https://semaphoreapp.com/api/v1/projects/649e584dc507ca4b73e1374d3125ef0b567a949c/80/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9",
+         "build_number": 45,
+         "result": "passed",
+         "started_at": "2012-10-02T14:47:06Z",
+         "finished_at": "2012-10-02T14:51:35Z",
+         "commit": {
+            "id": "73fce130ad23f265add5d55ee1da1c23b38f85a4",
+            "url": "https://github.com/renderedtext/base-app/commit/73fce130ad23f265add5d55ee1da1c23b38f85a4",
+            "author_name": "Marko Anastasov",
+            "author_email": "marko@renderedtext.com",
+            "message": "Update 'factory_girl_rails' gem and use new short FactoryGirl syntax.",
+            "timestamp": "2012-10-02T07:00:14Z"
+         }
+      }
+   ]
 }
 {% endhighlight %}
 
@@ -247,6 +247,6 @@ GET /api/v1/projects/:hash_id/:id/builds/:number/log
       ]
     }
   ],
-  "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9"
+  "build_info_url": "https://semaphoreapp.com/api/v1/projects/3f1004b8343faabda63d441734526c854380ab89/85/builds/1?auth_token=Yds3w6o26FLfJTnVK2y9"
 }
 {% endhighlight %}

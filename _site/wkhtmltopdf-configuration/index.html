@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -52,19 +53,21 @@
 <p>If your application is using wkhtmltopdf or wkhtmltopdf-binary gem or binary version is installed on custom location, then you need to tell your <span class="caps">PDF</span> generator tool to use wkhtmltopdf that is installed locally on Semaphore builder machines. Path to executable wkhtmltopdf is stored in WKHTMLTOPDF_PATH <a href="/available-environment-variables">environment variable</a>.</p>
 <h2>Example configuration</h2>
 <h3>wicked_pdf</h3>
-<pre><code># config/initializers/wicked_pdf.rb
-if ENV['CI'] == 'true'
-  WickedPdf.config = {
-    :exe_path =&gt; ENV['WKHTMLTOPDF_PATH']
-  }
-end</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="c1"># config/initializers/wicked_pdf.rb</span>
+<span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CI&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span>
+  <span class="no">WickedPdf</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">:exe_path</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;WKHTMLTOPDF_PATH&#39;</span><span class="o">]</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
 <h3>PDFKit</h3>
-<pre><code># config/initializers/pdfkit.rb
-if ENV['CI'] == 'true'
-  PDFKit.configure do |config|
-    config.wkhtmltopdf = ENV['WKHTMLTOPDF_PATH']
-  end
-end</code></pre>
+<div class="highlight"><pre><code class="ruby"><span class="c1"># config/initializers/pdfkit.rb</span>
+<span class="k">if</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;CI&#39;</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span>
+  <span class="no">PDFKit</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">wkhtmltopdf</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;WKHTMLTOPDF_PATH&#39;</span><span class="o">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
 <p>See our test apps for example source code:</p>
 <ul>
 	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit/tree/pdf">wicked_pdf without additional configuration</a></li>

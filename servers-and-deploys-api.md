@@ -121,7 +121,7 @@ Pagination: {
    "server_url": "https://semaphoreapp.com/projects/1/servers/11",
    "server_status_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11/status?auth_token=:auth_token",
    "server_history_url": "https://semaphoreapp.com/api/v1/projects/:hash_id/servers/11?auth_token=:auth_token",
-   "deployment_method: "capistrano",
+   "deployment_method": "capistrano",
    "strategy": "manual",
    "branch_name": null,
    "project_name": "semaphore",

@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -81,25 +82,24 @@
 <h3 id='payload_format'>Payload format</h3>
 
 <p>Payload is JSON in the same structure as <a href='/branches-and-builds-api'>build notification API</a>.</p>
-<div>
-  <pre><code class='javascript'>{
-  &quot;branch_name&quot;: &quot;gem_updates&quot;,
-  &quot;branch_url&quot;: &quot;https://semaphoreapp.com/projects/44/branches/50&quot;,
-  &quot;project_name&quot;: &quot;base-app&quot;,
-  &quot;build_url&quot;: &quot;https://semaphoreapp.com/projects/44/branches/50/builds/15&quot;,
-  &quot;build_number&quot;: 15,
-  &quot;result&quot;: &quot;passed&quot;,
-  &quot;started_at&quot;: &quot;2012-07-09T15:23:53Z&quot;,
-  &quot;finished_at&quot;: &quot;2012-07-09T15:30:16Z&quot;,
-  &quot;commit&quot;: {
-    &quot;id&quot;: &quot;dc395381e650f3bac18457909880829fc20e34ba&quot;,
-    &quot;url&quot;: &quot;https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba&quot;,
-    &quot;author_name&quot;: &quot;Vladimir Saric&quot;,
-    &quot;author_email&quot;: &quot;vladimir@renderedtext.com&quot;,
-    &quot;message&quot;: &quot;Update 'shoulda' gem.&quot;,
-    &quot;timestamp&quot;: &quot;2012-07-04T18:14:08Z&quot;}
-}</code></pre>
-</div>
+<div class='highlight'><pre><code class='javascript'><span class='p'>{</span>
+  <span class='s2'>&quot;branch_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;gem_updates&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;branch_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/44/branches/50&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;base-app&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;build_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/44/branches/50/builds/15&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;build_number&quot;</span><span class='o'>:</span> <span class='mi'>15</span><span class='p'>,</span>
+  <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;passed&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;started_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2012-07-09T15:23:53Z&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;finished_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2012-07-09T15:30:16Z&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;commit&quot;</span><span class='o'>:</span> <span class='p'>{</span>
+    <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='s2'>&quot;dc395381e650f3bac18457909880829fc20e34ba&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://github.com/renderedtext/base-app/commit/dc395381e650f3bac18457909880829fc20e34ba&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;author_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Vladimir Saric&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;author_email&quot;</span><span class='o'>:</span> <span class='s2'>&quot;vladimir@renderedtext.com&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;message&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Update &#39;shoulda&#39; gem.&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;timestamp&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2012-07-04T18:14:08Z&quot;</span><span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <h3 id='retry_on_failure'>Retry on failure</h3>
 
 <p>In case of a delivery failure, Semaphore will retry, twice, to send the webhook.</p>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
       
@@ -49,18 +50,15 @@
 
         <section class="body">
           <p>If you are using Thinking Sphinx, make sure that that you run this command before your tests:</p>
-<div>
-  <pre><code class='bash'>RAILS_ENV=test bundle exec rake ts:index</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'><span class='nv'>RAILS_ENV</span><span class='o'>=</span><span class='nb'>test </span>bundle <span class='nb'>exec </span>rake ts:index
+</code></pre></div>
 <p>Than you can either run</p>
-<div>
-  <pre><code class='bash'>RAILS_ENV=test bundle exec rake ts:start &amp;</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'><span class='nv'>RAILS_ENV</span><span class='o'>=</span><span class='nb'>test </span>bundle <span class='nb'>exec </span>rake ts:start &amp;
+</code></pre></div>
 <p>or use</p>
-<div>
-  <pre><code class='bash'>ThinkingSphinx::Test.start
-ThinkingSphinx::Test.stop</code></pre>
-</div>
+<div class='highlight'><pre><code class='bash'>ThinkingSphinx::Test.start
+ThinkingSphinx::Test.stop
+</code></pre></div>
 <p>directly in the source code of your tests.</p>
         </section>
 
