@@ -58,7 +58,7 @@
 </code></pre></div>
 <ul>
 <li>
-<p>Put the content of <code>/tmp/key</code> into a private gist on GitHub and name the file id_dsa.</p>
+<p>Put the content of <code>/tmp/key</code> into a secret gist on GitHub and name the file id_dsa.</p>
 </li>
 
 <li>
@@ -75,7 +75,7 @@ wget https://raw.github.com/gist/.../id_dsa <span class='o'>(</span>this is the 
 chmod 600 id_dsa
 <span class='nb'>cd</span> -
 </code></pre></div>
-<p>We’re considering to hide this behind a nice UI.</p>
+<p>Warning: GitHub secret gists offer security only through URL obscurity. We used GitHub gist simply to explain the process of using private gems.</p>
         </section>
 
       </article>
