@@ -11,7 +11,7 @@ Either use a hosted private gem repository such as [Gemfury](http://www.gemfury.
 ssh-keygen -f /tmp/key -t dsa
 {% endhighlight %}
 
-- Put the content of `/tmp/key` into a private gist on GitHub and name the file id_dsa.
+- Put the content of `/tmp/key` into a secret gist on GitHub and name the file id_dsa.
 
 - Put the content of `/tmp/key.pub` as a new deploy key in your [gem’s admin screen on GitHub](http://d.pr/i/qFcv).
 
@@ -25,4 +25,4 @@ chmod 600 id_dsa
 cd -
 {% endhighlight %}
 
-We’re considering to hide this behind a nice UI.
+Warning: GitHub secret gists offer security only through URL obscurity. We used GitHub gist simply to explain the process of using private gems.
