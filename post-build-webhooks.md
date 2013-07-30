@@ -17,9 +17,9 @@ To set up one or more webhooks for your project, follow these steps:
 
 - Add a URL to receive the payload.
 
-<img src="/assets/images/webhooks.png" width="620" />
+![Webhooks](/assets/images/webhooks.png)
 
-- Click on "Test Hook" to receive an example payload and verify that it all works.
+- Click on "Test" to receive an example payload and verify that it all works.
 
 - Save your settings.
 

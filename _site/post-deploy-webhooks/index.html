@@ -49,7 +49,65 @@
         </header>
 
         <section class="body">
-          <p>Coming soon.</p>
+          <p>Semaphore allows you to set up webhooks that will receive payload about every finished deploy. You can use them, for example, to implement alerts through <a href='http://hubot.github.com/'>Hubot</a>, or keep track of your projects on a company dashboard.</p>
+
+<p>To set up one or more webhooks for your project, follow these steps:</p>
+
+<ul>
+<li>Click on &#8220;settings&#8221; next to your project on the dashboard.</li>
+</ul>
+
+<p><img alt='Project settings' src='/assets/images/project-settings-link.png' /></p>
+
+<ul>
+<li>Open the &#8220;Webhooks&#8221; tab on project settings page.</li>
+</ul>
+
+<p><img alt='Webhooks tab' src='/assets/images/webhooks-tab-link.png' /></p>
+
+<ul>
+<li>Add a URL to receive the payload.</li>
+</ul>
+
+<p><img alt='Webhooks' src='/assets/images/webhooks.png' /></p>
+
+<ul>
+<li>
+<p>Click on &#8220;Test&#8221; to receive an example payload and verify that it all works.</p>
+</li>
+
+<li>
+<p>Save your settings.</p>
+</li>
+</ul>
+
+<h3 id='payload_format'>Payload format</h3>
+
+<p>Payload is JSON in the same structure as <a href='/servers-and-deploys-api'>deploy notification API</a>.</p>
+<div class='highlight'><pre><code class='javascript'><span class='p'>{</span>
+  <span class='s2'>&quot;project_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;heroku-deploy-test&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;result&quot;</span><span class='o'>:</span> <span class='s2'>&quot;passed&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;server_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;server-heroku-master-automatic-2&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;number&quot;</span><span class='o'>:</span> <span class='mi'>2</span><span class='p'>,</span>
+  <span class='s2'>&quot;created_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-30T13:52:33Z&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;updated_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-30T13:53:21Z&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;started_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-30T13:52:38Z&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;finished_at&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-30T13:53:21Z&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/2420/servers/81/deploys/2&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;build_html_url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://semaphoreapp.com/projects/2420/branches/58394/builds/7&quot;</span><span class='p'>,</span>
+  <span class='s2'>&quot;commit&quot;</span><span class='o'>:</span> <span class='p'>{</span>
+    <span class='s2'>&quot;author_email&quot;</span><span class='o'>:</span> <span class='s2'>&quot;rastasheep3@gmail.com&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;author_name&quot;</span><span class='o'>:</span> <span class='s2'>&quot;Aleksandar Diklic&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;id&quot;</span><span class='o'>:</span> <span class='s2'>&quot;43ddb7516ecc743f0563abd7418f0bd3617348c4&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;message&quot;</span><span class='o'>:</span> <span class='s2'>&quot;One more time&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;timestamp&quot;</span><span class='o'>:</span> <span class='s2'>&quot;2013-07-19T12:56:25Z&quot;</span><span class='p'>,</span>
+    <span class='s2'>&quot;url&quot;</span><span class='o'>:</span> <span class='s2'>&quot;https://github.com/rastasheep/heroku-deploy-test/commit/43ddb7516ecc743f0563abd7418f0bd3617348c4&quot;</span>
+  <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h3 id='retry_on_failure'>Retry on failure</h3>
+
+<p>In case of a delivery failure, Semaphore will retry, twice, to send the webhook.</p>
         </section>
 
       </article>
