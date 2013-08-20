@@ -13,7 +13,7 @@
 
     <title>
       
-      Semaphore API -
+      CruiseControl status -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,47 +43,33 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Semaphore API</h2>
+          <h2>CruiseControl status</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Semaphore provides an API for the following:</p>
-
-<h2 id='projects'>Projects</h2>
-
-<ul>
-<li><a href='/projects-api'>listing of user&#8217;s projects</a></li>
-</ul>
-
-<h2 id='branches__builds'>Branches &amp; builds</h2>
+          <p>Semaphore provides CruiseControl status (CCTray / CCMenu) API endpoint.</p>
+<p class='accent'>
+This endpoint requires the user to provide his authentication token via <strong>auth_token</strong> parameter. To see your authentication token and project hash id, open a project’s settings, then find the “API” tab.
+</p><div class='highlight'><pre><code class='bash'>/api/v1/projects/:hash_id/cc.xml?auth_token<span class='o'>=</span>:auth_token&amp;ccmenu<span class='o'>=</span>cc.xml
+</code></pre></div>
+<h4 id='arguments'>Arguments</h4>
 
 <ul>
-<li><a href='/branches-and-builds-api#projects_branches'>listing of project&#8217;s branches</a></li>
+<li><code>auth_token</code> users authentication token</li>
 
-<li><a href='/branches-and-builds-api#branch_status'>status of a project&#8217;s branch</a></li>
-
-<li><a href='/branches-and-builds-api#branch_history'>history of a project&#8217;s branch</a></li>
-
-<li><a href='/branches-and-builds-api#build_information'>build information</a></li>
-
-<li><a href='/branches-and-builds-api#build_log'>build log</a></li>
+<li><code>hash_id</code> of the project</li>
 </ul>
 
-<h2 id='servers__deploys'>Servers &amp; deploys</h2>
-
-<ul>
-<li><a href='/servers-and-deploys-api#projects_servers'>listing of project&#8217;s servers</a></li>
-
-<li><a href='/servers-and-deploys-api#server_status'>status of a project&#8217;s server</a></li>
-
-<li><a href='/servers-and-deploys-api#server_history'>history of a project&#8217;s server</a></li>
-
-<li><a href='/servers-and-deploys-api#deploy_information'>deploy information</a></li>
-
-<li><a href='/servers-and-deploys-api#deploy_log'>deploy log</a></li>
-</ul>
+<h4 id='response'>Response</h4>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;Projects&gt;</span>
+  <span class='nt'>&lt;Project</span> <span class='na'>name=</span><span class='s'>&quot;semaphore - development&quot;</span> <span class='na'>activity=</span><span class='s'>&quot;Sleeping&quot;</span> <span class='na'>lastBuildStatus=</span><span class='s'>&quot;Success&quot;</span> <span class='na'>lastBuildLabel=</span><span class='s'>&quot;1197&quot;</span> <span class='na'>lastBuildTime=</span><span class='s'>&quot;2013-08-20T12:48:38+00:00&quot;</span> <span class='na'>webUrl=</span><span class='s'>&quot;https://semaphoreapp.com/projects/XXX/branches/XXX/builds/XXX&quot;</span><span class='nt'>&gt;&lt;/Project&gt;</span>
+  <span class='nt'>&lt;Project</span> <span class='na'>name=</span><span class='s'>&quot;semaphore - shields_badges&quot;</span> <span class='na'>activity=</span><span class='s'>&quot;Sleeping&quot;</span> <span class='na'>lastBuildStatus=</span><span class='s'>&quot;Success&quot;</span> <span class='na'>lastBuildLabel=</span><span class='s'>&quot;2&quot;</span> <span class='na'>lastBuildTime=</span><span class='s'>&quot;2013-04-10T11:04:49+00:00&quot;</span> <span class='na'>webUrl=</span><span class='s'>&quot;https://semaphoreapp.com/projects/XXX/branches/XXX/builds/XXX&quot;</span><span class='nt'>&gt;&lt;/Project&gt;</span>
+  <span class='nt'>&lt;Project</span> <span class='na'>name=</span><span class='s'>&quot;semaphore - master&quot;</span> <span class='na'>activity=</span><span class='s'>&quot;Sleeping&quot;</span> <span class='na'>lastBuildStatus=</span><span class='s'>&quot;Success&quot;</span> <span class='na'>lastBuildLabel=</span><span class='s'>&quot;143&quot;</span> <span class='na'>lastBuildTime=</span><span class='s'>&quot;2013-08-20T12:51:44+00:00&quot;</span> <span class='na'>webUrl=</span><span class='s'>&quot;https://semaphoreapp.com/projects/XXX/branches/XXX/builds/XXX&quot;</span><span class='nt'>&gt;&lt;/Project&gt;</span>
+  <span class='nt'>&lt;Project</span> <span class='na'>name=</span><span class='s'>&quot;semaphore - staging&quot;</span> <span class='na'>activity=</span><span class='s'>&quot;Sleeping&quot;</span> <span class='na'>lastBuildStatus=</span><span class='s'>&quot;Success&quot;</span> <span class='na'>lastBuildLabel=</span><span class='s'>&quot;62&quot;</span> <span class='na'>lastBuildTime=</span><span class='s'>&quot;2013-08-20T12:50:09+00:00&quot;</span> <span class='na'>webUrl=</span><span class='s'>&quot;https://semaphoreapp.com/projects/XXX/branches/XXX/builds/XXX&quot;</span><span class='nt'>&gt;&lt;/Project&gt;</span>
+<span class='nt'>&lt;/Projects&gt;</span>
+</code></pre></div>
         </section>
 
       </article>
