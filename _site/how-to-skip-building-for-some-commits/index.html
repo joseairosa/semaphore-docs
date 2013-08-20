@@ -13,7 +13,7 @@
 
     <title>
       
-      How can I export some environment variables before the build? -
+      How to skip building some commits? -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,13 +43,15 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How can I export some environment variables before the build?</h2>
+          <h2>How to skip building some commits?</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Add export <code>VAR=foo</code> to your build commands (in project settings).</p>
+          <p>If you&#8217;d like your commit, or a series of commits that you&#8217;re pushing, to not trigger a build, just write <code>[ci skip]</code> somewhere in your commit&#8217;s message.</p>
+
+<p>To turn off or filter automatic builds on new branches. You can either turn off automatic builds of new branches, or you can specify a whitelist of allowed regular expressions. In that case a new branch will be built only if it matches one of the entries. You&#8217;ll find this in your project settings.</p>
         </section>
 
       </article>
