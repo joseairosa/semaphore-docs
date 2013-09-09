@@ -13,7 +13,7 @@
 
     <title>
       
-      How do I build a project with private gems? -
+      How can I just manually trigger an automatic deploy? -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,37 +43,15 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How do I build a project with private gems?</h2>
+          <h2>How can I just manually trigger an automatic deploy?</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Either use a hosted private gem repository such as <a href='http://www.gemfury.com/'>Gemfury</a>, or follow this procedure:</p>
+          <p>After you create your server, you can easily launch a deploy manually from a build page.</p>
 
-<h2 id='_get_an_oauth_token_from_github'>- Get an OAuth Token from GitHub</h2>
-
-<p>First you will need to get an OAuth Token from GitHub using your own username and &#8220;note&#8221;</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>curl -u <span class='s1'>&#39;masonforest&#39;</span> -d <span class='s1'>&#39;{&quot;scopes&quot;:[&quot;repo&quot;], &quot;note&quot;:&quot;Semaphore CI private gem&quot;}&#39;</span> https://api.github.com/authorizations
-</code></pre></div>
-<h2 id='_authenticate_bundler_to_github_via_oauth_token'>- Authenticate bundler to GitHub via OAuth Token</h2>
-
-<p>Add this line to your Gemfile replacing &#8220;your_token&#8221; with the token you got from first step. In this example we are installing the &#8216;ventana&#8217; gem:</p>
-<div class='highlight'><pre><code class='bash'>gem <span class='s1'>&#39;ventana&#39;</span>, git: <span class='s2'>&quot;https://your_token:x-oauth-basic@github.com/renderedtext/ventana.git&quot;</span>
-</code></pre></div>
-<h1 id='more_secure_alternative'>More secure alternative:</h1>
-
-<h2 id='storing_the_oauth_token_in_an_environment_variable'>Storing the OAuth token in an environment variable</h2>
-
-<p>For additional security you can store your OAuth token in an environment variable. This way your token is not included in your codebase which is insecure. However this technique require form you to export OAuth token in your development enviromet too (Best way is to export it in ~/.zshrc or ~/.bashrc).</p>
-
-<p>Change the line in your Gemfile to</p>
-<div class='highlight'><pre><code class='bash'>gem <span class='s1'>&#39;ventana&#39;</span>, git: <span class='s2'>&quot;https://#{ENV[&#39;GITHUB_TOKEN&#39;]}:x-oauth-basic@github.com/thoughtbot/ventana.git&quot;</span>
-</code></pre></div>
-<p>Then export token on Semaphore using the token you got from above:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span><span class='nb'>export </span><span class='nv'>GITHUB_TOKEN</span><span class='o'>=</span>your_token
-</code></pre></div>
-<p>Now bundle localy and you are ready to build on Semaphore!</p>
+<p><img alt='Mnual deploy' src='/assets/images/manual-deploy.png' /></p>
         </section>
 
       </article>
