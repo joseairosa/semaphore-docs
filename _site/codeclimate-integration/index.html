@@ -13,7 +13,7 @@
 
     <title>
       
-      Test applications -
+      Code Climate Integration -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,27 +43,34 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Test applications</h2>
+          <h2>Code Climate Integration</h2>
 
           
         </header>
 
         <section class="body">
-          <p>To make sure that Semaphore works with various database drivers, test frameworks etc, we&#8217;ve created a number of simple open source test apps. We then build these apps on Semaphore to verify that it works.</p>
-<h2>Covered</h2>
-<ul>
-	<li><a href="https://github.com/renderedtext/base-app">base-app</a> &#8211; our template for making new Rails apps, using Postgresql, RSpec and Cucumber.</li>
-	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit">testapp-capybara-webkit</a> &#8211; including a branch with steak and wkhtmltopdf</li>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb">testapp-mongodb-mongoid</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb-mongomapper">testapp-mongodb-mongomapper</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-mysql">testapp-mysql</a> &#8211; using mysql2 gem.</li>
-	<li><a href="https://github.com/renderedtext/testapp-solr">testapp-solr</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-sphinx">testapp-sphinx</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-testunit">testapp-testunit</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-testunit-rspec">testapp-testunit-rspec</a> &#8211; using test/unit, RSpec and Cucumber at the same time.</li>
-</ul>
-<h2>Contributing</h2>
-<p>While we do our best to solve any problem our users have on our own, we also welcome being told what&#8217;s inside your app that we do not support, so that we can get to it faster. We&#8217;d also be delighted to see our users make their testapp flavors. Either way, shoot us an email at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
+          <p>Code Climate is Semaphore&#8217;s partner for providing test coverage reports for Ruby apps. Data is sent from your builds on Semaphore. To set it up:</p>
+
+<ol>
+<li>
+<p><a href='https://codeclimate.com/partners/semaphore'>Sign up for Code Climate</a>. Semaphore customers receive 20% off their first three months.</p>
+</li>
+
+<li>
+<p>Add the codeclimate-test-reporter gem to your Gemfile:</p>
+</li>
+</ol>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s2'>&quot;codeclimate-test-reporter&quot;</span>
+</code></pre></div>
+<ol>
+<li>Start the test reporter at the very beginning of spec_helper.rb or test_helper.rb:</li>
+</ol>
+<div class='highlight'><pre><code class='ruby'><span class='nb'>require</span> <span class='s2'>&quot;codeclimate-test-reporter&quot;</span>
+<span class='no'>CodeClimate</span><span class='o'>::</span><span class='no'>TestReporter</span><span class='o'>.</span><span class='n'>run</span>
+</code></pre></div>
+<ol>
+<li>Paste your Code Climate repo token in the form in your project&#8217;s settings on Semaphore, Integrations &gt; Code Climate tab. To find your repo token on Code Climate, click &#8220;Setup Test Coverage&#8221; on the right hand side of your repository&#8217;s feed.</li>
+</ol>
         </section>
 
       </article>
