@@ -17,7 +17,7 @@ gem "codeclimate-test-reporter"
 
 {% highlight ruby %}
 require "codeclimate-test-reporter"
-CodeClimate::TestReporter.run
+CodeClimate::TestReporter.start
 {% endhighlight %}
 
 4. Paste your Code Climate repo token in the form in your project's settings on Semaphore, Integrations > Code Climate tab. To find your repo token on Code Climate, click "Setup Test Coverage" on the right hand side of your repository's feed.
