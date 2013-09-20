@@ -13,7 +13,7 @@
 
     <title>
       
-      How to deploy when using mislav/git-deploy? -
+      How to deploy with git-deploy -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,17 +43,28 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How to deploy when using mislav/git-deploy?</h2>
+          <h2>How to deploy with git-deploy</h2>
 
           
         </header>
 
         <section class="body">
-          <p>If you are using <a href='https://github.com/mislav/git-deploy'>mislav/git-deploy</a> for your deployment needs, when adding a new server on Semaphore, select deployment option “Using a deploy script” and adapt the following deploy commands:</p>
-<div class='highlight'><pre><code class='bash'><span class='nb'>echo</span> <span class='o'>{</span>SERVER_PUBLIC_KEY<span class='o'>}</span> &gt;&gt; ~/.ssh/known_hosts <span class='c'># Add server&#39;s public key as to not get prompted to authorize the authenticity of the server.</span>
-git remote add production <span class='s2'>&quot;user@example.com:/apps/myapp&quot;</span> <span class='c'># Add a remote to where you push your code on the server.</span>
-git push production master <span class='c'># Push to the branch that is currently checked out on the remote.</span>
+          <p>You can use <a href='https://github.com/mislav/git-deploy'>git-deploy</a> to deploy your app on Semaphore. To do that, you need to:</p>
+
+<ul>
+<li>Add server&#8217;s public key to <code>known_hosts</code> as to not get prompted to authorize the authenticity of the server.</li>
+
+<li>Add a remote to where you push your code on the server.</li>
+
+<li>Push to the branch that is currently checked out to remote.</li>
+</ul>
+
+<p>This translates into the following deploy commands (adapt to your values):</p>
+<div class='highlight'><pre><code class='bash'><span class='nb'>echo</span> <span class='o'>{</span>SERVER_PUBLIC_KEY<span class='o'>}</span> &gt;&gt; ~/.ssh/known_hosts
+git remote add production <span class='s2'>&quot;user@yourserver.com:/apps/myapp/current&quot;</span>
+git push production master
 </code></pre></div>
+<p>Note: select &#8220;Using a deploy script&#8221; option when adding a new deploy server for your project.</p>
         </section>
 
       </article>
@@ -80,7 +91,7 @@ git push production master <span class='c'># Push to the branch that is currentl
   <h2>Deployment</h2>
   <ul>
     <li><a href="/how-to-trigger-an-automatic-deploy">How can I just manually trigger an automatic deploy?</a></li>
-    <li><a href="/how-to-deploy-when-using-mislav-git-deploy">How to deploy when using mislav/git-deploy?</a></li>
+    <li><a href="/how-to-deploy-with-git-deploy">How to deploy with git-deploy</a></li>
   </ul>
 
   <h2>Troubleshooting</h2>
