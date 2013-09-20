@@ -13,7 +13,7 @@
 
     <title>
       
-      How can I export some environment variables before the build? -
+      How to deploy with git-deploy -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,13 +43,28 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How can I export some environment variables before the build?</h2>
+          <h2>How to deploy with git-deploy</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Add export <code>VAR=foo</code> to your build commands (in project settings).</p>
+          <p>You can use <a href='https://github.com/mislav/git-deploy'>git-deploy</a> to deploy your app on Semaphore. To do that, you need to:</p>
+
+<ul>
+<li>Add server&#8217;s public key to <code>known_hosts</code> as to not get prompted to authorize the authenticity of the server.</li>
+
+<li>Add a remote to where you push your code on the server.</li>
+
+<li>Push to the branch that is currently checked out to remote.</li>
+</ul>
+
+<p>This translates into the following deploy commands (adapt to your values):</p>
+<div class='highlight'><pre><code class='bash'><span class='nb'>echo</span> <span class='o'>{</span>SERVER_PUBLIC_KEY<span class='o'>}</span> &gt;&gt; ~/.ssh/known_hosts
+git remote add production <span class='s2'>&quot;user@yourserver.com:/apps/myapp/current&quot;</span>
+git push production master
+</code></pre></div>
+<p>Note: select &#8220;Using a deploy script&#8221; option when adding a new deploy server for your project.</p>
         </section>
 
       </article>
