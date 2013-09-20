@@ -15,3 +15,4 @@ Headless, clean CI environment may make some tests more vulnerable:
 - Check if your specs are relying on specific domain configuration in `/etc/hosts`. We can add special configuration for you but in general your tests shouldn’t rely on such deep system configuration changes.
 - Change the database_cleaner strategy to truncation for specs with `:js => true`.
 - Make sure that your code is not prone to race conditions.
+- Increasing Capybara timeout value sometimes helps.
