@@ -1,4 +1,64 @@
-<div class="articles col cs-6">
+<!DOCTYPE html>
+<html lang="en" class="docs">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.typography.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.layout.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/saf.extras.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/forms.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/default.uni-form.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/docs.css"/>
+    <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
+
+    <title>
+      
+      How to deploy when using mislav/git-deploy? -
+       Semaphore Documentation</title>
+  </head>
+  <body>
+    <nav>
+
+  <div class="navCTA">
+    <a href="https://semaphoreapp.com" class="button">Go to Semaphore</a>
+  </div>
+
+  <ul>
+    <li><a href="mailto:semaphore+docs@renderedtext.com">Get Help</a></li>
+    <li><a href="/">Documentation Index</a></li>
+  </ul>
+
+</nav>
+
+    <div id="mainContent" class="safGrid">
+
+      
+        <nav class="docsNav">
+          <a href="/">← Documentation Index</a>
+        </nav>
+      
+      
+      
+
+      <article class="primary">
+
+        <header class="title">
+          <h2>How to deploy when using mislav/git-deploy?</h2>
+
+          
+        </header>
+
+        <section class="body">
+          <p>If you are using <a href='https://github.com/mislav/git-deploy'>mislav/git-deploy</a> for your deployment needs, when adding a new server on Semaphore, select deployment option “Using a deploy script” and adapt the following deploy commands:</p>
+<div class='highlight'><pre><code class='bash'><span class='nb'>echo</span> <span class='o'>{</span>SERVER_PUBLIC_KEY<span class='o'>}</span> &gt;&gt; ~/.ssh/known_hosts <span class='c'># Add server&#39;s public key as to not get prompted to authorize the authenticity of the server.</span>
+git remote add production <span class='s2'>&quot;user@example.com:/apps/myapp&quot;</span> <span class='c'># Add a remote to where you push your code on the server.</span>
+git push production master <span class='c'># Push to the branch that is currently checked out on the remote.</span>
+</code></pre></div>
+        </section>
+
+      </article>
+
+      <div class="articles col cs-6">
 
   <h2>Billing</h2>
   <ul>
@@ -78,3 +138,15 @@
     <li><a href="/third-party-tools">Third party tools</a></li>
   </ul>
 </div>
+
+
+    </div>
+
+    <footer class="safGrid">
+  <p class="logo"><a href="https://semaphoreapp.com/"><img src="/assets/images/semaphore-logo.png" alt=""></a></p>
+  <p>Semaphore is a service by <a href="http://renderedtext.com/">Rendered Text</a>.</p>
+</footer>
+
+
+  </body>
+</html>
