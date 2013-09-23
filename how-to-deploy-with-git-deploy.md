@@ -1,6 +1,6 @@
 ---
 layout: default
-title: How to deploy with git-deploy
+title: How to deploy with git-deploy?
 ---
 
 You can use [git-deploy](https://github.com/mislav/git-deploy) to deploy your app on Semaphore. To do that, you need to:
