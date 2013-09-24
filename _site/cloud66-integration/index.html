@@ -13,7 +13,7 @@
 
     <title>
       
-      Test applications -
+      Integration with Cloud 66 -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,27 +43,37 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Test applications</h2>
+          <h2>Integration with Cloud 66</h2>
 
           
         </header>
 
         <section class="body">
-          <p>To make sure that Semaphore works with various database drivers, test frameworks etc, we&#8217;ve created a number of simple open source test apps. We then build these apps on Semaphore to verify that it works.</p>
-<h2>Covered</h2>
-<ul>
-	<li><a href="https://github.com/renderedtext/base-app">base-app</a> &#8211; our template for making new Rails apps, using Postgresql, RSpec and Cucumber.</li>
-	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit">testapp-capybara-webkit</a> &#8211; including a branch with steak and wkhtmltopdf</li>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb">testapp-mongodb-mongoid</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb-mongomapper">testapp-mongodb-mongomapper</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-mysql">testapp-mysql</a> &#8211; using mysql2 gem.</li>
-	<li><a href="https://github.com/renderedtext/testapp-solr">testapp-solr</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-sphinx">testapp-sphinx</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-testunit">testapp-testunit</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-testunit-rspec">testapp-testunit-rspec</a> &#8211; using test/unit, RSpec and Cucumber at the same time.</li>
-</ul>
-<h2>Contributing</h2>
-<p>While we do our best to solve any problem our users have on our own, we also welcome being told what&#8217;s inside your app that we do not support, so that we can get to it faster. We&#8217;d also be delighted to see our users make their testapp flavors. Either way, shoot us an email at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
+          <p><a href='https://www.cloud66.com'>Cloud 66</a> makes it easy to provision, deploy and manage your Ruby on Rails application on any cloud. Semaphore has native integration for deployment through Cloud 66.</p>
+
+<p>1) Make sure your stack is deployed with Cloud 66. Learn more about <a href='https://www.cloud66.com/help/first_stack'>deploying Rails stacks with Cloud 66</a>.</p>
+
+<p>2) In Semaphore, go to your project setting and click on Deployment.</p>
+
+<p><img alt='Project settings' src='/assets/images/cloud66-integration/project_settings.png' /></p>
+
+<p>3) If you have no deployments configured, you can add your first server.</p>
+
+<p><img alt='Deployment settings' src='/assets/images/cloud66-integration/project_settings_deployment.png' /></p>
+
+<p>4) Select Cloud 66 from the list of Deployment Methods and choose Automatic.</p>
+
+<p><img alt='Deployment method' src='/assets/images/cloud66-integration/deployment_method.png' /></p>
+
+<p>5) You will be redirected to your Cloud 66 account and asked if you give Semaphore permission to deploy your stacks on your behalf.</p>
+
+<p><img alt='OAuth access between Semaphore and Cloud 66' src='/assets/images/cloud66-integration/oauth_access_rights.png' /></p>
+
+<p>6) Select the project you would like to deploy once the tests are successful.</p>
+
+<p>Done!</p>
+
+<p>Note that while Semaphore tracks every deploy in the project timeline, it sends a blank request to Cloud66 to perform the actual deployment work. If it fails for some reason, Cloud 66 will inform you.</p>
         </section>
 
       </article>
