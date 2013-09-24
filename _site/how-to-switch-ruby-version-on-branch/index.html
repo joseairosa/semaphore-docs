@@ -13,7 +13,7 @@
 
     <title>
       
-      Webhooks -
+      How to switch Ruby version in a specific branch -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,19 +43,17 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Webhooks</h2>
+          <h2>How to switch Ruby version in a specific branch</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Semaphore provides two types of webhooks:</p>
+          <p>As with <a href='/how-to-override-build-commands'>running branch-specific commands</a>:</p>
 
-<ul>
-<li><a href='/post-build-webhooks'>Post-build webhooks</a></li>
+<pre><code>if [ &quot;$BRANCH_NAME&quot; = &quot;ruby-2&quot; ]; then rbenv local 2.0.0-p247 ; fi </code></pre>
 
-<li><a href='/post-deploy-webhooks'>Post-deploy webhooks</a></li>
-</ul>
+<p>You can find the list of available Ruby versions on our <a href='/version-information'>version information</a> page.</p>
         </section>
 
       </article>
