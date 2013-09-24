@@ -10,5 +10,5 @@ summary: Welcome to the help and documentation section of Semaphore. There's a g
   <li><a href="/build-fail-on-semaphore">My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
   <li><a href="/failed-build-reported-as-passed">Failed build reported as passed</a></li>
   <li><a href="/api">Semaphore API</a></li>
-  <li><a href="/version-information">Included software and versions in the build platform</a></li>
+  <li><a href="/version-information">What does the build platform include and support?</a></li>
 </ul>

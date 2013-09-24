@@ -5,6 +5,7 @@ title: Third party tools
 ## Integrations
 
 - [Dashing widget](https://github.com/rastasheep/semaphore-dashing): simple [Dashing](https://github.com/Shopify/dashing) widget to display the status of the latest build for a repository on Semaphore.
+- [Project Monitor](https://github.com/pivotal/projectmonitor): Big visible chart CI aggregator by Pivotal Labs. Made for big screens.
 
 ## API clients
 
