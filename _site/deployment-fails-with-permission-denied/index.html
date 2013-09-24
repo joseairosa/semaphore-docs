@@ -13,7 +13,7 @@
 
     <title>
       
-      Build fails with “file not found db:create (ArgumentError)” -
+      Deployment fails with "permission denied (publickey)" -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,13 +43,17 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Build fails with “file not found db:create (ArgumentError)”</h2>
+          <h2>Deployment fails with "permission denied (publickey)"</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Upgrade shoulda gem, or add <code>:require =&gt; false</code> to it in Gemfile, or add test-unit gem to your Gemfile. More info <a href='http://stackoverflow.com/a/9571551'>here</a> and <a href='http://stackoverflow.com/questions/7957330/ruby-1-9-3-breaks-rake-test'>here</a>.</p>
+          <p>When this happens the first thing to check is if you have correctly configured the SSH key. The public key should be pasted in Semaphore. The private key should be present on the server, in the <code>.ssh/authorized_keys</code> file, inside the deploy user’s home directory. This key combination gives Semaphore permission to SSH inside the server.</p>
+
+<p>The second thing to check is &#8220;SSH agent forwarding&#8221;. If it&#8217;s on, server tries to clone repo with forwarded key (from Semaphore) and fails, because this key is unknown to GitHub. The solution is to disable SSH agent forwarding and make sure that server has another <a href='https://help.github.com/articles/managing-deploy-keys#deploy-keys'>deploy key</a> for cloning repo.</p>
+
+<p>Another approach is to keep SSH agent forwarding, but configure the key pair which is used with Semaphore to be a deploy key on GitHub as well.</p>
         </section>
 
       </article>
