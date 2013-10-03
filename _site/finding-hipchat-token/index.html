@@ -13,7 +13,7 @@
 
     <title>
       
-      My Sphinx tests fail -
+      Finding HipChat token -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,23 +43,31 @@
       <article class="primary">
 
         <header class="title">
-          <h2>My Sphinx tests fail</h2>
+          <h2>Finding HipChat token</h2>
 
           
         </header>
 
         <section class="body">
-          <p>If you are using Thinking Sphinx, make sure that that you run this command before your tests:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>RAILS_ENV</span><span class='o'>=</span><span class='nb'>test </span>bundle <span class='nb'>exec </span>rake ts:index
-</code></pre></div>
-<p>Than you can either run</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>RAILS_ENV</span><span class='o'>=</span><span class='nb'>test </span>bundle <span class='nb'>exec </span>rake ts:start &amp;
-</code></pre></div>
-<p>or use</p>
-<div class='highlight'><pre><code class='bash'>ThinkingSphinx::Test.start
-ThinkingSphinx::Test.stop
-</code></pre></div>
-<p>directly in the source code of your tests.</p>
+          <p>Here&#8217;s how you can find the API token required for the HipChat integration.</p>
+
+<ul>
+<li>From your dashboard, open &#8220;Group Admin&#8221;.</li>
+</ul>
+
+<p><img alt='Group admin on HipChat' src='/assets/images/finding-hipchat-token/nav.png' /></p>
+
+<ul>
+<li>Open the &#8220;API&#8221; tab. Create a new &#8220;Notification&#8221; token.</li>
+</ul>
+
+<p><img alt='API tab' src='/assets/images/finding-hipchat-token/api-tab.png' /></p>
+
+<ul>
+<li>Copy the created 30-character token into Semaphore &gt; Notifications &gt; HipChat &#8220;Token&#8221; field.</li>
+</ul>
+
+<p><img alt='Created token' src='/assets/images/finding-hipchat-token/created-token.png' /></p>
         </section>
 
       </article>
