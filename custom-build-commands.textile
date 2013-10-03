@@ -12,6 +12,7 @@ Typical use cases for custom build commands that we have seen so far are:
  * passing special flags to default rake tasks
  * exporting environment variables that contain sensitive information which you don’t want to keep in your repository
 
+Each build or deploy command is executed as a Linux shell command.
 
 To change commands follow the simple steps bellow.
 

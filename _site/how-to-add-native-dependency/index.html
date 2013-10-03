@@ -13,7 +13,7 @@
 
     <title>
       
-      How to switch Ruby version in a specific branch -
+      How to add a native dependency -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,17 +43,23 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How to switch Ruby version in a specific branch</h2>
+          <h2>How to add a native dependency</h2>
 
           
         </header>
 
         <section class="body">
-          <p>As with <a href='/how-to-override-build-commands'>running branch-specific commands</a>:</p>
+          <p>If your gem or package requires presence of a native library dependency, here&#8217;s an algorithm how to track it down.</p>
 
-<pre><code>if [ &quot;$BRANCH_NAME&quot; = &quot;ruby-2&quot; ]; then rbenv local 2.0.0-p247 ; fi </code></pre>
+<ol>
+<li>In the backtrace, locate the name of the library your gem needs.</li>
 
-<p>You can find the list of available Ruby versions on our <a href='/version-information'>version information</a> page.</p>
+<li>Go to <a href='http://packages.ubuntu.com'>packages.ubuntu.com</a> and search for it.</li>
+
+<li>Copy the name of the <code>-dev</code> library package (eg libfoo-dev).</li>
+
+<li>In project settings, add a build setup command <code>sudo apt-get install -y libfoo-dev</code>.</li>
+</ol>
         </section>
 
       </article>
