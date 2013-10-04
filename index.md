@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frequently Asked Questions
-summary: Welcome to the help and documentation section of Semaphore. There's a good chance your question might be answered here. If not, please <a href="mailto:328e3e4aab1aefecc60ed7e4cb33910bc3fbdeb2@incoming.intercom.io">email us</a>.
+summary: Welcome to the help and documentation section of Semaphore. There's a good chance your question might be answered here. If not, please <a href="mailto:328e3e4aab1aefecc60ed7e4cb33910bc3fbdeb2@incoming.intercom.io">email us</a>. This website is <a href="https://github.com/renderedtext/semaphore-docs">open source</a> - issues and pull requests are welcome.
 ---
 
 <ul class="questionList">
