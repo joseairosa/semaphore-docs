@@ -13,7 +13,7 @@
 
     <title>
       
-      How can I manually trigger an automatic deploy? -
+      Permission denied from GitHub on bundle install -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,15 +43,35 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How can I manually trigger an automatic deploy?</h2>
+          <h2>Permission denied from GitHub on bundle install</h2>
 
           
         </header>
 
         <section class="body">
-          <p>After you create your server, you can easily launch a deploy manually from a build page.</p>
+          <p>Example of output:</p>
+<pre><code>
+Fetching gem metadata from https://rubygems.org/...... 
+Fetching gem metadata from https://rubygems.org/.. 
+Fetching git@github.com:username/repo.git 
+Warning: Permanently added 'github.com,192.30.252.130' (RSA) to the list of known hosts. 
+Permission denied (publickey). 
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights 
+and the repository exists. 
+Git error: command `git clone 'git@github.com:username/repo.git' 
+"/home/runner/1234567890/vendor/bundle/ruby/1.9.1/cache/bundler/git/repo-7154ad9a69a3675cd199759326aafba479a5fcd3" 
+--bare --no-hardlinks` in directory 
+/home/runner/1234567890 has failed.
+</code></pre>
+<p>Make sure that your Gemfile is referencing a repository with a public, read-only URL and not with a private SSH URL which requires presence of your personal SSH key.</p>
 
-<p><img alt='Manual deploy' src='/assets/images/manual-deploy.png' /></p>
+<p>This is good:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s2'>&quot;rails-settings&quot;</span><span class='p'>,</span> <span class='ss'>:git</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;https://github.com/renderedtext/rails-settings.git&quot;</span>
+</code></pre></div>
+<p>This won&#8217;t work (unless you insert a working SSH key into the build environment, which is not necessary unless it&#8217;s a <a href='/how-to-build-project-with-private-gems'>private repository</a>):</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s2'>&quot;rails-settings&quot;</span><span class='p'>,</span> <span class='ss'>:git</span> <span class='o'>=&gt;</span> <span class='s2'>&quot;git@github.com:renderedtext/rails-settings.git&quot;</span>
+</code></pre></div>
         </section>
 
       </article>
