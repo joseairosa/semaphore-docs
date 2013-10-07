@@ -13,7 +13,7 @@
 
     <title>
       
-      Post thread commands -
+      Post-thread commands -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,21 +43,21 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Post thread commands</h2>
+          <h2>Post-thread commands</h2>
 
           
         </header>
 
         <section class="body">
-          <p>You can easily define certain commands that Semaphore executes after the build commands on each thread, regardless of whether it passed or failed.</p>
+          <p>You can easily define commands for Semaphore to execute after build commands on each thread, regardless of whether the build commands passed or failed.</p>
 
-<p>To set it up simply set a command to &#8220;Post-thread&#8221; in your project&#8217;s Build Settings.</p>
+<p>To do this, simply set a command to &#8220;Post-thread&#8221; in your project&#8217;s <a href='/custom-build-commands'>Build Settings</a>:</p>
 
-<p><img alt='Build settings' src='/assets/images/post-thread-commands.png' /></p>
+<p><img alt='Build settings' src='/assets/images/post-thread-commands/settings.png' /></p>
 
-<p>This is great when you need to, for example, upload assets to S3 or tail the test.log when you&#8217;re not sure why a certain spec or scenario failed.</p>
+<p>This is useful when you need to, for example, upload assets to S3 or tail the test.log.</p>
 
-<p>There is also a new environment variable available to these commands: <code>SEMAPHORE_THREAD_RESULT</code>. It can hold the value of either &#8220;passed&#8221; or &#8220;failed&#8221;.</p>
+<p>During these commands an <a href='/available-environment-variables'>environment variable</a> <code>SEMAPHORE_THREAD_RESULT</code> is available. It can hold the value of either &#8220;passed&#8221; or &#8220;failed&#8221;.</p>
         </section>
 
       </article>
@@ -122,7 +122,7 @@
   <ul>
     <li><a href="/available-environment-variables">Available environment variables</a></li>
     <li><a href="/custom-build-commands">Custom build commands</a></li>
-    <li><a href="/post-thread-commands">Post thread commands</a></li>
+    <li><a href="/post-thread-commands">Post-thread commands</a></li>
     <li><a href="/how-to-add-native-dependency">How to add a native dependency</a></li>
     <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
     <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>

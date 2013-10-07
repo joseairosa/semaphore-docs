@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Post thread commands
+title: Post-thread commands
 ---
 
-You can easily define certain commands that Semaphore executes after the build commands on each thread, regardless of whether it passed or failed.
+You can easily define commands for Semaphore to execute after build commands on each thread, regardless of whether the build commands passed or failed.
 
-To set it up simply set a command to "Post-thread" in your project's Build Settings.
+To do this, simply set a command to "Post-thread" in your project's [Build Settings](/custom-build-commands):
 
-![Build settings](/assets/images/post-thread-commands.png)
+![Build settings](/assets/images/post-thread-commands/settings.png)
 
-This is great when you need to, for example, upload assets to S3 or tail the test.log when you're not sure why a certain spec or scenario failed.
+This is useful when you need to, for example, upload assets to S3 or tail the test.log.
 
-There is also a new environment variable available to these commands: `SEMAPHORE_THREAD_RESULT`. It can hold the value of either "passed" or "failed".
+During these commands an [environment variable](/available-environment-variables) `SEMAPHORE_THREAD_RESULT` is available. It can hold the value of either "passed" or "failed".

@@ -49,20 +49,16 @@
         </header>
 
         <section class="body">
-          <p>In you build commands you should add following lines as setup commands:</p>
-
-<p><code>
+          <p>In your build commands you should add the following setup commands:</p>
+<pre>
 git submodule init
 git submodule update
-</code></p>
-
+</pre>
 <p>and as post-thread command add:</p>
-
-<p><code>
-  git submodule deinit .
-</code></p>
-
-<p><strong>Tip:</strong> Make sure that Semaphroe have premissions to clone your submodules repo. Please check docs about <a href='http://docs.semaphoreapp.com/how-to-build-project-with-private-gems'>private gems</a> where you can find more info about setting premisions for private repos.</p>
+<pre>
+git submodule deinit .
+</pre>
+<p><strong>Note:</strong> Make sure that Semaphore has premissions to clone your submodules repo. Please check documentation about <a href='http://docs.semaphoreapp.com/how-to-build-project-with-private-gems'>private gems</a> where you can find more information about setting premisions for private repos, if you are using those.</p>
         </section>
 
       </article>
@@ -127,7 +123,7 @@ git submodule update
   <ul>
     <li><a href="/available-environment-variables">Available environment variables</a></li>
     <li><a href="/custom-build-commands">Custom build commands</a></li>
-    <li><a href="/post-thread-commands">Post thread commands</a></li>
+    <li><a href="/post-thread-commands">Post-thread commands</a></li>
     <li><a href="/how-to-add-native-dependency">How to add a native dependency</a></li>
     <li><a href="/how-to-export-environment-variables">How can I export some environment variables before the build?</a></li>
     <li><a href="/how-to-insert-configuration-file">How can I insert my configuration file for X?</a></li>
