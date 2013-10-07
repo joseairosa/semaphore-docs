@@ -13,7 +13,7 @@
 
     <title>
       
-      I’m having problems with git submodules -
+      How do I build a project with git submodules? -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,13 +43,26 @@
       <article class="primary">
 
         <header class="title">
-          <h2>I’m having problems with git submodules</h2>
+          <h2>How do I build a project with git submodules?</h2>
 
           
         </header>
 
         <section class="body">
-          <p>Due to current internal mechanism of repository and bundle caching, Semaphore is known for not working well with projects that contain git submodules.</p>
+          <p>In you build commands you should add following lines as setup commands:</p>
+
+<p><code>
+git submodule init
+git submodule update
+</code></p>
+
+<p>and as post-thread command add:</p>
+
+<p><code>
+  git submodule deinit .
+</code></p>
+
+<p><strong>Tip:</strong> Make sure that Semaphroe have premissions to clone your submodules repo. Please check docs about <a href='http://docs.semaphoreapp.com/how-to-build-project-with-private-gems'>private gems</a> where you can find more info about setting premisions for private repos.</p>
         </section>
 
       </article>
