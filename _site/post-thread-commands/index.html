@@ -13,7 +13,7 @@
 
     <title>
       
-      I’m having issues with capybara-webkit -
+      Post-thread commands -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,33 +43,21 @@
       <article class="primary">
 
         <header class="title">
-          <h2>I’m having issues with capybara-webkit</h2>
+          <h2>Post-thread commands</h2>
 
           
         </header>
 
         <section class="body">
-          <ul>
-<li>
-<p>Check how your configuration compares to our <a href='https://github.com/renderedtext/testapp-capybara-webkit/tree/steak'>test app</a>, which is known to pass. The <code>spec_helper.rb</code>, for example, should have minimal configuration necessary.</p>
-</li>
+          <p>You can easily define commands for Semaphore to execute after build commands on each thread, regardless of whether the build commands passed or failed.</p>
 
-<li>
-<p>Do not run <code>xvfb</code> – Semaphore does that before each build.</p>
-</li>
+<p>To do this, simply set a command to &#8220;Post-thread&#8221; in your project&#8217;s <a href='/custom-build-commands'>Build Settings</a>:</p>
 
-<li>
-<p>You can dump the content of the page to file with <a href='http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#save_page-instance_method'>save_page</a>.</p>
-</li>
-</ul>
+<p><img alt='Build settings' src='/assets/images/post-thread-commands/settings.png' /></p>
 
-<p>That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what’s going on.</p>
+<p>This is useful when you need to, for example, upload assets to S3 or tail the test.log.</p>
 
-<ul>
-<li>Make sure your views don’t have scripts such as Google Analytics running in test environment – they will cause timeouts.</li>
-</ul>
-
-<p>We’ve found Selenium and Firefox to be more stable and predictable than Webkit.</p>
+<p>During these commands an <a href='/available-environment-variables'>environment variable</a> <code>SEMAPHORE_THREAD_RESULT</code> is available. It can hold the value of either &#8220;passed&#8221; or &#8220;failed&#8221;.</p>
         </section>
 
       </article>

@@ -13,7 +13,7 @@
 
     <title>
       
-      I’m having issues with capybara-webkit -
+      How do I build a project with git submodules? -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,33 +43,22 @@
       <article class="primary">
 
         <header class="title">
-          <h2>I’m having issues with capybara-webkit</h2>
+          <h2>How do I build a project with git submodules?</h2>
 
           
         </header>
 
         <section class="body">
-          <ul>
-<li>
-<p>Check how your configuration compares to our <a href='https://github.com/renderedtext/testapp-capybara-webkit/tree/steak'>test app</a>, which is known to pass. The <code>spec_helper.rb</code>, for example, should have minimal configuration necessary.</p>
-</li>
-
-<li>
-<p>Do not run <code>xvfb</code> – Semaphore does that before each build.</p>
-</li>
-
-<li>
-<p>You can dump the content of the page to file with <a href='http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Session#save_page-instance_method'>save_page</a>.</p>
-</li>
-</ul>
-
-<p>That method would just save content of the page to file and return path to file. After that you can just print content of the file to the stdout and insect it in the build logs. Once you see the content of the page that you are testing I should be much easier to understand what’s going on.</p>
-
-<ul>
-<li>Make sure your views don’t have scripts such as Google Analytics running in test environment – they will cause timeouts.</li>
-</ul>
-
-<p>We’ve found Selenium and Firefox to be more stable and predictable than Webkit.</p>
+          <p>In your build commands you should add the following setup commands:</p>
+<pre>
+git submodule init
+git submodule update
+</pre>
+<p>and as post-thread command add:</p>
+<pre>
+git submodule deinit .
+</pre>
+<p><strong>Note:</strong> Make sure that Semaphore has premissions to clone your submodules repo. Please check documentation about <a href='http://docs.semaphoreapp.com/how-to-build-project-with-private-gems'>private gems</a> where you can find more information about setting premisions for private repos, if you are using those.</p>
         </section>
 
       </article>
