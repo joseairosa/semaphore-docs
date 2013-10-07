@@ -12,6 +12,8 @@
     <link rel="stylesheet" media="screen" href="/assets/stylesheets/pygments.css"/>
 
     <title>
+      
+      Post thread commands -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -31,30 +33,31 @@
     <div id="mainContent" class="safGrid">
 
       
+        <nav class="docsNav">
+          <a href="/">← Documentation Index</a>
+        </nav>
       
       
-        <h1 class="siteHeader">Semaphore Documentation</h1>
       
 
       <article class="primary">
 
         <header class="title">
-          <h2>Frequently Asked Questions</h2>
+          <h2>Post thread commands</h2>
 
-          
-            <h3>Welcome to the help and documentation section of Semaphore. There's a good chance your question might be answered here. If not, please <a href="mailto:328e3e4aab1aefecc60ed7e4cb33910bc3fbdeb2@incoming.intercom.io">email us</a>. This website is <a href="https://github.com/renderedtext/semaphore-docs">open source</a> - issues and pull requests are welcome.</h3>
           
         </header>
 
         <section class="body">
-          <ul class='questionList'>
-  <li><a href='/how-to-insert-configuration-file'>How can I insert my configuration file for X?</a></li>
-  <li><a href='/how-to-override-build-commands'>Is it possible to override build commands on some branches?</a></li>
-  <li><a href='/build-fail-on-semaphore'>My tests / integration specs / scenarios fail on Semaphore but pass locally</a></li>
-  <li><a href='/failed-build-reported-as-passed'>Failed build reported as passed</a></li>
-  <li><a href='/api'>Semaphore API</a></li>
-  <li><a href='/version-information'>What does the build platform include and support?</a></li>
-</ul>
+          <p>You can easily define certain commands that Semaphore executes after the build commands on each thread, regardless of whether it passed or failed.</p>
+
+<p>To set it up simply set a command to &#8220;Post-thread&#8221; in your project&#8217;s Build Settings.</p>
+
+<p><img alt='Build settings' src='/assets/images/post-thread-commands.png' /></p>
+
+<p>This is great when you need to, for example, upload assets to S3 or tail the test.log when you&#8217;re not sure why a certain spec or scenario failed.</p>
+
+<p>There is also a new environment variable available to these commands: <code>SEMAPHORE_THREAD_RESULT</code>. It can hold the value of either &#8220;passed&#8221; or &#8220;failed&#8221;.</p>
         </section>
 
       </article>
