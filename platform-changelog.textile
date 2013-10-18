@@ -5,6 +5,14 @@ title: Platform changelog
 
 Current package versions are listed on the "Version information":/version-information page.
 
+h3. 2013-10-18
+
+<pre>
+- upgrades:
+  - all ruby version include rubygems 2.1.9
+  - jruby 1.7.5
+</pre>
+
 h3. 2013-10-02
 
 <pre>
