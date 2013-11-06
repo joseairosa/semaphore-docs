@@ -7,7 +7,7 @@ In case your application requires specific Ruby version which is not available b
 
     rbenv install 2.1.0-preview1
     rbenv local 2.1.0-preview1
-    rbenv rehash
+    gem install bundler --no-ri --no-rdoc
     # followed by your build commands
 
 You can find the list of available Ruby versions on our [version information](/version-information) page.
