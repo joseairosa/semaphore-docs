@@ -11,4 +11,4 @@ Content of the new custom file can be entered in content text area.
 
 For greater security, the content of your custom files can be encrypted. We strongly recommend that you select this option if you are adding sensitive content such as SSH keys. Once encrypted, encrypted file cannot be edited. The identity of your file can determined by an MD5 hash.
 
-<img src="/assets/images/custom-file-list.png" alt="Custom file list" style="width: 100%;"/>
+<img src="/assets/images/custom-file-list.png" alt="Custom file list" />
