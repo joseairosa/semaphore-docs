@@ -9,6 +9,3 @@ To do that, the project owner (on Semaphore) should go to project settings > “
 
 If you need to provide repository owners (on Github) access to Semaphore project
 you have to add owner to a same team where developer, who adds repository to Semaphore, is.
-
-
-
