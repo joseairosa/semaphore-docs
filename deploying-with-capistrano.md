@@ -1,6 +1,6 @@
 ---
 layout: default
-title: How to deploy with Capistrano
+title: Deploying with Capistrano
 ---
 
 Nowadays Capistrano is important part of many teams workflows, tool wich provides seamless and easy deployment process. To use Capistrano with Semaphore you only need to make sure that you have a configured project that uses Capistrano as deployment method.

@@ -1,23 +1,25 @@
 ---
 layout: default
-title: How to deploy to Heroku
+title: Deploying to Heroku
 ---
 
-With Semaphore it's very easy to set up continuous deployment process to your Heroku instance. To do that you only need to make sure that you have a configured server on Heroku and a corresponding project added to Semaphore.
+With Semaphore it's very easy to set up continuous deployment of applications hosted on Heroku. You only need to make sure that you have a configured server on Heroku and a corresponding project on Semaphore.
 
-To get started, go to your project's settings > Deployment and click to add a new server. This will launch a simple process that consists of 4 steps.
+To get started, go to your project's settings > Deployment and follow the link to add a new server.
 
-- Choosing your deployment strategy
-- Providing Heroku API token
-- Choosing Heroku application
-- Naming your server on Semaphore
+![add a server from project settings](/assets/images/deploying-to-heroku/settings.png)
 
+This will launch a simple X-step process. On the next screen, select Heroku as your deployment method.
+
+![selecting a deployment method](/assets/images/deploying-to-heroku/deployment-method.png)
 
 ## Choosing your deployment strategy
 
-There are two deployment strategies on Semaphore, "automatic" and "manual".
-Automatic means that after every passed build on selected branch  will trigger deploy, of course beside that you can trigger deploy manually at any time.
-Manual strategy offers you only manual way of triggering deploys.
+There are two deployment strategies on Semaphore: "automatic" and "manual".
+
+**Automatic** means that a deploy will be triggerred after every passed build on the selected branch. Of course besides that you can also launch a deploy manually from any branch at any time.
+
+**Manual** strategy requires manual selection of builds to deploy.
 
 ## Providing Heroku API token
 

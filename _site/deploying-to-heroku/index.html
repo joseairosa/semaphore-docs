@@ -13,7 +13,7 @@
 
     <title>
       
-      How to deploy to Heroku -
+      Deploying to Heroku -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,29 +43,29 @@
       <article class="primary">
 
         <header class="title">
-          <h2>How to deploy to Heroku</h2>
+          <h2>Deploying to Heroku</h2>
 
           
         </header>
 
         <section class="body">
-          <p>With Semaphore it&#8217;s very easy to set up continuous deployment process to your Heroku instance. To do that you only need to make sure that you have a configured server on Heroku and a corresponding project added to Semaphore.</p>
+          <p>With Semaphore it&#8217;s very easy to set up continuous deployment of applications hosted on Heroku. You only need to make sure that you have a configured server on Heroku and a corresponding project on Semaphore.</p>
 
-<p>To get started, go to your project&#8217;s settings &gt; Deployment and click to add a new server. This will launch a simple process that consists of 4 steps.</p>
+<p>To get started, go to your project&#8217;s settings &gt; Deployment and follow the link to add a new server.</p>
 
-<ul>
-<li>Choosing your deployment strategy</li>
+<p><img alt='add a server from project settings' src='/assets/images/deploying-to-heroku/settings.png' /></p>
 
-<li>Providing Heroku API token</li>
+<p>This will launch a simple X-step process. On the next screen, select Heroku as your deployment method.</p>
 
-<li>Choosing Heroku application</li>
-
-<li>Naming your server on Semaphore</li>
-</ul>
+<p><img alt='selecting a deployment method' src='/assets/images/deploying-to-heroku/deployment-method.png' /></p>
 
 <h2 id='choosing_your_deployment_strategy'>Choosing your deployment strategy</h2>
 
-<p>There are two deployment strategies on Semaphore, &#8220;automatic&#8221; and &#8220;manual&#8221;. Automatic means that after every passed build on selected branch will trigger deploy, of course beside that you can trigger deploy manually at any time. Manual strategy offers you only manual way of triggering deploys.</p>
+<p>There are two deployment strategies on Semaphore: &#8220;automatic&#8221; and &#8220;manual&#8221;.</p>
+
+<p><strong>Automatic</strong> means that a deploy will be triggerred after every passed build on the selected branch. Of course besides that you can also launch a deploy manually from any branch at any time.</p>
+
+<p><strong>Manual</strong> strategy requires manual selection of builds to deploy.</p>
 
 <h2 id='providing_heroku_api_token'>Providing Heroku API token</h2>
 
@@ -115,8 +115,8 @@
 
   <h2>Deployment</h2>
   <ul>
-    <li><a href="/how-to-deploy-with-capistrano">How to setup deployment with Capistrano?</a></li>
-    <li><a href="/how-to-deploy-to-heroku">How to setup deployment to Heroku?</a></li>
+    <li><a href="/deploying-with-capistrano">Deploying with Capistrano</a></li>
+    <li><a href="/deploying-to-heroku">Deploying to Heroku</a></li>
     <li><a href="/how-to-trigger-an-automatic-deploy">How can I manually trigger an automatic deploy?</a></li>
     <li><a href="/how-to-deploy-with-git-deploy">How to deploy with git-deploy</a></li>
     <li><a href="/deployment-fails-with-permission-denied">Deployment fails with "permission denied"</a></li>
