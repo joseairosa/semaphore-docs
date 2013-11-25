@@ -13,7 +13,7 @@
 
     <title>
       
-      Test applications -
+      How to deploy with Capistrano -
        Semaphore Documentation</title>
   </head>
   <body>
@@ -43,27 +43,45 @@
       <article class="primary">
 
         <header class="title">
-          <h2>Test applications</h2>
+          <h2>How to deploy with Capistrano</h2>
 
           
         </header>
 
         <section class="body">
-          <p>To make sure that Semaphore works with various database drivers, test frameworks etc, we&#8217;ve created a number of simple open source test apps. We then build these apps on Semaphore to verify that it works.</p>
-<h2>Covered</h2>
+          <p>Nowadays Capistrano is important part of many teams workflows, tool wich provides seamless and easy deployment process. To use Capistrano with Semaphore you only need to make sure that you have a configured project that uses Capistrano as deployment method.</p>
+
+<p>To get started, go to your project&#8217;s settings &gt; Deployment and click to add a new server. This will launch a simple process that consists of 4 steps.</p>
+
 <ul>
-	<li><a href="https://github.com/renderedtext/base-app">base-app</a> &#8211; our template for making new Rails apps, using Postgresql, RSpec and Cucumber.</li>
-	<li><a href="https://github.com/renderedtext/testapp-capybara-webkit">testapp-capybara-webkit</a> &#8211; including a branch with steak and wkhtmltopdf</li>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb">testapp-mongodb-mongoid</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-mongodb-mongomapper">testapp-mongodb-mongomapper</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-mysql">testapp-mysql</a> &#8211; using mysql2 gem.</li>
-	<li><a href="https://github.com/renderedtext/testapp-solr">testapp-solr</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-sphinx">testapp-sphinx</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-testunit">testapp-testunit</a></li>
-	<li><a href="https://github.com/renderedtext/testapp-testunit-rspec">testapp-testunit-rspec</a> &#8211; using test/unit, RSpec and Cucumber at the same time.</li>
+<li>Choosing your deployment strategy</li>
+
+<li>Defining deploy commands</li>
+
+<li>Adding private SSH key for deploy</li>
+
+<li>Naming your server on Semaphore</li>
 </ul>
-<h2>Contributing</h2>
-<p>While we do our best to solve any problem our users have on our own, we also welcome being told what&#8217;s inside your app that we do not support, so that we can get to it faster. We&#8217;d also be delighted to see our users make their testapp flavors. Either way, shoot us an email at <a href="mailto:semaphore@renderedtext.com">semaphore@renderedtext.com</a>.</p>
+
+<h2 id='choosing_your_deployment_strategy'>Choosing your deployment strategy</h2>
+
+<p>There are two deployment strategies on Semaphore, &#8220;automatic&#8221; and &#8220;manual&#8221;. Automatic means that after every passed build on selected branch will trigger deploy, of course beside that you can trigger deploy manually at any time. Manual strategy offers you only manual way of triggering deploys.</p>
+
+<h2 id='defining_deploy_commands'>Defining deploy commands</h2>
+
+<p>Defining custom deploy commands gives you ability to name your deploy steps which will match your setup needs.</p>
+
+<h2 id='adding_private_ssh_key_for_deploy'>Adding private SSH key for deploy</h2>
+
+<p>Best approach to handle permissions for your deployment process is to create separate SSH keys specifically for Semaphore deployment. Generate new key pair with &#8220;ssh-keygen -t rsa&#8221; command and than add private key to Semaphore. The public key should be added on your server, in the <code>.ssh/authorized_keys</code> file, inside the deploy user’s home directory. This key combination gives Semaphore permission to SSH inside the server and execute deploy process.</p>
+
+<p><strong>Note:</strong> Private key will be encrypted on Semaphore side and it will be available during deployment process, after initial setup there is no way to change it trough Semaphore interface.</p>
+
+<h2 id='naming_your_server_on_semaphore'>Naming your server on Semaphore</h2>
+
+<p>This is can be any name you like. It will be used on your Semaphore dashboard and deployment timeline.</p>
+
+<p>By this point the setup is complete - you are ready to continuously deploy to your servers.</p>
         </section>
 
       </article>
