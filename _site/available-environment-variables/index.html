@@ -49,7 +49,7 @@
         </header>
 
         <section class="body">
-          <p>Before running your build, Semaphore exports the following environment variables:</p>
+          <p>Before running your build or deploy, Semaphore exports the following environment variables:</p>
 <pre>CI=true
 SEMAPHORE=true
 BRANCH_NAME=#{current_branch_name}
@@ -60,6 +60,7 @@ SEMAPHORE_BRANCH_ID
 SEMAPHORE_BUILD_NUMBER
 SEMAPHORE_REPO_SLUG
 SEMAPHORE_THREAD_RESULT
+SEMAPHORE_SERVER_NAME - available only for deployment
 </pre>
 <p>The following apply if you are using a MySQL or PostgreSQL database. You can use them in any custom scripts that your build depends on:</p>
 <pre>DATABASE_USERNAME
