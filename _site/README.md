@@ -29,7 +29,7 @@ Markdown is preferred. When embedding images, create a directory `assets/images/
 
 Please [file an issue](https://github.com/renderedtext/semaphore-docs/issues) if you:
 
-- have a suggestion on how an existing page could be improved,
+- have a suggestion on how the documentation could be improved,
 - would like to point out that something is not clear, or
 - find something painfully missing.
 
