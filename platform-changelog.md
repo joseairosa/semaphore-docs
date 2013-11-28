@@ -3,9 +3,25 @@ layout: default
 title: Platform changelog
 ---
 
-Current package versions are listed on the "Version information":/version-information page.
+Current package versions are listed on the [Version information](/version-information) page.
 
-h3. 2013-11-02
+### 2013-11-29 (upcoming)
+
+<pre>
+- upgrades:
+  - ruby 2.1.0-preview2
+  - ruby 2.0.0-p353
+  - ruby 1.9.3-p484
+  - jruby 1.7.8
+  - rubygems 2.1.11
+  - elasticsearch 0.90.7
+  - mongodb 2.4.8
+  - nodejs 0.10.22
+  - phantomjs 1.9.2
+  - redis 2.8.1
+</pre>
+
+### 2013-11-02
 
 <pre>
 - Ruby 2.1.0-preview1 available via rbenv
@@ -16,7 +32,7 @@ h3. 2013-11-02
   - postgres 9.3.1
 </pre>
 
-h3. 2013-10-18
+### 2013-10-18
 
 <pre>
 - upgrades:
@@ -24,7 +40,7 @@ h3. 2013-10-18
   - jruby 1.7.5
 </pre>
 
-h3. 2013-10-02
+### 2013-10-02
 
 <pre>
 - upgrades:
@@ -39,7 +55,7 @@ h3. 2013-10-02
   - chromedriver  2.4
 </pre>
 
-h3. 2013-07-07
+### 2013-07-07
 
 <pre>
 - ruby 1.9.3 is the default for new projects
