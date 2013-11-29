@@ -5,7 +5,7 @@ title: Platform changelog
 
 Current package versions are listed on the [Version information](/version-information) page.
 
-### 2013-11-29 (upcoming)
+### 2013-11-29
 
 <pre>
 - upgrades:
