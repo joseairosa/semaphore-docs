@@ -14,6 +14,7 @@ Current package versions are listed on the [Version information](/version-inform
   - ruby 1.9.3-p484
   - jruby 1.7.8
   - rubygems 2.1.11
+  - chrome 31.0
   - elasticsearch 0.90.7
   - mongodb 2.4.8
   - nodejs 0.10.22
